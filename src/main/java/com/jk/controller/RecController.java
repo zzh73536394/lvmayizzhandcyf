@@ -16,4 +16,10 @@ public class RecController {
     @Autowired
 
     private RecSevice recSevice;
+
+    @RequestMapping("run")
+    @ResponseBody
+    public String run(String name) {
+        return name;
+    }
 }
