@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+
 @Controller
 public class RecController {
 
@@ -17,9 +21,15 @@ public class RecController {
 
     private RecSevice recSevice;
 
-    @RequestMapping("run")
+    @RequestMapping("getbiaoTi")
     @ResponseBody
-    public String run(String name) {
-        return name;
+    public List<LinkedHashMap<String, Object>> getbiaoTi() {
+        List<LinkedHashMap<String, Object>> list=recSevice.getbiaoTi();
+        return list;
+    }
+    //跳转页面
+    @RequestMapping("toShow")
+    public String toShow(String url) {
+        return url;
     }
 }
