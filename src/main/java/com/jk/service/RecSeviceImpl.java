@@ -1,12 +1,34 @@
 package com.jk.service;
 
+import com.jk.bean.liandong;
 import com.jk.mapper.RecMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RecSeviceImpl implements RecSevice{
 
     @Autowired
     private RecMapper recMapper;
+
+
+    @Override
+    public List<liandong> getsheng() {
+        List<liandong> getsheng = recMapper.getsheng();
+        return getsheng;
+    }
+
+    @Override
+    public List<liandong> getshi(Integer typeid) {
+        List<liandong> getshi = recMapper.getshi(typeid);
+        return getshi;
+    }
+
+    @Override
+    public List<liandong> getxian(Integer typeid) {
+        List<liandong> getshi = recMapper.getxian(typeid);
+        return getshi;
+    }
 }
