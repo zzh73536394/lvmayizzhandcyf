@@ -40,4 +40,12 @@ public class RecSeviceImpl implements RecSevice{
         return recMapper.getbiaoTi();
 
     }
+
+    @Override
+    public List<LinkedHashMap<String, Object>> getluxian(String a, String b) {
+        return recMapper.getluxian(a,b);
+    }
+
+
+
 }

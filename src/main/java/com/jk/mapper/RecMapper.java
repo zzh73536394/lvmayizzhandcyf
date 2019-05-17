@@ -30,4 +30,6 @@ public interface RecMapper {
     @Select("select * from t_biaoti")
     List<LinkedHashMap<String, Object>> getbiaoTi();
 
+    @Select("select * from t_commpany where chufadi=#{a} and mudidi=#{b}")
+    List<LinkedHashMap<String, Object>> getluxian(String a, String b);
 }

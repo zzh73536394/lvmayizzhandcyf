@@ -60,6 +60,11 @@ public class RecController {
     @RequestMapping("toShow")
     public String toShow(String url) {
         return url;
+    }
 
+    @RequestMapping("getluxian")
+    @ResponseBody
+    public List<LinkedHashMap<String, Object>> getluxian(String a,String b) {
+        return recSevice.getluxian(a,b);
     }
 }

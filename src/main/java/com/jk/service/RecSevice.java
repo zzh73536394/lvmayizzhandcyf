@@ -19,4 +19,6 @@ public interface RecSevice {
 
     List<LinkedHashMap<String, Object>> getbiaoTi();
 
+
+    List<LinkedHashMap<String, Object>> getluxian(String a, String b);
 }
