@@ -34,7 +34,7 @@ public class RecSeviceImpl implements RecSevice{
     public List<liandong> getxian(Integer typeid) {
         List<liandong> getshi = recMapper.getxian(typeid);
         return getshi;
-
+    }
     @Override
     public List<LinkedHashMap<String, Object>> getbiaoTi() {
         return recMapper.getbiaoTi();
