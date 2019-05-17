@@ -38,7 +38,6 @@ public class RecSeviceImpl implements RecSevice{
     @Override
     public List<LinkedHashMap<String, Object>> getbiaoTi() {
         return recMapper.getbiaoTi();
-
     }
 
     @Override
@@ -48,4 +47,9 @@ public class RecSeviceImpl implements RecSevice{
 
 
 
+
+    @Override
+    public List<LinkedHashMap<String, Object>> getBroadcastMap() {
+        return recMapper.getBroadcastMap();
+    }
 }

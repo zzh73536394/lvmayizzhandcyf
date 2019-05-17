@@ -21,4 +21,6 @@ public interface RecSevice {
 
 
     List<LinkedHashMap<String, Object>> getluxian(String a, String b);
+
+    List<LinkedHashMap<String, Object>> getBroadcastMap();
 }

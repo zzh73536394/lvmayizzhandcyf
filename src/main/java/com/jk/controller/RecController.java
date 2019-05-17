@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import java.util.LinkedHashMap;
@@ -57,6 +58,14 @@ public class RecController {
         return list;
     }
 
+    //轮播图
+    @RequestMapping("getBroadcastMap")
+    @ResponseBody
+    public List<LinkedHashMap<String, Object>> getBroadcastMap() {
+        List<LinkedHashMap<String, Object>> list=recSevice.getBroadcastMap();
+        return list;
+    }
+    //跳转页面
     @RequestMapping("toShow")
     public String toShow(String url) {
         return url;
