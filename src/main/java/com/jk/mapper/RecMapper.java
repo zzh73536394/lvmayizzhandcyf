@@ -1,8 +1,11 @@
 package com.jk.mapper;
 
 
+
 import com.jk.bean.liandong;
 import org.apache.ibatis.annotations.Param;
+
+
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +17,7 @@ public interface RecMapper {
 
 
 
+
     @Select("select * from t_area where pid=0")
     List<liandong> getsheng();
 
@@ -22,4 +26,8 @@ public interface RecMapper {
 
     @Select("select * from t_area where pid=#{typeid}")
     List<liandong> getxian(@Param("typeid")Integer typeid);
+
+    @Select("select * from t_biaoti")
+    List<LinkedHashMap<String, Object>> getbiaoTi();
+
 }

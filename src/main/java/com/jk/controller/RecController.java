@@ -22,6 +22,7 @@ public class RecController {
     private RecSevice recSevice;
 
 
+
     @RequestMapping("runzhuye")
     public String zhuye() {
         return "zhuye";
@@ -48,5 +49,17 @@ public class RecController {
     public List<liandong> getxian(Integer typeid) {
         List<liandong> getshi = recSevice.getxian(typeid);
         return getshi;
+    }
+    @RequestMapping("getbiaoTi")
+    @ResponseBody
+    public List<LinkedHashMap<String, Object>> getbiaoTi() {
+        List<LinkedHashMap<String, Object>> list=recSevice.getbiaoTi();
+        return list;
+    }
+
+    @RequestMapping("toShow")
+    public String toShow(String url) {
+        return url;
+
     }
 }

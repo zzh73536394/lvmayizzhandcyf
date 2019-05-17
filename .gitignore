@@ -30,4 +30,12 @@ HELP.md
 ### Example user template template
 ### Example user template
 
+<<<<<<< HEAD
 
+=======
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+>>>>>>> 55d7b84eb46fbc2a83e577bf3801a11dfe0febd4
