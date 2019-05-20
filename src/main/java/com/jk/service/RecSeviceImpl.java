@@ -52,4 +52,9 @@ public class RecSeviceImpl implements RecSevice{
     public List<LinkedHashMap<String, Object>> getBroadcastMap() {
         return recMapper.getBroadcastMap();
     }
+
+    @Override
+    public List<LinkedHashMap<String, Object>> xingZhengQu(String city) {
+        return recMapper.xingZhengQu(city);
+    }
 }

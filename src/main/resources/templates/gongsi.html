@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>深圳物流公司_深圳专线公司_深圳货运公司_深圳运输公司_绿蚂蚁</title>
+    <meta name="keywords" content="深圳物流公司,深圳专线公司,深圳货运公司,深圳运输公司"/>
+    <meta name="description" content="绿蚂蚁物流搜索平台深圳物流公司频道是深圳地区专业的货运物流信息网，汇聚了深圳物流公司、深圳物流专线、深圳货运物流、深圳货运公司、深圳搬家公司、深圳货源等，找深圳物流公司、深圳物流专线就上绿蚂蚁"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand|ie-comp" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.lvmae.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/common.css?version=201709018"></link>
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/zzsc.css"></link>
+
+    <script src="/js/jquery-3.2.1.js"></script>
+
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/hj.configCity.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.chooseCity-1.2.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.cookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/functions.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.plugins.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/kslide.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/config.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/zzsc.min.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        var _HotLineScrollTop = "";
+        var basePath = "http://www.lvmae.com/";
+        var resourcePath = "http://img.lvmae.com/JAVA";
+        var baseLebpPath = "http://kuaidi.lvmae.com";
+        var userLogoPath = "http://img.lvmae.com/image/UserHeadPortrait/";
+    </script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/hj.common.js" charset="UTF-8"></script>
+</head>
+<body>
+<script>
+    $("#cityId").click(function () {
+
+        $("#sheng").html("你好");
+    })
+</script>
+<script>
+    $(function () {
+        getDataCity();
+    })
+    //获取当前城市
+    function getDataCity() {
+        $.ajax({
+            url:'getDataCity',
+            success:function (data) {
+                alert(data.city);
+            $("#dataCity").html(data.city);
+            $("#wuliu").html(data.city+"物流公司");selectArea
+            $("#selectArea").html(data.city);
+                xingZhengQu(data.city);
+            }
+        })
+    }
+    //获取行政区域
+    function xingZhengQu(city) {
+        $.ajax({
+            url:'xingZhengQu',
+            data:{city:city},
+            success:function (data) {
+                alert(data[0].name);
+                var qu = '<li ><a href="toShow?url=test">全部</a></li>';
+                for (var i = 0; i < data.length; i++) {
+                    qu+='<li ><a href="toShow?url=test">'+data[i].name+'</a></li>';
+                }
+                $("#xingZheng").html(qu)
+            }
+        })
+
+    }
+
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<!-- Header Start -->
+<div class="header">
+    <div class="top">
+        <div class="wrap">
+            <div class="top-left">
+                您好，欢迎使用绿蚂蚁干线物流B2B平台！<a href="http://www.lvmae.com/member/login.php" rel="nofollow">登录</a><a href="http://www.lvmae.com/member/register.php" rel="nofollow">注册</a>
+            </div>
+            <div class="top-right">
+                <ul class="item-list">
+                    <li class="item">当前城市：</li>
+                    <li class="item top-area dropdown">
+                        <div class="top-area-content dropdown-box">
+                            <span class="main-color" id="selectArea"><a>[切换城市]</a></span>
+                        </div>
+                    </li>
+                    <li class="item"><span class="icon icons-position"></span></li>
+                    <li class="item tel-app dropdown">
+                        <div class="tel-app-content dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-photo"></span>&nbsp;<span>手机APP</span>&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描二维码<br>
+                                    下载安卓客户端</p>
+                                <p><img src="http://www.lvmae.com/skin/default/images/ewm_1.jpg" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item dropdown top-wx">
+                        <div class="dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-wx"></span>&nbsp;微信号&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描二维码<br>
+                                    关注绿蚂蚁公众号</p>
+                                <p><img src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" class="icons-qq" onclick="" target="_blank" title="点击这里给我发消息">&nbsp;</a></li>
+                    <li class="item"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" target="_blank" >客户服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="wrap">
+            <div class="logo icons-logo fl"><a href="http://www.lvmae.com/" title="上绿蚂蚁发货，说走就走">上绿蚂蚁发货，说走就走</a></div>
+            <div class="icons-wuli fr" style="background-image:none;"><script type="text/javascript" src="http://www.lvmae.com/file/script/A47.js"></script></div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wrap">
+            <ul>
+                <li><a  href="http://www.lvmae.com/">首页</a></li>
+                <li><a href="http://www.lvmae.com/road/" >物流专线</a></li>
+                <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
+                <li><a href="http://www.lvmae.com/seaport/" >国际海运</a></li>
+                <li><a href="http://www.lvmae.com/company/" class="current">物流公司</a></li>
+                <li><a href="http://www.lvmae.com/news/">物流新闻</a></li>
+                <li><a href="http://www.lvmae.com/bid/" >物流招标</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="user-center">
+        <div class="wrap">
+            <a href="http://www.lvmae.com/member" class="user-box"><em></em><span>个人中心</span></a>
+        </div>
+    </div>
+</div>
+<div class="substation-box">
+    <div class="substation">
+        <div class="sub-title">分站</div>
+        <a class="sub-link-01" href="http://bj.lvmae.com/" target="_blank">北京</a>
+        <a class="sub-link-01" href="http://sh.lvmae.com/" target="_blank">上海</a>
+        <a class="sub-link-01" href="http://tj.lvmae.com/" target="_blank">天津</a>
+        <a class="sub-link-01" href="http://gd.lvmae.com/" target="_blank">广东</a>
+        <a class="sub-link-01" href="http://hb.lvmae.com/" target="_blank">河北</a>
+        <a class="sub-link-01" href="http://shanxi.lvmae.com/" target="_blank">山西</a>
+        <a class="sub-link-01" href="http://ln.lvmae.com/" target="_blank">辽宁</a>
+        <a class="sub-link-01" href="http://jl.lvmae.com/" target="_blank">吉林</a>
+        <a class="sub-link-01" href="http://js.lvmae.com/" target="_blank">江苏</a>
+        <a class="sub-link-01" href="http://zj.lvmae.com/" target="_blank">浙江</a>
+        <a class="sub-link-01" href="http://ah.lvmae.com/" target="_blank">安徽</a>
+        <a class="sub-link-01" href="http://fj.lvmae.com/" target="_blank">福建</a>
+        <a class="sub-link-01" href="http://jx.lvmae.com/" target="_blank">江西</a>
+        <a class="sub-link-01" href="http://sd.lvmae.com/" target="_blank">山东</a>
+        <a class="sub-link-01" href="http://henan.lvmae.com/" target="_blank">河南</a>
+        <a class="sub-link-01" href="http://hubei.lvmae.com/" target="_blank">湖北</a>
+        <a class="sub-link-01" href="http://hunan.lvmae.com/" target="_blank">湖南</a>
+        <a class="sub-link-01" href="http://gx.lvmae.com/" target="_blank">广西</a>
+        <a class="sub-link-01" href="http://hainan.lvmae.com/" target="_blank">海南</a>
+        <a class="sub-link-01" href="http://zq.lvmae.com/" target="_blank">重庆</a>
+        <a class="sub-link-01" href="http://sc.lvmae.com/" target="_blank">四川</a>
+        <a class="sub-link-01" href="http://gz.lvmae.com/" target="_blank">贵州</a>
+        <a class="sub-link-01" href="http://yn.lvmae.com/" target="_blank">云南</a>
+        <a class="sub-link-01" href="http://xc.lvmae.com/" target="_blank">西藏</a>
+        <a class="sub-link-01" href="http://sx.lvmae.com/" target="_blank">陕西</a>
+        <a class="sub-link-01" href="http://gs.lvmae.com/" target="_blank">甘肃</a>
+        <a class="sub-link-01" href="http://qh.lvmae.com/" target="_blank">青海</a>
+        <div class="sub-more">更多<div class="sub-more-body"><a class="sub-link-01" href="http://nx.lvmae.com/" target="_blank">宁夏</a>
+            <a class="sub-link-01" href="http://hlj.lvmae.com/" target="_blank">黑龙江</a>
+            <a class="sub-link-01" href="http://nmg.lvmae.com/" target="_blank">内蒙古</a>
+            <a class="sub-link-01" href="http://xj.lvmae.com/" target="_blank">新疆</a>
+            <a class="sub-link-01" href="http://hk.lvmae.com/" target="_blank">香港</a>
+            <a class="sub-link-01" href="http://tw.lvmae.com/" target="_blank">台湾</a>
+            <a class="sub-link-01" href="http://am.lvmae.com/" target="_blank">澳门</a>
+        </div></div>
+    </div>
+</div>
+<!-- Header End --><link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/20150924logistics.css?version=2017080401"></link>
+<style>
+    .grouptop{background: #FFFFE0;}
+    .sincerity{background: #f2f7fa;}
+    .city-area div.areas{display: table-row;position: relative;}
+    a.roundbtn{border-radius:5px;border:1px solid #999;padding:2px;color:#000;}
+</style>
+<!--面包屑导航 start-->
+<div class="position">
+    <strong>当前位置：</strong>
+    <a href="http://www.lvmae.com/">首页</a>
+    <span>></span>
+    <a href="http://www.lvmae.com/company/">物流公司</a>
+    <span>></span>
+    <a id="wuliu"></a>
+</div>
+<!--面包屑导航 end-->
+<!--主要内容区域 start-->
+<div class="mian-wrapper">
+    <!--左侧相关信息 start-->
+    <div class="s-left">
+        <!--城市选择&公司名称搜索 start-->
+        <div class="city-company">
+            <strong> 当前城市：</strong><span id="dataCity"></span><a href="javascript:;" id="cityId">[切换城市]</a><input type="hidden" name="202" id="cityInputId"/>
+            <div class="search-com">
+                <input autocomplete="off" onclick="clearDefaultText(this,'请输入物流公司名称')" value="请输入物流公司名称" type="text"  />
+                <button type="button"  onclick="selectCarrier(this);" value="搜索"></button>
+            </div>
+        </div>
+        <!--城市选择&公司名称搜索 start-->
+        <!--检索筛选 start-->
+        <div class="city-area">
+            <div class="admin-area">
+                <div class="title">行政区域：</div>
+                <div class="area-list">
+                    <ul id="xingZheng">
+                        <li><a href="http://www.lvmae.com/company/28373-0.html">全部</a></li>
+                        <!-- <li ><a href="http://www.lvmae.com/company/28373-28374.html">罗湖区<b>(107)</b></a></li>
+                         <li ><a href="http://www.lvmae.com/company/28373-28385.html">福田区<b>(20)</b></a></li>
+                         <li ><a href="http://www.lvmae.com/company/28373-28397.html">南山区<b>(2)</b></a></li>
+                         <li ><a href="http://www.lvmae.com/company/28373-28406.html">宝安区<b>(460)</b></a></li>
+                         <li ><a href="http://www.lvmae.com/company/28373-28420.html">龙岗区<b>(332)</b></a></li>
+                         <li ><a href="http://www.lvmae.com/company/28373-28435.html">盐田区<b>(2)</b></a></li>
+                         <input type="hidden" name="0" id="areaInputId"/>-->
+                    </ul>
+                </div>
+                <div class="button">
+                    <a href="javascript:;" style=" display: none;" class="btn_right">全部</a>
+                    <a style=" display: none;" href="javascript:;" class="btn_right_shut">收起</a>
+                </div>
+            </div>
+            <div class="logistics-circle">
+                <div class="title">物流商圈：</div>
+                <div class="area-list">
+                    <ul>
+                        <li><a href="?circle=0">全部</a></li>
+                        <li ><a href="?circle=269">深国际华通源物流中心<b>(85)</b></a></li>
+                        <li ><a href="?circle=274">金鹏物流园<b>(92)</b></a></li>
+                        <li ><a href="?circle=278">宝运达物流中心<b>(60)</b></a></li>
+                        <li ><a href="?circle=285">石岩物流园<b>(16)</b></a></li>
+                        <li ><a href="?circle=286">钟屋物流园<b>(16)</b></a></li>
+                        <li ><a href="?circle=291">闽鹏程货运市场<b>(9)</b></a></li>
+                        <li ><a href="?circle=293">清水河货运市场<b>(24)</b></a></li>
+                        <li ><a href="?circle=294">共发达货运市场<b>(13)</b></a></li>
+                        <li ><a href="?circle=295">南岭大龙山物流园<b>(4)</b></a></li>
+                        <li ><a href="?circle=296">华南城乾龙物流园<b>(4)</b></a></li>
+                        <li ><a href="?circle=299">美泰物流园<b>(1)</b></a></li>
+                        <li ><a href="?circle=301">沙井鹏荣物流园<b>(10)</b></a></li>
+                        <li ><a href="?circle=302">宝鼎威货运市场<b>(17)</b></a></li>
+                        <li ><a href="?circle=303">平湖宇达物流园<b>(2)</b></a></li>
+                        <li ><a href="?circle=304">坪山国城通物流园<b>(6)</b></a></li>
+                        <li ><a href="?circle=306">沙井安捷旅物流园<b>(2)</b></a></li>
+                        <li ><a href="?circle=2915">安捷旅物流园<b>(1)</b></a></li>
+                        <li ><a href="?circle=2932">金鹏物流园<b>(1)</b></a></li>
+                        <li ><a href="?circle=2933">凯利昇物流园<b>(1)</b></a></li>
+                        <li ><a href="?circle=2935">铭可达物流园<b>(2)</b></a></li>
+                        <li ><a href="?circle=2937">鹏荣物流园<b>(1)</b></a></li>
+                        <li ><a href="?circle=2940">清水河货运市场<b>(1)</b></a></li>
+                        <li ><a href="?circle=2944">深圳市国城通物流园<b>(2)</b></a></li>
+                        <li ><a href="?circle=2946">石岩物流园<b>(2)</b></a></li>
+                        <li ><a href="?circle=2947">石岩物流园二期<b>(1)</b></a></li>
+                        <li ><a href="?circle=2949">笋岗物流园<b>(9)</b></a></li>
+                        <li ><a href="?circle=2959">钟屋物流园<b>(1)</b></a></li>
+                        <input type="hidden" name="0" id="parkInputId"/>
+                    </ul>
+                </div>
+                <div class="button">
+                    <a href="javascript:;"style=" display: none;" class="btn_right">全部</a>
+                    <a style=" display: none;" href="javascript:;" class="btn_right_shut">收起</a>
+                </div>
+            </div>
+            <div class="areas">
+                <div class="title">公司类型：</div>
+                <div class="area-list">
+                    <ul>
+                        <li><a href="?company_type=-1">全部</a></li>
+                        <li ><a href="?company_type=0">物流公司</a></li>
+                        <li ><a href="?company_type=1">海运公司</a></li>
+                        <li ><a href="?company_type=2">空运公司</a></li>
+                        <li ><a href="?company_type=3">铁运公司</a></li>
+                        <li ><a href="?company_type=4">配货信息部</a></li>
+                        <li ><a href="?company_type=5">快递公司</a></li>
+                        <li ><a href="?company_type=6">搬家公司</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="areas">
+                <div class="title">运输类型：</div>
+                <div class="area-list">
+                    <ul>
+                        <li><a href="?transport_type=-1">全部</a></li>
+                        <li ><a href="?transport_type=0">零担</a></li>
+                        <li ><a href="?transport_type=1">整车</a></li>
+                        <li ><a href="?transport_type=2">个体车辆</a></li>
+                        <li ><a href="?transport_type=3">特大货物</a></li>
+                        <li ><a href="?transport_type=4">大件</a></li>
+                        <li ><a href="?transport_type=5">集装箱</a></li>
+                        <li ><a href="?transport_type=6">冷藏</a></li>
+                        <li ><a href="?transport_type=7">危险品</a></li>
+                        <li ><a href="?transport_type=8">仓储</a></li>
+                        <li ><a href="?transport_type=9">轿车</a></li>
+                        <li ><a href="?transport_type=10">搬家服务</a></li>
+                        <li ><a href="?transport_type=11">同城配送</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--检索筛选 end-->
+        <div class="city-introduce">
+            <div class="ci-pic">
+                <img alt="深圳物流公司" src="http://www.lvmae.com/file/upload/company/28373.jpg">
+            </div>
+            <p class="ci-text">深圳依托珠江三角洲，毗邻香港，是中国重要的口岸城市。经济发达，外商投资活跃，许多跨国企业纷纷来深发展，发展物流业的条件得天独厚。物流业已经成为深圳四大支柱产业之一，2016年深圳物流业增加值达1984.5亿元，占GDP比重约10.2%。2016年深圳港完成货物吞吐量2.1亿吨，集装箱吞吐量2398万标准箱，深圳机场完成货邮吞吐量113万吨，深圳物流业增加值达1984.5亿元，占GDP比重约10.2%，为服务全市经济社会持续全面发展作出了重要贡献。</p>
+        </div>
+        <!--检索结果展示 start-->
+        <dl class="comList">
+            <dt><span>深圳共找到 <b>933</b> 家物流公司</span><a href="http://www.lvmae.com/member/register.php">【我是承运商，我要入驻...】</a></dt>
+            <dd class="sincerity">
+                <a href="http://www.lvmae.com/company/40738/index.html" class="com-logo"><img alt="深圳银泰深物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201811/10/19-51-47-37-40738.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/40738/index.html" target="_blank">深圳银泰深物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13922864686</span>                                        <p title="深圳市龙岗区布吉镇丹竹头闽鹏程货运市场11栋"><b>地址：</b>深圳市龙岗区布吉镇丹竹头闽鹏程货运市场11栋</p>
+                    <p title="深圳市银泰深物流有限公司成立于2012年，公司现注册资本301万元，国家“AAAA级物流企业”，金融评级部门“AAA级信用企业”，公司是国内专业的仓储、物流、供应链服务提供商。为各行业客户提供综合物流整体解决方案。具备在全国范围内为合作伙伴提供一站式、一体化、个性化的综合物流和供应链外包服务。目前是通信领域专业物流服务骨干企业。为中国移动等上市企业仓储托管与物流订制外包服务，可通过美国最严格的塞班斯（SOX）法案和中国审计署、财政部、证监会等部门巜企业内部控制基本控制规范》的审核要求。   公司总部设立在深圳，拥有上千名员工，70多个城市设有仓储托管和供应链管理服务团队，管理仓库面积70多万平"><b>简介：</b>深圳市银泰深物流有限公司成立于2012年，公司</p>
+                </div>
+                <a href="http://www.lvmae.com/company/40738/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/40115/index.html" class="com-logo"><img alt="深圳市大麦物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201706/16/19-23-22-52-40115.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/40115/index.html" target="_blank">深圳市大麦物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13714820408</span>                                        <p title="深圳市龙岗区丹竹头闽鹏程物流园"><b>地址：</b>深圳市龙岗区丹竹头闽鹏程物流园</p>
+                    <p title="深圳市大麦物流有限公司   是经工商局、税务局，交通局，联合审批的手续健全的正规的运输企业。公司在全国各地遍布多个大型的子公司。公司备有大中小各型的运输车辆和专业的运输队伍，全天24小时为您服务。 　　到目前为止，凭着自己不懈的努力和完善的服务，深圳市大麦物流有限公司，已得到了社会的广泛认可，建立了许多长期的合作伙伴。公司在未来的发展中，将以一流的服务，贡献于社会，方便新老客户，愿携手共进，共同开创美好的明天。 我们以&amp;ldquo;全心全意为客户服务，视客户利益为最高利益&amp;rdquo;为指导思想，抱着&amp;ldquo;互惠互利、优质高效、信誉第一客户至上&amp;rdquo"><b>简介：</b>深圳市大麦物流有限公司   是经工商局、税务局</p>
+                </div>
+                <a href="http://www.lvmae.com/company/40115/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/9636/index.html" class="com-logo"><img alt="深圳市安天下供应链有限公司" width="180" height="60" src="http://www.lvmae.com/skin/default/images/logo.gif"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/9636/index.html" target="_blank">深圳市安天下供应链有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13025464736</span>                                        <p title="广东深圳市宝安区沙井新和大道厚德群物流园8栋18号"><b>地址：</b>广东深圳市宝安区沙井新和大道厚德群物流园8栋1</p>
+                    <p title="2014年8月成立2015年成立龙岗营业部2016年4月成立布吉营业部2017年11月成立宝安沙井营业部为您提供空运、汽运快线，零担专线，整车包车，深圳汽运直达武汉、襄阳、宜昌、西安、兰州、西宁、银川、乌鲁木齐、广州、河源、阳江、茂名、湛江、海口、三亚、太原、南宁、凭祥、南京、上海、杭州、合肥、沈阳、哈尔滨、长春、大连、烟台、青岛、临沂、济南、乐清、虹桥、柳市、南昌、赣州、吉安、厦门、福州、汕头、成都、重庆、北京、天津、石家庄、拉萨、长沙、益阳、郴州、郑州各大中小城市"><b>简介：</b>2014年8月成立2015年成立龙岗营业部20</p>
+                </div>
+                <a href="http://www.lvmae.com/company/9636/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/10994/index.html" class="com-logo"><img alt="深圳市华侨物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201612/21/16-55-17-32-10994.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/10994/index.html" target="_blank">深圳市华侨物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13802703619</span>                                        <p title="广东深圳市宝安区龙华新区观澜黎光社区老围3号102--103档"><b>地址：</b>广东深圳市宝安区龙华新区观澜黎光社区老围3号1</p>
+                    <p title="深圳市华侨物流有限公司（13717094688）是一家集公路、铁路、航空、海运为一体，专业从事长途、短途货物运输往返运输、专业起重、深圳搬家搬厂、设备吊装、安装、包装、移位的集团化深圳物流公司。本深圳物流公司自创办以来一直奉行“顾客至上、服务第一”的宗旨，多年来深受广大企业业主的信任和支持。华侨物流拥有各类厢车、顶棚车、吊机车、平板车及各类合同线车合计1000多辆，创办了全国地以大中城市辐射各中小城镇的直达专线130余条，拥有一批专业从事运输服务行业的技术骨干和专业队伍。华侨物流公司作为运输业的领头，为了在当今惊涛骇浪的商海中永立不败之地，特实施了便利各大企业主的“一票法”，即：专人接提、专人"><b>简介：</b>深圳市华侨物流有限公司（13717094688</p>
+                </div>
+                <a href="http://www.lvmae.com/company/10994/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/32853/index.html" class="com-logo"><img alt="深圳罗湖志邦货运" width="180" height="60" src="http://www.lvmae.com/file/upload/201708/08/13-33-03-42-32853.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/32853/index.html" target="_blank">深圳罗湖志邦货运</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13808850627</span>                                        <p title="深圳市罗湖区清水河三路共发达货运市场30号"><b>地址：</b>深圳市罗湖区清水河三路共发达货运市场30号</p>
+                    <p title="深圳志邦货运公司以 公路运输
+为主，尤以运输涂料、货运、物流、搬厂、行李搬运、、回程车货运配载、国内陆运机器设备、化工钢琴运输、电器运输等公路运输服务！化工运输车辆均有危险品运输资质证，另有一批专业危险品管理操作人员做坚强后盾，使公司运行几年来受到各大化工、涂料厂家、客户的好评。公司秉着“诚信、安全、快捷”的服务宗旨。广接全国各地的整车、零担运输业。价格优惠、全程保险。 服务第一、质量第一、安全第一，顾客就是我们的上帝；为顾客服务，为深圳市民提供优质服务是我们的服务宗旨。 服务的项目：搬家服务 -- 国内的个人搬迁业务，专业拆装衣柜，家私组装打包。搬厂服务 -- 国内的长短途搬迁、搬家搬厂"><b>简介：</b>深圳志邦货运公司以 公路运输
+                        为主，尤以运</p>
+                </div>
+                <a href="http://www.lvmae.com/company/32853/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/40011/index.html" class="com-logo"><img alt="深圳市隆邦物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201705/15/15-53-29-44-40011.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/40011/index.html" target="_blank">深圳市隆邦物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">18664982276</span>                                        <p title="丹平北路金鹏物流园A区6栋"><b>地址：</b>丹平北路金鹏物流园A区6栋</p>
+                    <p title="深圳市隆邦物流有限公司。是经市工商局、税务局、交通局、技术监督局，注册登记的专业运输单位。 本公司从事公路﹑航空货物运输,从深圳﹑东莞发往全国各地大中城市,长途 搬家﹑搬厂﹑吊装移位,安全可靠,收费合理,货物全程跟踪,实行门对门的一条龙服务，节假日照常营业。 隆邦物流公司成立多年来一贯遵循“客户至上”“安全准时，诚实守信，互惠互利”的信誉，安全第一、服务第一、门到门第一、凭借良好的敬业精神和严谨的工作态度，在广大客户心中树立了极好的企业形象。 服务承诺： 全天 24 小时提供优质的服务 本公司现已拥有大、中、小型车辆258台，收发货场地1000多平方米，专用货物存放仓库5600多平方米,为企业"><b>简介：</b>深圳市隆邦物流有限公司。是经市工商局、税务局、</p>
+                </div>
+                <a href="http://www.lvmae.com/company/40011/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/33302/index.html" class="com-logo"><img alt="深圳市金鹏德物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201609/21/11-21-00-19-33302.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/33302/index.html" target="_blank">深圳市金鹏德物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">15818677836</span>                                        <p title="清水河三路共发达物流园66号、深圳市华通源物流园"><b>地址：</b>清水河三路共发达物流园66号、深圳市华通源物流</p>
+                    <p title="深圳市金鹏德物流有限公司是具有独立法人资格的综合性现代物流企业,集公路、铁路、航空、海运为一体，全国各地回程车4.2米、6.8米、7.2米、9.6、1.25米、13米、15米、16米、17.5米各类回程车调用、服务网络遍及全国。主要经营：深圳货运、公路运输、深港货运、深圳搬家搬厂、设备吊装、安装、包装等业务。深圳市金鹏德物流有限公司一直奉行“顾客至上、服务第一”的宗旨，多年来深受广大企业业主的信任和支持。公司还利用全国各分公司费用可预付、到付、代收货款,满足客户个性化需求的综合性物流服务。公司同时代办货物保险、为客户提供全程货物保险服务，免去了客户的后顾之忧。我们将一如既往本着&quot;诚信"><b>简介：</b>深圳市金鹏德物流有限公司是具有独立法人资格的综</p>
+                </div>
+                <a href="http://www.lvmae.com/company/33302/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/34192/index.html" class="com-logo"><img alt="深圳振邦快达物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201706/09/10-39-32-36-34192.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/34192/index.html" target="_blank">深圳振邦快达物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13613098203</span>                                        <p title="沙井镇后亭厚德群物流园2栋21-22号 &福永镇怀德翠岗西部物流信息中心二期810-11"><b>地址：</b>沙井镇后亭厚德群物流园2栋21-22号 &福永</p>
+                    <p title="振邦快达物流有限公司拥有一支经验丰富的高素质经理人的管理队伍，他们在业务运营、市场营销、资讯收集、公共关系、人事管理等各种有影响的岗位上具有娴熟的技术和丰富的经验。 公司聘请了一批的物流、快运、仓储、计算机技术等各种领域具有丰富实践经验的技术员和业务骨干。确保公司业务联系的顺利开展和服务达标。依据现代物流理论和中国物流、快运的实践经验，制定了详细的业务流程服务规范，确保客户提供全面、规范的物流服务。 个性化服务的物流服务，是现代企业物流需求的精髓。振邦快达物流有限公司针对不同客户的物流需求，在收集、分析、加工实时的物流信息的基础上，为客户设计整体物流方案，提供物流功能集成和社会物流集成服务，提"><b>简介：</b>振邦快达物流有限公司拥有一支经验丰富的高素质经</p>
+                </div>
+                <a href="http://www.lvmae.com/company/34192/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/40254/index.html" class="com-logo"><img alt="深圳市金环达物流有限公司" width="180" height="60" src="http://www.lvmae.com/skin/default/images/logo.gif"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/40254/index.html" target="_blank">深圳市金环达物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13066859222</span>                                        <p title="深圳市罗湖区清水河三路共发达物流园1期38"><b>地址：</b>深圳市罗湖区清水河三路共发达物流园1期38</p>
+                    <p title="深圳市金环达物流有限公司，是一家专业从事深圳货运到全国各大中小城市的物流公司，网点遍布深圳及全国各区域。业务范围：行李家电家私托运，搬家搬厂，空车配货，设备运输，专线直达，天天发车，天天往返，专业搬运包装，上门提货，送货上门，一站式服务，可为客户量身制订灵活变通的个性化物流服务。 主要承接深圳至全国各地的长短途公路运输业务，公司具备有全国二百多辆汽车，二百多条专业货运车队，公司有4米--17，5米的平板车，高栏车，低栏车，厢式车，货柜车，货车供应出租，调度，单位自创办以来一直奉行“顾客至上、服务第一”的宗旨，不论货物多少都会秉承认真、负责的态度专人跟踪到底，直到货物安全到达对方手中；多年来深受"><b>简介：</b>深圳市金环达物流有限公司，是一家专业从事深圳货</p>
+                </div>
+                <a href="http://www.lvmae.com/company/40254/index.html">查看详情>></a>
+            </dd>
+            <dd class="">
+                <a href="http://www.lvmae.com/company/33525/index.html" class="com-logo"><img alt="深圳市环宇联运物流有限公司" width="180" height="60" src="http://www.lvmae.com/file/upload/201611/07/14-45-08-98-33525.jpg"/></a>
+                <div class="com-Name">
+                    <h3><a href="http://www.lvmae.com/company/33525/index.html" target="_blank">深圳市环宇联运物流有限公司</a></h3>
+                    <p>
+                        <i class="icon-zheng">证</i>                        <i class="icon-abc">物流公司</i>
+                    </p>
+                </div>
+                <div class="com-contact">
+                    <b>电话：</b>
+                    <span style="font-size:18px;letter-spacing:1px;">13751151058</span>                                        <p title="深圳市龙华新区观澜街道黎光工业路深国际华通源物流中心"><b>地址：</b>深圳市龙华新区观澜街道黎光工业路深国际华通源物</p>
+                    <p title=""><b>简介：</b></p>
+                </div>
+                <a href="http://www.lvmae.com/company/33525/index.html">查看详情>></a>
+            </dd>
+        </dl>
+        <!--检索结果展示 end-->
+        <div class="page mt20">
+            <a class="prev page-disabled">首页</a><a class="prev page-disabled">上一页</a><span class="current">1</span><a href="28373-0.html?page=2">2</a><a href="28373-0.html?page=3">3</a><a href="28373-0.html?page=4">4</a><a href="28373-0.html?page=5">5</a><a href="28373-0.html?page=6">6</a><a href="28373-0.html?page=7">7</a><a href="28373-0.html?page=8">8</a><a href="28373-0.html?page=9">9</a><a href="28373-0.html?page=2" style="width:45px;"><i>下一页</i></a><a href="28373-0.html?page=94">尾页</a><i>共 94 页 </i>        </div>
+        <!--城市选择 start-->
+        <div class="choose-area">
+            <!--<dl class="dl-bg">
+                <dt>热门城市</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/28373-0.html">深圳</a>
+                    <a href="http://www.lvmae.com/company/28062-0.html">广州</a>
+                    <a href="http://www.lvmae.com/company/23842-0.html">武汉</a>
+                    <a href="http://www.lvmae.com/company/29658-0.html">东莞</a>
+                </dd>
+            </dl>-->
+            <dl class="dl-bg">
+                <dt ><span id="sheng"></span></dt>
+                <dd id="shi">
+                    <!--<a href="http://www.lvmae.com/company/2-0.html">北京市</a>-->
+                </dd>
+            </dl>
+           <!-- <dl class="dl-bg">
+                <dt>天津</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/344-0.html">天津市</a>
+                </dd>
+            </dl>-->
+            <!--<dl class="dl-bg">
+                <dt>河北</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/657-0.html">石家庄市</a>
+                    <a href="http://www.lvmae.com/company/958-0.html">唐山市</a>
+                    <a href="http://www.lvmae.com/company/1214-0.html">秦皇岛市</a>
+                    <a href="http://www.lvmae.com/company/1321-0.html">邯郸市</a>
+                    <a href="http://www.lvmae.com/company/1582-0.html">邢台市</a>
+                    <a href="http://www.lvmae.com/company/1800-0.html">保定市</a>
+                    <a href="http://www.lvmae.com/company/2169-0.html">张家口市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/2427-0.html">承德市</a>
+                <a href="http://www.lvmae.com/company/2658-0.html">沧州市</a>
+                <a href="http://www.lvmae.com/company/2880-0.html">廊坊市</a>
+                <a href="http://www.lvmae.com/company/3003-0.html">衡水市</a>
+            </dd>
+            </dl>-->
+            <!--<dl class="dl-bg">
+                <dt>山西</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/3139-0.html">太原市</a>
+                    <a href="http://www.lvmae.com/company/3259-0.html">大同市</a>
+                    <a href="http://www.lvmae.com/company/3468-0.html">长治市</a>
+                    <a href="http://www.lvmae.com/company/3886-0.html">运城市</a>
+                    <a href="http://www.lvmae.com/company/4272-0.html">临汾市</a>
+                    <a href="http://www.lvmae.com/company/4462-0.html">吕梁市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>内蒙古</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/4642-0.html">呼和浩特市</a>
+                    <a href="http://www.lvmae.com/company/4741-0.html">包头市</a>
+                    <a href="http://www.lvmae.com/company/4842-0.html">乌海市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>辽宁</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/5998-0.html">沈阳市</a>
+                    <a href="http://www.lvmae.com/company/6238-0.html">大连市</a>
+                    <a href="http://www.lvmae.com/company/6413-0.html">鞍山市</a>
+                    <a href="http://www.lvmae.com/company/6925-0.html">营口市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>吉林</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/7690-0.html">长春市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>黑龙江</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/8785-0.html">哈尔滨市</a>
+                    <a href="http://www.lvmae.com/company/9471-0.html">鹤岗市</a>
+                    <a href="http://www.lvmae.com/company/9552-0.html">双鸭山市</a>
+                    <a href="http://www.lvmae.com/company/9675-0.html">大庆市</a>
+                    <a href="http://www.lvmae.com/company/10027-0.html">佳木斯市</a>
+                    <a href="http://www.lvmae.com/company/10490-0.html">绥化市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>上海</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/10747-0.html">上海市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>江苏</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/10996-0.html">南京市</a>
+                    <a href="http://www.lvmae.com/company/11147-0.html">无锡市</a>
+                    <a href="http://www.lvmae.com/company/11243-0.html">徐州市</a>
+                    <a href="http://www.lvmae.com/company/11427-0.html">常州市</a>
+                    <a href="http://www.lvmae.com/company/11504-0.html">苏州市</a>
+                    <a href="http://www.lvmae.com/company/11642-0.html">南通市</a>
+                    <a href="http://www.lvmae.com/company/11810-0.html">连云港市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/12102-0.html">盐城市</a>
+                <a href="http://www.lvmae.com/company/12266-0.html">扬州市</a>
+                <a href="http://www.lvmae.com/company/12382-0.html">镇江市</a>
+                <a href="http://www.lvmae.com/company/12479-0.html">泰州市</a>
+                <a href="http://www.lvmae.com/company/12602-0.html">宿迁市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>浙江</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/12734-0.html">杭州市</a>
+                    <a href="http://www.lvmae.com/company/12947-0.html">宁波市</a>
+                    <a href="http://www.lvmae.com/company/13116-0.html">温州市</a>
+                    <a href="http://www.lvmae.com/company/13263-0.html">嘉兴市</a>
+                    <a href="http://www.lvmae.com/company/13344-0.html">湖州市</a>
+                    <a href="http://www.lvmae.com/company/13416-0.html">绍兴市</a>
+                    <a href="http://www.lvmae.com/company/13542-0.html">金华市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/13814-0.html">舟山市</a>
+                <a href="http://www.lvmae.com/company/13862-0.html">台州市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>安徽</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/14198-0.html">合肥市</a>
+                    <a href="http://www.lvmae.com/company/14354-0.html">芜湖市</a>
+                    <a href="http://www.lvmae.com/company/14532-0.html">淮南市</a>
+                    <a href="http://www.lvmae.com/company/14939-0.html">黄山市</a>
+                    <a href="http://www.lvmae.com/company/15055-0.html">滁州市</a>
+                    <a href="http://www.lvmae.com/company/15489-0.html">六安市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>福建</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/15957-0.html">福州市</a>
+                    <a href="http://www.lvmae.com/company/16165-0.html">厦门市</a>
+                    <a href="http://www.lvmae.com/company/16224-0.html">莆田市</a>
+                    <a href="http://www.lvmae.com/company/16287-0.html">三明市</a>
+                    <a href="http://www.lvmae.com/company/16449-0.html">泉州市</a>
+                    <a href="http://www.lvmae.com/company/16632-0.html">漳州市</a>
+                    <a href="http://www.lvmae.com/company/16803-0.html">南平市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/16954-0.html">龙岩市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>江西</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/17236-0.html">南昌市</a>
+                    <a href="http://www.lvmae.com/company/17383-0.html">景德镇市</a>
+                    <a href="http://www.lvmae.com/company/17449-0.html">萍乡市</a>
+                    <a href="http://www.lvmae.com/company/17510-0.html">九江市</a>
+                    <a href="http://www.lvmae.com/company/17861-0.html">赣州市</a>
+                    <a href="http://www.lvmae.com/company/18461-0.html">宜春市</a>
+                    <a href="http://www.lvmae.com/company/18693-0.html">抚州市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>山东</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/19127-0.html">济南市</a>
+                    <a href="http://www.lvmae.com/company/19279-0.html">青岛市</a>
+                    <a href="http://www.lvmae.com/company/19459-0.html">淄博市</a>
+                    <a href="http://www.lvmae.com/company/19556-0.html">枣庄市</a>
+                    <a href="http://www.lvmae.com/company/19627-0.html">东营市</a>
+                    <a href="http://www.lvmae.com/company/19684-0.html">烟台市</a>
+                    <a href="http://www.lvmae.com/company/19852-0.html">潍坊市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/19984-0.html">济宁市</a>
+                <a href="http://www.lvmae.com/company/20156-0.html">泰安市</a>
+                <a href="http://www.lvmae.com/company/20250-0.html">威海市</a>
+                <a href="http://www.lvmae.com/company/20410-0.html">临沂市</a>
+                <a href="http://www.lvmae.com/company/20580-0.html">德州市</a>
+                <a href="http://www.lvmae.com/company/20726-0.html">聊城市</a>
+                <a href="http://www.lvmae.com/company/20871-0.html">滨州市</a>
+            </dd><dd>                                    <a href="http://www.lvmae.com/company/20971-0.html">菏泽市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>河南</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/21150-0.html">郑州市</a>
+                    <a href="http://www.lvmae.com/company/21352-0.html">开封市</a>
+                    <a href="http://www.lvmae.com/company/21488-0.html">洛阳市</a>
+                    <a href="http://www.lvmae.com/company/21845-0.html">安阳市</a>
+                    <a href="http://www.lvmae.com/company/22045-0.html">新乡市</a>
+                    <a href="http://www.lvmae.com/company/22226-0.html">焦作市</a>
+                    <a href="http://www.lvmae.com/company/22346-0.html">濮阳市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/22441-0.html">许昌市</a>
+                <a href="http://www.lvmae.com/company/22548-0.html">漯河市</a>
+                <a href="http://www.lvmae.com/company/22696-0.html">南阳市</a>
+                <a href="http://www.lvmae.com/company/22960-0.html">商丘市</a>
+                <a href="http://www.lvmae.com/company/23164-0.html">信阳市</a>
+                <a href="http://www.lvmae.com/company/23392-0.html">周口市</a>
+                <a href="http://www.lvmae.com/company/23610-0.html">驻马店市</a>
+            </dd><dd>                                    <a href="http://www.lvmae.com/company/23823-0.html">济源市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>湖北</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/23842-0.html">武汉市</a>
+                    <a href="http://www.lvmae.com/company/24047-0.html">黄石市</a>
+                    <a href="http://www.lvmae.com/company/24105-0.html">十堰市</a>
+                    <a href="http://www.lvmae.com/company/24269-0.html">宜昌市</a>
+                    <a href="http://www.lvmae.com/company/24395-0.html">襄阳市</a>
+                    <a href="http://www.lvmae.com/company/24531-0.html">鄂州市</a>
+                    <a href="http://www.lvmae.com/company/24785-0.html">荆州市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/25349-0.html">仙桃市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>湖南</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/25445-0.html">长沙市</a>
+                    <a href="http://www.lvmae.com/company/25880-0.html">衡阳市</a>
+                    <a href="http://www.lvmae.com/company/26357-0.html">岳阳市</a>
+                    <a href="http://www.lvmae.com/company/26552-0.html">常德市</a>
+                    <a href="http://www.lvmae.com/company/27012-0.html">郴州市</a>
+                    <a href="http://www.lvmae.com/company/27467-0.html">怀化市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>广东</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/28062-0.html">广州市</a>
+                    <a href="http://www.lvmae.com/company/28246-0.html">韶关市</a>
+                    <a href="http://www.lvmae.com/company/28373-0.html">深圳市</a>
+                    <a href="http://www.lvmae.com/company/28442-0.html">珠海市</a>
+                    <a href="http://www.lvmae.com/company/28478-0.html">汕头市</a>
+                    <a href="http://www.lvmae.com/company/28555-0.html">佛山市</a>
+                    <a href="http://www.lvmae.com/company/28603-0.html">江门市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/28696-0.html">湛江市</a>
+                <a href="http://www.lvmae.com/company/28843-0.html">茂名市</a>
+                <a href="http://www.lvmae.com/company/28975-0.html">肇庆市</a>
+                <a href="http://www.lvmae.com/company/29093-0.html">惠州市</a>
+                <a href="http://www.lvmae.com/company/29484-0.html">阳江市</a>
+                <a href="http://www.lvmae.com/company/29559-0.html">清远市</a>
+                <a href="http://www.lvmae.com/company/29658-0.html">东莞市</a>
+            </dd><dd>                                    <a href="http://www.lvmae.com/company/29694-0.html">中山市</a>
+                <a href="http://www.lvmae.com/company/29719-0.html">潮州市</a>
+                <a href="http://www.lvmae.com/company/29780-0.html">揭阳市</a>
+                <a href="http://www.lvmae.com/company/29890-0.html">云浮市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>广西</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/29969-0.html">南宁市</a>
+                    <a href="http://www.lvmae.com/company/30123-0.html">柳州市</a>
+                    <a href="http://www.lvmae.com/company/30252-0.html">桂林市</a>
+                    <a href="http://www.lvmae.com/company/30491-0.html">北海市</a>
+                    <a href="http://www.lvmae.com/company/30638-0.html">贵港市</a>
+                    <a href="http://www.lvmae.com/company/30985-0.html">贺州市</a>
+                    <a href="http://www.lvmae.com/company/31042-0.html">河池市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>海南</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/31365-0.html">海口市</a>
+                    <a href="http://www.lvmae.com/company/31418-0.html">三亚市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>重庆</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/31700-0.html">重庆市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>四川</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/32756-0.html">成都市</a>
+                    <a href="http://www.lvmae.com/company/33092-0.html">自贡市</a>
+                    <a href="http://www.lvmae.com/company/33273-0.html">泸州市</a>
+                    <a href="http://www.lvmae.com/company/33557-0.html">绵阳市</a>
+                    <a href="http://www.lvmae.com/company/34375-0.html">乐山市</a>
+                    <a href="http://www.lvmae.com/company/34607-0.html">南充市</a>
+                    <a href="http://www.lvmae.com/company/35176-0.html">宜宾市</a>
+                </dd><dd>                                    <a href="http://www.lvmae.com/company/36242-0.html">资阳市</a>
+            </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>贵州</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/37647-0.html">贵阳市</a>
+                    <a href="http://www.lvmae.com/company/37929-0.html">遵义市</a>
+                    <a href="http://www.lvmae.com/company/38545-0.html">铜仁市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>云南</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/39351-0.html">昆明市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>西藏</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/40891-0.html">拉萨市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>陕西</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/41665-0.html">西安市</a>
+                    <a href="http://www.lvmae.com/company/42038-0.html">咸阳市</a>
+                    <a href="http://www.lvmae.com/company/42506-0.html">汉中市</a>
+                    <a href="http://www.lvmae.com/company/42707-0.html">榆林市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>甘肃</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/43222-0.html">兰州市</a>
+                    <a href="http://www.lvmae.com/company/43800-0.html">平凉市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>青海</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/44747-0.html">西宁市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>宁夏</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/45212-0.html">银川市</a>
+                    <a href="http://www.lvmae.com/company/45378-0.html">固原市</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>新疆</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/45502-0.html">乌鲁木齐市</a>
+                    <a href="http://www.lvmae.com/company/46007-0.html">阿克苏地区</a>
+                </dd>
+            </dl>
+            <dl class="dl-bg">
+                <dt>香港</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/46992-0.html">香港</a>
+                </dd>
+            </dl>-->
+        </div>
+        <!--城市选择 start-->
+    </div>
+    <!--左侧相关信息 start-->
+    <!--右侧相关信息 start-->
+    <div class="s-right">
+        <div class="baoIcon">
+            全程预订保障，货发到哪儿都放心
+        </div>
+        <dl class="recommendation">
+            <dt>深圳推荐物流承运商</dt>
+        </dl>
+        <dl class="recommendation" id="viplist" style="margin-top:20px;">
+            <dt>VIP会员</dt>
+            <ul style="margin-top:0px;margin-bottom:0px;height:560px;overflow-y:hidden;">
+            </ul>
+        </dl>
+    </div>
+    <!--右侧相关信息 end-->
+</div>
+<!--主要内容区域 end-->
+<script type="text/javascript" src="http://www.lvmae.com/file/script/new/contraction.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/index/main.js" charset="UTF-8"></script>
+<script>
+    var cityName = "深圳";
+    var cityId = "0";
+    var parkId = "0";
+    var selectName = "";
+    var url_curr='http://www.lvmae.com/company/28373-0.html?';
+    if( $("#viplist ul li").length > 10 ) {
+        $("#viplist").FontScroll({num:1, time:3000});
+    }
+</script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/road/carrierSearch.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/road/doBusinessPhone.js" charset="UTF-8"></script>
+<div class="footer">
+    <div class="wrap">
+        <p><a href="http://www.lvmae.com/news/lvmae/1339.html" target="_blank" rel="nofollow">绿蚂蚁介绍</a><span class="line">|</span><a href="http://www.lvmae.net/list-10-1.html" target="_blank" rel="nofollow">大事记</a><span class="line">|</span><a href="http://www.lvmae.net/list-14-1.html" target="_blank" rel="nofollow">公司动态</a><span class="line">|</span><a href="http://www.lvmae.net/list-13-1.html" target="_blank" rel="nofollow">媒体报告</a><span class="line">|</span><a href="http://www.lvmae.com/about/6.html" target="_blank" rel="nofollow">联系我们</a><span class="line">|</span><a href="http://www.lvmae.net/">绿蚂蚁官网</a></p>
+        <p>Copyright © 绿蚂蚁干线<a href="http://www.lvmae.com">物流</a>B2B平台 All rights reserved. <a href="http://www.beian.miit.gov.cn" target="_blank">粤ICP备14032800号-1</a></p>
+    </div>
+</div>
+<div class="yb_conct">
+    <div class="yb_bar">
+        <ul>
+            <li class="yb_top">返回顶部</li>
+            <li class="yb_phone">400-963-5600</li>
+            <li class="yb_QQ">
+                <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" title="">在线咨询</a>
+            </li>
+            <li class="yb_ercode" style="height:53px;">微信二维码 <br>
+                <img class="hd_qr" src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" width="125" alt="绿蚂蚁公众号"> </li>
+        </ul>
+    </div>
+</div>
+<!--弹出框开始-->
+<div id="user_session_login" style="display:none; position: initial; position:static\9;">
+    <!--弹出框背景-->
+    <div class="pop_bg" style="position:absolute\9;"></div>
+    <!--弹出框内容-->
+    <div id="popBoxId" class="pop_box pop_box_small" >
+        <div id="titleDivId" class="pop_title"><a href="javascript:;" class="shut"></a>用户登录</div>
+        <div id="pop_small_Table_table_id" class="pop_container" style="display:none;">
+            <span style="margin-left:25px;">登录后，即可查看物流公司联系方式</span>
+            <table  cellpadding="0" cellspacing="0" class="pop_small_Table pop_login" >
+                <tr>
+                    <th width="80px">用户名：</th><td><input onclick="clearDefaultText(this,'请输入用户名/手机号/邮箱')" myattr="inp_grey" id="username" name="username"  type="text" class="inp_grey" /></td>
+                </tr>
+                <tr>
+                    <td></td><td style="color:red;" id="tip_username"></td>
+                </tr>
+                <tr>
+                    <th valign="middle">密&nbsp;码：</th>
+                    <td>
+                        <input onfocus="importPass(this)" name="password" id="password" type="text" class="inp_grey" />
+                        <input onblur="clearDefaultPass(this,'请输入密码')"  myattr="inp_grey" id="password1" name="passWord1" type="password" class="inp_grey" style="display: none;"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td><td style="color:red;" id="tip_password"></td>
+                </tr>
+                <tr>
+                    <th ></th><td><a href="http://www.lvmae.com/member/send.php" target="_blank" class="right">忘记密码?</a><input name="cookietime" value="1" type="checkbox" />自动登录</td>
+                </tr>
+                <tr>
+                    <td></td><td><a href="javascript:;" onclick="login()" class="btn_login">登录</a></td>
+                </tr>
+                <tr>
+                    <td></td><td><p class="regis_Add">还没有绿蚂蚁账户？<a href="javascript:;" onclick="registerClick()">一键注册</a></p></td>
+                </tr>
+                <tr>
+                    <td></td><td><span class="red" style="display:none; font-size:14px;">用户名或密码错误</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="inquiryId" class="pop_container" style="display:none;">
+            <p class="tab_contact_prompt">请写下您的电话和货物信息，承运商将与您联系！</p>
+            <table cellpadding="0" cellspacing="0" class="table_contact">
+                <tr>
+                    <th valign="top" width="70px" >联系人：</th><td><input id="businessNameId" name="businessName"  type="text" class="inp_grey" style="width:225px" maxlength="50"/><div id="tip_businessName" class="red"></div></td>
+                </tr>
+                <tr>
+                    <th valign="top" width="70px">电&nbsp;&nbsp;话：</th><td><input id="phoneId" name="businessPhone"  type="text" class="inp_grey" style="width:225px"/><div id="tip_businessPhone" class="red"></div></td>
+                </tr>
+                <tr>
+                    <th valign="top">货物名：</th><td><input id="goodsId" maxlength="100" type="text" class="inp_grey" style="width:225px" /><div id="tip_goodsId" class="red"></div></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="javascript:;" onclick="btnConfirm(this)" class="btn_confirm">提交</a></td>
+                </tr>
+            </table>
+            <div class="prompt">
+                <p class="red">温馨提示：</p>
+                <p>1、固定电话请输入"区号+您的电话号码"，如0755-8888888;</p>
+                <p>2、手机用户直接输入"您的手机号码"，如13800000000;</p>
+            </div>
+        </div>
+
+        <!-- 用户注册  -->
+        <div class="pop_container" style="display:none;" id ="registerId">
+            <span style="margin-left:15px;">输入手机，用验证码查看物流公司联系方式</span>
+            <table cellpadding="0" cellspacing="0" class="pop_small_Table pop_login">
+                <tr>
+                    <th width="70px">手机号：</th>
+                    <td><input type="text" class="inp_grey" onclick="clearDefaultText(this,'请输入手机号')" id="newPhone" myattr="inp_grey" name="userPhone" onkeyup="check_phone(this)" maxlength="11"/></td>
+                </tr>
+                <tr>
+                    <td></td><td class="red" id="tip_phone"></td>
+                </tr>
+                <tr>
+                    <th></th><td><input type="button" class="code_get_grey" id="sendBtnId" value="点击获取验证码" onclick="sendMessage(this)" /></td>
+                </tr>
+                <tr>
+                    <th>验证码：</th><td><input type="text" id="verification" onclick="clearDefaultText(this,'请输入验证码')" myattr="inp_grey" name="verification" class="inp_grey" maxlength="6" onkeyup="check_verificationCode(this)" /></td>
+                </tr>
+                <tr>
+                    <td></td><td class="red" id="tip_verificationCode"></td>
+                </tr>
+                <tr>
+                    <td></td><td><a href="javascript:;" onclick="registerUser(this)"  class="btn_login">查看并注册</a></td>
+                </tr>
+                <tr>
+                    <td></td><td><p class="regis_Add">已有绿蚂蚁账户？<a href="javascript:;" onclick="loginClick()">登录</a></p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--弹出框结束-->
+<span style="display:none;"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F113a0efbcb8d4e12dac632a3de270881' type='text/javascript'%3E%3C/script%3E"));
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254113276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254113276' type='text/javascript'%3E%3C/script%3E"));</script><script src="http://s95.cnzz.com/z_stat.php?id=1256389723&web_id=1256389723" language="JavaScript"></script></span>
+</body>
+</html>

@@ -76,4 +76,10 @@ public class RecController {
     public List<LinkedHashMap<String, Object>> getluxian(String a,String b) {
         return recSevice.getluxian(a,b);
     }
+    @RequestMapping("xingZhengQu")
+    @ResponseBody
+    public List<LinkedHashMap<String,Object>> xingZhengQu(String city) {
+        List<LinkedHashMap<String,Object>> list=recSevice.xingZhengQu(city);
+        return list;
+    }
 }
