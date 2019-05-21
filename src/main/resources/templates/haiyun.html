@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>国际海运_国际物流网_国际物流公司_国内空运航空物流_海运物流_绿蚂蚁</title>
+    <meta name="keywords" content="国际海运,国际物流,国际物流网,国际物流公司,航空物流,国际空运,国际海运"/>
+    <meta name="description" content="绿蚂蚁国际物流频道提供国际物流公司，海运线路、海运动态，国际线路、国际货物，空运线路、空运动态，铁运线路、陆运动态，国际货源等查询信息。"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit|ie-stand|ie-comp" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.lvmae.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/common.css?version=201709018"></link>
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/zzsc.css"></link>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery-3.2.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/hj.configCity.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.chooseCity-1.2.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.cookie.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/functions.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/jquery.plugins.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/kslide.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/config.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/zzsc.min.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        var _HotLineScrollTop = "";
+        var basePath = "http://www.lvmae.com/";
+        var resourcePath = "http://img.lvmae.com/JAVA";
+        var baseLebpPath = "http://kuaidi.lvmae.com";
+        var userLogoPath = "http://img.lvmae.com/image/UserHeadPortrait/";
+    </script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/hj.common.js" charset="UTF-8"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        getBroadcastMap();
+    })
+    //轮播图
+    function getBroadcastMap() {
+        $.ajax({
+            url: 'getBroadcastMap',
+            success: function (data) {
+                var map = '';
+                for (var i = 0; i < data.length; i++) {
+                    map += '<li style="background-image: url(' + data[i].url + '); background-repeat: no-repeat; background-position: center center;">' +
+                        '<a href="' + data[i].href + '" target="_blank"></a>\n' +
+                        '</li>';
+                }
+                console.log(map)
+                $("#luntu").html(map)
+                $('#kSlide').kSlide({
+                    type: 'slide',
+                    timeOut: 5000
+                });
+            }
+        })
+    }
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<!-- Header Start -->
+<div class="header">
+    <div class="top">
+        <div class="wrap">
+            <div class="top-left">
+                您好，欢迎使用绿蚂蚁干线物流B2B平台！<a href="http://www.lvmae.com/member/login.php" rel="nofollow">登录</a><a href="http://www.lvmae.com/member/register.php" rel="nofollow">注册</a>
+            </div>
+            <div class="top-right">
+                <ul class="item-list">
+                    <li class="item">当前城市：</li>
+                    <li class="item top-area dropdown">
+                        <div class="top-area-content dropdown-box">
+                            <span class="main-color" id="selectArea">深圳<a>[切换城市]</a></span>
+                        </div>
+                    </li>
+                    <li class="item"><span class="icon icons-position"></span></li>
+                    <li class="item tel-app dropdown">
+                        <div class="tel-app-content dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-photo"></span>&nbsp;<span>手机APP</span>&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描二维码<br>
+                                    下载安卓客户端</p>
+                                <p><img src="http://www.lvmae.com/skin/default/images/ewm_1.jpg" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item dropdown top-wx">
+                        <div class="dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-wx"></span>&nbsp;微信号&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描二维码<br>
+                                    关注绿蚂蚁公众号</p>
+                                <p><img src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" class="icons-qq" onclick="" target="_blank" title="点击这里给我发消息">&nbsp;</a></li>
+                    <li class="item"><a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" target="_blank" >客户服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="wrap">
+            <div class="logo icons-logo fl"><a href="http://www.lvmae.com/" title="上绿蚂蚁发货，说走就走">上绿蚂蚁发货，说走就走</a></div>
+            <div class="icons-wuli fr" style="background-image:none;"><script type="text/javascript" src="http://www.lvmae.com/file/script/A47.js"></script></div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wrap">
+            <ul>
+                <li><a  href="http://www.lvmae.com/">首页</a></li>
+                <li><a href="http://www.lvmae.com/road/" >物流专线</a></li>
+                <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
+                <li><a href="http://www.lvmae.com/seaport/" class="current">国际海运</a></li>
+                <li><a href="http://www.lvmae.com/company/" >物流公司</a></li>
+                <li><a href="http://www.lvmae.com/news/">物流新闻</a></li>
+                <li><a href="http://www.lvmae.com/bid/" >物流招标</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="user-center">
+        <div class="wrap">
+            <a href="http://www.lvmae.com/member" class="user-box"><em></em><span>个人中心</span></a>
+        </div>
+    </div>
+</div>
+<div class="substation-box">
+    <div class="substation">
+        <div class="sub-title">分站</div>
+        <a class="sub-link-01" href="http://bj.lvmae.com/" target="_blank">北京</a>
+        <a class="sub-link-01" href="http://sh.lvmae.com/" target="_blank">上海</a>
+        <a class="sub-link-01" href="http://tj.lvmae.com/" target="_blank">天津</a>
+        <a class="sub-link-01" href="http://gd.lvmae.com/" target="_blank">广东</a>
+        <a class="sub-link-01" href="http://hb.lvmae.com/" target="_blank">河北</a>
+        <a class="sub-link-01" href="http://shanxi.lvmae.com/" target="_blank">山西</a>
+        <a class="sub-link-01" href="http://ln.lvmae.com/" target="_blank">辽宁</a>
+        <a class="sub-link-01" href="http://jl.lvmae.com/" target="_blank">吉林</a>
+        <a class="sub-link-01" href="http://js.lvmae.com/" target="_blank">江苏</a>
+        <a class="sub-link-01" href="http://zj.lvmae.com/" target="_blank">浙江</a>
+        <a class="sub-link-01" href="http://ah.lvmae.com/" target="_blank">安徽</a>
+        <a class="sub-link-01" href="http://fj.lvmae.com/" target="_blank">福建</a>
+        <a class="sub-link-01" href="http://jx.lvmae.com/" target="_blank">江西</a>
+        <a class="sub-link-01" href="http://sd.lvmae.com/" target="_blank">山东</a>
+        <a class="sub-link-01" href="http://henan.lvmae.com/" target="_blank">河南</a>
+        <a class="sub-link-01" href="http://hubei.lvmae.com/" target="_blank">湖北</a>
+        <a class="sub-link-01" href="http://hunan.lvmae.com/" target="_blank">湖南</a>
+        <a class="sub-link-01" href="http://gx.lvmae.com/" target="_blank">广西</a>
+        <a class="sub-link-01" href="http://hainan.lvmae.com/" target="_blank">海南</a>
+        <a class="sub-link-01" href="http://zq.lvmae.com/" target="_blank">重庆</a>
+        <a class="sub-link-01" href="http://sc.lvmae.com/" target="_blank">四川</a>
+        <a class="sub-link-01" href="http://gz.lvmae.com/" target="_blank">贵州</a>
+        <a class="sub-link-01" href="http://yn.lvmae.com/" target="_blank">云南</a>
+        <a class="sub-link-01" href="http://xc.lvmae.com/" target="_blank">西藏</a>
+        <a class="sub-link-01" href="http://sx.lvmae.com/" target="_blank">陕西</a>
+        <a class="sub-link-01" href="http://gs.lvmae.com/" target="_blank">甘肃</a>
+        <a class="sub-link-01" href="http://qh.lvmae.com/" target="_blank">青海</a>
+        <div class="sub-more">更多<div class="sub-more-body"><a class="sub-link-01" href="http://nx.lvmae.com/" target="_blank">宁夏</a>
+            <a class="sub-link-01" href="http://hlj.lvmae.com/" target="_blank">黑龙江</a>
+            <a class="sub-link-01" href="http://nmg.lvmae.com/" target="_blank">内蒙古</a>
+            <a class="sub-link-01" href="http://xj.lvmae.com/" target="_blank">新疆</a>
+            <a class="sub-link-01" href="http://hk.lvmae.com/" target="_blank">香港</a>
+            <a class="sub-link-01" href="http://tw.lvmae.com/" target="_blank">台湾</a>
+            <a class="sub-link-01" href="http://am.lvmae.com/" target="_blank">澳门</a>
+        </div></div>
+    </div>
+</div>
+<!-- Header End --><link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/index.v1.css"></link>
+<link rel="stylesheet" href="http://www.lvmae.com/skin/default/seasport/pos.css" type="text/css"/>
+<style>
+    .port_warpperjzx{width:325px;}
+</style>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/index/main.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/JsonPort.js"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/BsPostion.js"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/match.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SGACvVNeZCa5gLVBZ4kD9m4G"></script>
+<div class="banner-box" style="  ">
+    <div class="kSlide" id="kSlide">
+        <ul id="luntu">
+            <!--<li style="background-image: url(http://www.lvmae.com/file/upload/201705/09/17-50-04-33-1.jpg); background-repeat: no-repeat; background-position: center center;">
+                <a href="http://www.lvmae.com/news/lvmae/3981.html" target="_blank"></a>
+            </li>
+            <li style="background-image: url(http://www.lvmae.com/file/upload/201612/26/16-29-09-33-38889.jpg); background-repeat: no-repeat; background-position: center center;">
+                <a href="http://www.lvmae.com/extend/redirect.php?aid=95" target="_blank"></a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<div class="search-area">
+    <div class="wrap">
+        <div class="search-box">
+            <div class="search-aside">
+                <ul class="item-list" id="searchTitle">
+                    <li data-tab="m-gc" class="item tab-active">海运</li>
+                    <li class="hr"></li>
+                    <li data-tab="m-zx" class="item">专线</li>
+                    <li class="hr"></li>
+                    <li data-tab="m-sq" class="item">商圈</li>
+                    <li class="hr"></li>
+                    <li data-tab="m-cy" class="item">承运商</li>
+                </ul>
+            </div>
+            <div class="search-content" id="searchContent">
+                <div class="tab-content tab-content-1 tab-active" data-tab="m-gc">
+                    <div class="search-1">
+                        <div class="t-1">报价查询</div>
+                        <div class="placeholder-box" placeholder>
+                            <label for="">起始港</label>
+                            <input type="text" vid="" vcountry="" name="GPStartPort" id="GPStartPort" class=" input " value="" placeholder="请输入起始港" autocomplete="off">
+                            <span class="icons-position-1"></span>
+                        </div>
+                        <div class="placeholder-box" placeholder>
+                            <label for="">目的港</label>
+                            <input type="text" vid="" vcountry="" name="GPEndPort" id="GPEndPort" class=" input " placeholder="请输入目的港" autocomplete="off">
+                            <span class="icons-position-1"></span>
+                        </div>
+                        <div class="reset-show"><span class="bold color-1">2630633</span>条物流线路、<span class="bold color-1">10888</span>家物流承运商供您选择！</div>
+                        <div class="btn-box">
+                            <button class="btn b-6" onclick="seaportQuery();">即刻查询</button>
+                        </div>
+                    </div>
+                    <span class="arrow-left"></span>
+                </div>
+                <div id="l-map"></div>
+                <div class="tab-content tab-content-2" data-tab="m-zx">
+                    <div class="search-1">
+                        <div class="t-1">线路查询</div>
+                        <div class="placeholder-box" placeholder>
+                            <label for="faHuo">发货地</label>
+                            <div class="placeholder" placeholder></div>
+                            <input type="text" name="place1" class="fahuo input placeholder" id="road_leave_city" placeholder>
+                            <span class="icon_list icons-position-1"></span>
+                        </div>
+                        <div class="placeholder-box" placeholder>
+                            <label for="shouHuo">收货地</label>
+                            <div class="placeholder" placeholder></div>
+                            <input type="text" name="palce2" class="shouhuo input placeholder" id="road_arrive_city" placeholder>
+                            <span class="icons-position-1"></span>
+                        </div>
+                        <div class="reset-show"><span class="bold color-1">2630633</span>条物流线路、<span class="bold color-1">10888</span>家物流承运商供您选择！</div>
+                        <div class="btn-box">
+                            <button class="btn b-6" onclick="RoadQuery();">即刻查询</button>
+                        </div>
+                    </div>
+                    <span class="arrow-left"></span>
+                </div>
+                <div class="tab-content tab-content-3" data-tab="m-sq">
+                    <div class="search-1">
+                        <div class="t-1">物流商圈查询</div>
+                        <div class="placeholder-box" placeholder>
+                            <label for="faHuo">商圈名</label>
+                            <div class="placeholder" placeholder></div>
+                            <input type="text" name="place1" class="sqfahuo input placeholder" readonly id="sqFaHuo" placeholder="请选择商圈名" data-type="1">
+                            <span class="icons-position-1"></span>
+                        </div>
+                        <div class="select-city clearfix" id="selectCitye">
+                            <select class="fl" name="provinces" >
+                                <option value="">省份</option>
+                            </select>
+                            <select class="fl" name="city">
+                                <option value="">城市</option>
+                            </select>
+                            <select class="fl" name="park">
+                                <option value="">商圈</option>
+                            </select>
+                            <button class="fl btn b-6" id="enterCity">确定</button>
+                        </div>
+                        <div class="reset-show"><span class="bold color-1">2630633</span>条物流线路、<span class="bold color-1">10888</span>家物流承运商供您选择！</div>
+                        <div class="btn-box">
+
+                        </div>
+                    </div>
+                    <span class="arrow-left"></span>
+                </div>
+                <div class="tab-content tab-content-4" data-tab="m-cy">
+                    <div class="search-1">
+                        <div class="t-1">请输入承运商公司名称</div>
+                        <div class="placeholder-box" placeholder>
+                            <label >公司名称</label>
+                            <input type="text" class="  input placeholder" id="companyName" inputcid="" placeholder="请输入承运商公司名称">
+                            <span class="icons-position-1"></span>
+                            <input type="hidden" name="saddrTitle" id="saddrTitle" value="">
+                            <input type="hidden" name="raddrTitle" id="raddrTitle" value="">
+                        </div>
+                        <div class="reset-show"><span class="bold color-1">2630633</span>条物流线路、<span class="bold color-1">10888</span>家物流承运商供您选择！</div>
+                        <div class="btn-box">
+                            <button class="btn b-6" onclick="m.searchCompany();">即刻查询</button>
+                        </div>
+                    </div>
+                    <!-- 下接选项 start-->
+                    <div id="companySelect" class="tangram-suggestion companySelect" >
+                        <table cellspacing="0" cellpadding="2">
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 下接选项 end-->
+                    <span class="arrow-left"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner-1">
+    <div class="wrap"><a href="http://www.lvmae.com/extend/redirect.php?aid=94" target="_blank"><img src="http://www.lvmae.com/file/upload/201612/26/15-13-38-83-38891.jpg" width="1200" height="80" alt=""/></a></div>
+</div>
+<!-- 专线发车时刻表 Start -->
+<div class="block-wrapper zuangche-fache">
+    <div class="wrap">
+        <div class="block-header">
+            <p style="float:left;line-height: 30px;text-indent: 20px;width: 120px;">国际海运航线</p>
+            <div class="selectCitys">
+                <b></b>
+                <i>深圳</i>
+                <ul class="choosearea tab-title" style="display: none;">
+                    <li data-tab="city_164">深圳</li>
+                    <li data-tab="city_165">佛山</li>
+                    <li data-tab="city_186">厦门</li>
+                    <li data-tab="city_191">上海</li>
+                    <li data-tab="city_194">宁波</li>
+                    <li data-tab="city_196">青岛</li>
+                    <li data-tab="city_198">连云港</li>
+                    <li data-tab="city_203">大连</li>
+                    <li data-tab="city_209">广州</li>
+                    <li data-tab="city_232">天津(新港)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="block-body" id="con1">
+            <div class="tab-content tab-active" data-tab="city_164">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/164-2/index.html" class="eltxt" target="_blank" title="深圳到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/164-5/index.html" class="eltxt" target="_blank" title="深圳到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/164-14/index.html" class="eltxt" target="_blank" title="深圳到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/164-15/index.html" class="eltxt" target="_blank" title="深圳到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/164-322/index.html" class="eltxt" target="_blank" title="深圳到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/164-550/index.html" class="eltxt" target="_blank" title="深圳到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/164-552/index.html" class="eltxt" target="_blank" title="深圳到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/164-632/index.html" class="eltxt" target="_blank" title="深圳到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/164-730/index.html" class="eltxt" target="_blank" title="深圳到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/164-837/index.html" class="eltxt" target="_blank" title="深圳到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="td-name">
+                                        <p title="深圳">
+                                            <a href="http://www.lvmae.com/seaport/164-1150/8.html" target="_blank">深圳</a>
+                                        </p></td>
+                                    <td class="td-name">
+                                        <a href="http://www.lvmae.com/seaport/164-1150/8.html" target="_blank">阿帕帕</a>
+                                    </td>
+                                    <td class="td-name">46天</td>
+                                    <td class="td-name">面议</td>
+                                    <td class="td-name">
+                                        SAFMARINE</td>
+                                    <td class="td-baozhang">
+                                        <p class="ell"><a href="http://www.lvmae.com/company/33893/index.html" target="_blank" title="深圳市小马物流有限公司">深圳市小马物流有限公司</a></p>
+                                        <p>
+<span>
+<i class="icon-zheng">证</i><i class="icon-abc">3A</i>
+</span>
+                                        </p>
+                                    </td>
+                                    <td class="td-fahuo">
+                                        <a href="http://www.lvmae.com/seaport/164-1150/8.html" target="_blank" class="b-3">联系发货</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="b-4 mt2" onclick="btnClickContact(this,8,'33893',2)">
+                                                <em class="icons-tel"></em><em title="点击查看联系电话" >热线</em>
+                                            </a>
+                                        </div>
+                                        <div class="bubble-box">
+                                            <div class="arrow-left"></div>
+                                            <div class="wraps"><span class="tel"></span><span title="关闭" class="tel-box-close"></span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-name">
+                                        <p title="深圳">
+                                            <a href="http://www.lvmae.com/seaport/164-367/9.html" target="_blank">深圳</a>
+                                        </p></td>
+                                    <td class="td-name">
+                                        <a href="http://www.lvmae.com/seaport/164-367/9.html" target="_blank">蒙特利尔</a>
+                                    </td>
+                                    <td class="td-name">25天</td>
+                                    <td class="td-name">面议</td>
+                                    <td class="td-name">
+                                        ZIM</td>
+                                    <td class="td-baozhang">
+                                        <p class="ell"><a href="http://www.lvmae.com/company/33893/index.html" target="_blank" title="深圳市小马物流有限公司">深圳市小马物流有限公司</a></p>
+                                        <p>
+<span>
+<i class="icon-zheng">证</i><i class="icon-abc">3A</i>
+</span>
+                                        </p>
+                                    </td>
+                                    <td class="td-fahuo">
+                                        <a href="http://www.lvmae.com/seaport/164-367/9.html" target="_blank" class="b-3">联系发货</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="b-4 mt2" onclick="btnClickContact(this,9,'33893',2)">
+                                                <em class="icons-tel"></em><em title="点击查看联系电话" >热线</em>
+                                            </a>
+                                        </div>
+                                        <div class="bubble-box">
+                                            <div class="arrow-left"></div>
+                                            <div class="wraps"><span class="tel"></span><span title="关闭" class="tel-box-close"></span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-name">
+                                        <p title="深圳">
+                                            <a href="http://www.lvmae.com/seaport/164-1141/10.html" target="_blank">深圳</a>
+                                        </p></td>
+                                    <td class="td-name">
+                                        <a href="http://www.lvmae.com/seaport/164-1141/10.html" target="_blank">罗安达</a>
+                                    </td>
+                                    <td class="td-name">30天</td>
+                                    <td class="td-name">面议</td>
+                                    <td class="td-name">
+                                        CMA</td>
+                                    <td class="td-baozhang">
+                                        <p class="ell"><a href="http://www.lvmae.com/company/33893/index.html" target="_blank" title="深圳市小马物流有限公司">深圳市小马物流有限公司</a></p>
+                                        <p>
+<span>
+<i class="icon-zheng">证</i><i class="icon-abc">3A</i>
+</span>
+                                        </p>
+                                    </td>
+                                    <td class="td-fahuo">
+                                        <a href="http://www.lvmae.com/seaport/164-1141/10.html" target="_blank" class="b-3">联系发货</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="b-4 mt2" onclick="btnClickContact(this,10,'33893',2)">
+                                                <em class="icons-tel"></em><em title="点击查看联系电话" >热线</em>
+                                            </a>
+                                        </div>
+                                        <div class="bubble-box">
+                                            <div class="arrow-left"></div>
+                                            <div class="wraps"><span class="tel"></span><span title="关闭" class="tel-box-close"></span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-name">
+                                        <p title="深圳">
+                                            <a href="http://www.lvmae.com/seaport/164-14/11.html" target="_blank">深圳</a>
+                                        </p></td>
+                                    <td class="td-name">
+                                        <a href="http://www.lvmae.com/seaport/164-14/11.html" target="_blank">横滨</a>
+                                    </td>
+                                    <td class="td-name">15天</td>
+                                    <td class="td-name">面议</td>
+                                    <td class="td-name">
+                                        COSCO</td>
+                                    <td class="td-baozhang">
+                                        <p class="ell"><a href="http://www.lvmae.com/company/33893/index.html" target="_blank" title="深圳市小马物流有限公司">深圳市小马物流有限公司</a></p>
+                                        <p>
+<span>
+<i class="icon-zheng">证</i><i class="icon-abc">3A</i>
+</span>
+                                        </p>
+                                    </td>
+                                    <td class="td-fahuo">
+                                        <a href="http://www.lvmae.com/seaport/164-14/11.html" target="_blank" class="b-3">联系发货</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="b-4 mt2" onclick="btnClickContact(this,11,'33893',2)">
+                                                <em class="icons-tel"></em><em title="点击查看联系电话" >热线</em>
+                                            </a>
+                                        </div>
+                                        <div class="bubble-box">
+                                            <div class="arrow-left"></div>
+                                            <div class="wraps"><span class="tel"></span><span title="关闭" class="tel-box-close"></span></div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_165">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/165-2/index.html" class="eltxt" target="_blank" title="佛山到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/165-5/index.html" class="eltxt" target="_blank" title="佛山到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/165-14/index.html" class="eltxt" target="_blank" title="佛山到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/165-15/index.html" class="eltxt" target="_blank" title="佛山到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/165-322/index.html" class="eltxt" target="_blank" title="佛山到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/165-550/index.html" class="eltxt" target="_blank" title="佛山到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/165-552/index.html" class="eltxt" target="_blank" title="佛山到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/165-632/index.html" class="eltxt" target="_blank" title="佛山到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/165-730/index.html" class="eltxt" target="_blank" title="佛山到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/165-837/index.html" class="eltxt" target="_blank" title="佛山到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_186">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/186-2/index.html" class="eltxt" target="_blank" title="厦门到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/186-5/index.html" class="eltxt" target="_blank" title="厦门到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/186-14/index.html" class="eltxt" target="_blank" title="厦门到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/186-15/index.html" class="eltxt" target="_blank" title="厦门到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/186-322/index.html" class="eltxt" target="_blank" title="厦门到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/186-550/index.html" class="eltxt" target="_blank" title="厦门到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/186-552/index.html" class="eltxt" target="_blank" title="厦门到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/186-632/index.html" class="eltxt" target="_blank" title="厦门到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/186-730/index.html" class="eltxt" target="_blank" title="厦门到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/186-837/index.html" class="eltxt" target="_blank" title="厦门到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_191">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/191-2/index.html" class="eltxt" target="_blank" title="上海到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/191-5/index.html" class="eltxt" target="_blank" title="上海到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/191-14/index.html" class="eltxt" target="_blank" title="上海到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/191-15/index.html" class="eltxt" target="_blank" title="上海到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/191-322/index.html" class="eltxt" target="_blank" title="上海到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/191-550/index.html" class="eltxt" target="_blank" title="上海到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/191-552/index.html" class="eltxt" target="_blank" title="上海到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/191-632/index.html" class="eltxt" target="_blank" title="上海到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/191-730/index.html" class="eltxt" target="_blank" title="上海到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/191-837/index.html" class="eltxt" target="_blank" title="上海到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_194">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/194-2/index.html" class="eltxt" target="_blank" title="宁波到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/194-5/index.html" class="eltxt" target="_blank" title="宁波到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/194-14/index.html" class="eltxt" target="_blank" title="宁波到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/194-15/index.html" class="eltxt" target="_blank" title="宁波到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/194-322/index.html" class="eltxt" target="_blank" title="宁波到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/194-550/index.html" class="eltxt" target="_blank" title="宁波到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/194-552/index.html" class="eltxt" target="_blank" title="宁波到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/194-632/index.html" class="eltxt" target="_blank" title="宁波到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/194-730/index.html" class="eltxt" target="_blank" title="宁波到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/194-837/index.html" class="eltxt" target="_blank" title="宁波到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_196">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/196-2/index.html" class="eltxt" target="_blank" title="青岛到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/196-5/index.html" class="eltxt" target="_blank" title="青岛到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/196-14/index.html" class="eltxt" target="_blank" title="青岛到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/196-15/index.html" class="eltxt" target="_blank" title="青岛到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/196-322/index.html" class="eltxt" target="_blank" title="青岛到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/196-550/index.html" class="eltxt" target="_blank" title="青岛到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/196-552/index.html" class="eltxt" target="_blank" title="青岛到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/196-632/index.html" class="eltxt" target="_blank" title="青岛到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/196-730/index.html" class="eltxt" target="_blank" title="青岛到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/196-837/index.html" class="eltxt" target="_blank" title="青岛到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_198">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/198-2/index.html" class="eltxt" target="_blank" title="连云港到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/198-5/index.html" class="eltxt" target="_blank" title="连云港到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/198-14/index.html" class="eltxt" target="_blank" title="连云港到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/198-15/index.html" class="eltxt" target="_blank" title="连云港到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/198-322/index.html" class="eltxt" target="_blank" title="连云港到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/198-550/index.html" class="eltxt" target="_blank" title="连云港到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/198-552/index.html" class="eltxt" target="_blank" title="连云港到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/198-632/index.html" class="eltxt" target="_blank" title="连云港到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/198-730/index.html" class="eltxt" target="_blank" title="连云港到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/198-837/index.html" class="eltxt" target="_blank" title="连云港到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_203">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/203-2/index.html" class="eltxt" target="_blank" title="大连到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/203-5/index.html" class="eltxt" target="_blank" title="大连到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/203-14/index.html" class="eltxt" target="_blank" title="大连到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/203-15/index.html" class="eltxt" target="_blank" title="大连到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/203-322/index.html" class="eltxt" target="_blank" title="大连到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/203-550/index.html" class="eltxt" target="_blank" title="大连到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/203-552/index.html" class="eltxt" target="_blank" title="大连到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/203-632/index.html" class="eltxt" target="_blank" title="大连到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/203-730/index.html" class="eltxt" target="_blank" title="大连到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/203-837/index.html" class="eltxt" target="_blank" title="大连到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_209">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/209-2/index.html" class="eltxt" target="_blank" title="广州到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/209-5/index.html" class="eltxt" target="_blank" title="广州到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/209-14/index.html" class="eltxt" target="_blank" title="广州到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/209-15/index.html" class="eltxt" target="_blank" title="广州到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/209-322/index.html" class="eltxt" target="_blank" title="广州到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/209-550/index.html" class="eltxt" target="_blank" title="广州到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/209-552/index.html" class="eltxt" target="_blank" title="广州到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/209-632/index.html" class="eltxt" target="_blank" title="广州到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/209-730/index.html" class="eltxt" target="_blank" title="广州到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/209-837/index.html" class="eltxt" target="_blank" title="广州到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content " data-tab="city_232">
+                <div class="section-1">
+                    <div class="section-left">
+                        <h4><span class="icons-i1"></span><strong>热门送达港口</strong></h4>
+                        <div class="tag-box-1">
+                            <a href="http://www.lvmae.com/seaport/232-2/index.html" class="eltxt" target="_blank" title="天津(新港)到那瓦什瓦航线">那瓦什瓦</a>
+                            <a href="http://www.lvmae.com/seaport/232-5/index.html" class="eltxt" target="_blank" title="天津(新港)到卡拉奇航线">卡拉奇</a>
+                            <a href="http://www.lvmae.com/seaport/232-14/index.html" class="eltxt" target="_blank" title="天津(新港)到横滨航线">横滨</a>
+                            <a href="http://www.lvmae.com/seaport/232-15/index.html" class="eltxt" target="_blank" title="天津(新港)到东京航线">东京</a>
+                            <a href="http://www.lvmae.com/seaport/232-322/index.html" class="eltxt" target="_blank" title="天津(新港)到新加坡航线">新加坡</a>
+                            <a href="http://www.lvmae.com/seaport/232-550/index.html" class="eltxt" target="_blank" title="天津(新港)到汉堡航线">汉堡</a>
+                            <a href="http://www.lvmae.com/seaport/232-552/index.html" class="eltxt" target="_blank" title="天津(新港)到鹿特丹航线">鹿特丹</a>
+                            <a href="http://www.lvmae.com/seaport/232-632/index.html" class="eltxt" target="_blank" title="天津(新港)到里加航线">里加</a>
+                            <a href="http://www.lvmae.com/seaport/232-730/index.html" class="eltxt" target="_blank" title="天津(新港)到伊斯坦布尔航线">伊斯坦布尔</a>
+                            <a href="http://www.lvmae.com/seaport/232-837/index.html" class="eltxt" target="_blank" title="天津(新港)到迪拜航线">迪拜</a>
+                        </div>
+                        <div class="img-box-1">
+                        </div>
+                    </div>
+                    <div class="section-right">
+                        <div class="img-box-1">
+                        </div>
+                        <div class="img-box-1 mt8">
+                        </div>
+                    </div>
+                    <div class="section-middle">
+                        <div class="car-list">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="wp10">起始港</th>
+                                    <th class="wp10">目的港</th>
+                                    <th class="wp10">时效</th>
+                                    <th class="wp15">运输价格</th>
+                                    <th class="wp15">船公司</th>
+                                    <th class="wp15">保障</th>
+                                    <th class="wp12">发货</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 推荐物流承运商 Start -->
+<div class="block-wrapper tuijianwuliu">
+    <div class="wrap">
+        <div class="block-header">
+            <p style="float:left;line-height: 30px;text-indent: 20px;width: 120px;">推荐物流承运商</p>
+            <div class="selectCitys">
+                <b></b>
+                <i>深圳</i>
+                <ul class="choosearea tab-title" style="display: none;">
+                    <li data-tab="tj_28373">深圳</li>
+                    <li data-tab="tj_28062">广州</li>
+                    <li data-tab="tj_23842">武汉</li>
+                    <li data-tab="tj_29658">东莞</li>
+                </ul>
+            </div>
+        </div>
+        <div class="block-content">
+            <div class="section-4">
+                <div class="block-body">
+                    <div class="tab-content tab-active" data-tab="tj_28373">
+                        <div class="">
+                            <div class="section-box">
+                                <ul class="com-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content " data-tab="tj_28062">
+                        <div class="">
+                            <div class="section-box">
+                                <ul class="com-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content " data-tab="tj_23842">
+                        <div class="">
+                            <div class="section-box">
+                                <ul class="com-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content " data-tab="tj_29658">
+                        <div class="">
+                            <div class="section-box">
+                                <ul class="com-list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-5" id="order_list">
+                <div class="t-1">最新发货单</div>
+                <ul class="order-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 推荐物流承运商 End -->
+<!-- 物流商圈 Start -->
+<div class="block-wrapper wuliuquan">
+    <div class="wrap">
+        <div class="block-header">
+            <h3>物流商圈</h3>
+        </div>
+        <div class="block-body">
+            <div class="block-content">
+                <div class="section-box">
+                    <div class="section-4">
+                        <ul class="wuliu-list">
+                        </ul>
+                    </div>
+                    <div class="section-5">
+                        <a href="http://www.lvmae.com/about/6.html" target="_blank"><img src="http://www.lvmae.com/file/upload/201607/18/16-23-43-62-1.jpg" width="235" height="230" alt=""/></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 物流商圈 End -->
+
+<!-- 热门动态 Start -->
+<div class="block-wrapper dongtai">
+    <div class="wrap">
+        <div class="block-header"></div>
+        <div class="block-body">
+            <div class="block-content" style="height:90px;">
+                <div class="section-box">
+                    <div class="section-6" style="width:100%">
+                        <div class="partner">
+                            <div class="t-1">合作伙伴</div>
+                            <ul class="partner-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 热门动态 End -->
+<div class="frendlink">
+    <div class="wrap">
+        <h3><strong>友情链接</strong></h3>
+        <div class="link-content">
+            <a href="http://dh.cx" target="_blank" >易查单</a>
+            <a href="http://www.tuwentongbu.com" target="_blank" >图文同步</a>
+            <a href="http://www.yunwangke168.com" target="_blank" >云网客</a>
+            <a href="http://www.zgwlc.cn/" target="_blank"  rel="external nofollow">中国物流城</a>
+            <a href="http://www.jhx56.cn/" target="_blank"  rel="external nofollow">佳豪鑫物流</a>
+            <a href="http://www.5688.com.cn" target="_blank" >物流巴巴</a>
+            <a href="http://www.chinaports.com" target="_blank" >中国港口网</a>
+            <a href="http://www.yunfei89.com" target="_blank" >海运报价</a>
+            <a href="http://www.cloud56.net" target="_blank" >物流信息</a>
+            <a href="http://www.shippingcity.com" target="_blank" >海运价格</a>
+            <a href="http://www.66tx.cn" target="_blank" >四川物流</a>
+            <a href="http://www.yicha138.com" target="_blank" >京东快递查询</a>
+            <a href="http://www.56fuwu.com" target="_blank" >深圳国际快递</a>
+            <a href="http://www.11183post.com" target="_blank" >ems经济快递查询</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/road/hj.logistics.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/road/doBusinessPhone.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://www.lvmae.com/file/script/index/baidumap.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    //订单滚动
+    if( $("#order_list ul li").length > 8 ) {
+        $("#order_list").FontScroll({num:1, time:3000});
+    }
+    //城市选择
+    $('div.selectCitys i').click(function(){
+        $(this).next('ul').toggle();
+    })
+    $('ul.choosearea li').click(function(){
+        $(this).addClass('choosed').siblings().removeClass('choosed');
+        $(this).parent('ul').hide();
+        $(this).parent('ul').next('input').val($(this).attr('data-id'));
+        $(this).parent('ul').prev('i').text($(this).text());
+    })
+
+    $(function (){
+        $("#GPStartPort").positionEx({
+            suggesttype: "StartPort",
+            sourcetype: "SourcePort"
+        });
+        $("#GPEndPort").positionEx({
+            suggesttype: "EndPort",
+            sourcetype: "SourcePort"
+        });
+    });
+</script>
+<div class="footer">
+    <div class="wrap">
+        <p><a href="http://www.lvmae.com/news/lvmae/1339.html" target="_blank" rel="nofollow">绿蚂蚁介绍</a><span class="line">|</span><a href="http://www.lvmae.net/list-10-1.html" target="_blank" rel="nofollow">大事记</a><span class="line">|</span><a href="http://www.lvmae.net/list-14-1.html" target="_blank" rel="nofollow">公司动态</a><span class="line">|</span><a href="http://www.lvmae.net/list-13-1.html" target="_blank" rel="nofollow">媒体报告</a><span class="line">|</span><a href="http://www.lvmae.com/about/6.html" target="_blank" rel="nofollow">联系我们</a><span class="line">|</span><a href="http://www.lvmae.net/">绿蚂蚁官网</a></p>
+        <p>Copyright © 绿蚂蚁干线<a href="http://www.lvmae.com">物流</a>B2B平台 All rights reserved. <a href="http://www.beian.miit.gov.cn" target="_blank">粤ICP备14032800号-1</a></p>
+    </div>
+</div>
+<div class="yb_conct">
+    <div class="yb_bar">
+        <ul>
+            <li class="yb_top">返回顶部</li>
+            <li class="yb_phone">400-963-5600</li>
+            <li class="yb_QQ">
+                <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" title="">在线咨询</a>
+            </li>
+            <li class="yb_ercode" style="height:53px;">微信二维码 <br>
+                <img class="hd_qr" src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" width="125" alt="绿蚂蚁公众号"> </li>
+        </ul>
+    </div>
+</div>
+<span style="display:none;"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F113a0efbcb8d4e12dac632a3de270881' type='text/javascript'%3E%3C/script%3E"));
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254113276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254113276' type='text/javascript'%3E%3C/script%3E"));</script><script src="http://s95.cnzz.com/z_stat.php?id=1256389723&web_id=1256389723" language="JavaScript"></script></span>
+</body>
+</html>

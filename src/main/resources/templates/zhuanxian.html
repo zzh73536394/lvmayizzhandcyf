@@ -97,14 +97,15 @@
     <div class="nav">
         <div class="wrap">
             <ul>
-                <li><a  href="http://www.lvmae.com/">首页</a></li>
+                <span id="biaoTi"></span>
+                <!--<li><a  href="http://www.lvmae.com/">首页</a></li>
                 <li><a href="http://www.lvmae.com/road/" class="current">物流专线</a></li>
                 <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
                 <li><a href="http://www.lvmae.com/seaport/" >国际海运</a></li>
                 <li><a href="http://www.lvmae.com/company/" >物流公司</a></li>
                 <li><a href="http://www.lvmae.com/news/">物流新闻</a></li>
                 <li><a href="http://www.lvmae.com/bid/" >物流招标</a></li>
-                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>-->
             </ul>
         </div>
     </div>
@@ -328,8 +329,22 @@
     $(function () {
         getDataCity();
         pingjie();
+        //标题
+        getbiaoTi();
     });
-
+    //标题
+    function getbiaoTi() {
+        $.ajax({
+            url: 'getbiaoTi',
+            success: function (data) {
+                var str = '';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<li><a href="' + data[i].uri + '" >' + data[i].text + '</a></li>';
+                }
+                $("#biaoTi").html(str);
+            }
+        })
+    }
     function findCommBYcity(startcity,endcity) {
         $.ajax({
             url:"/findCommBYcity",
@@ -350,7 +365,7 @@
             }
         });
     }
-
+    //获取当前城市
     function getDataCity() {
         $.ajax({
             url:'getDataCity',
@@ -358,7 +373,6 @@
             async:false,
             success:function (data) {
                 $("#selectArea").html(data.city);
-
             }
         })
     }

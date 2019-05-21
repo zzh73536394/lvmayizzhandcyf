@@ -122,7 +122,7 @@
                             <div class="ewm-box">
                                 <p>扫描二维码<br>
                                     关注绿蚂蚁公众号</p>
-                                <p><img src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" alt="" width="98"
+                                <p><img src="http://cyf123.oss-cn-beijing.aliyuncs.com/yard/1558083074467.jpg" alt="" width="98"
                                         height="98"></p>
                             </div>
                         </div>
@@ -244,10 +244,23 @@
         })
     }
 
+    //获取当前城市
+    function getDataCity() {
+        $.ajax({
+            url:'getDataCity',
+            type:"post",
+            async:false,
+            success:function (data) {
+                $("#selectArea").html(data.city);
+            }
+        })
+    }
     $(function () {
         //标题
         getbiaoTi();
         getBroadcastMap();
+        //获取当前城市
+        getDataCity();
     });
     var uStatus = $('#userstatus');
     $.ajax({

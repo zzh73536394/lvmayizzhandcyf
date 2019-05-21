@@ -23,9 +23,22 @@
     $(function () {
         getDataCity();
         getXinWen();
+        getbiaoTi();
     })
 
-
+    //标题
+    function getbiaoTi() {
+        $.ajax({
+            url: 'getbiaoTi',
+            success: function (data) {
+                var str = '';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<li><a href="' + data[i].uri + '" >' + data[i].text + '</a></li>';
+                }
+                $("#biaoTi").html(str);
+            }
+        })
+    }
 
     //获取当前城市
     function getDataCity() {
@@ -84,7 +97,7 @@
                     <li class="item">当前城市：</li>
                     <li class="item top-area dropdown">
                         <div class="top-area-content dropdown-box">
-                            <span class="main-color" id="selectArea">深圳</span>
+                            <span class="main-color" id="selectArea"></span>
                         </div>
                     </li>
                     <li class="item"><span class="icon icons-position"></span></li>
@@ -130,14 +143,15 @@
     <div class="nav">
         <div class="wrap">
             <ul>
-                <li><a href="http://www.lvmae.com/">首页</a></li>
+                <span id="biaoTi"></span>
+                <!--<li><a href="http://www.lvmae.com/">首页</a></li>
                 <li><a href="http://www.lvmae.com/road/">物流专线</a></li>
                 <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
                 <li><a href="http://www.lvmae.com/seaport/">国际海运</a></li>
                 <li><a href="http://www.lvmae.com/company/">物流公司</a></li>
                 <li><a class="current" href="http://www.lvmae.com/news/">物流新闻</a></li>
                 <li><a href="http://www.lvmae.com/bid/">物流招标</a></li>
-                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>-->
             </ul>
         </div>
     </div>

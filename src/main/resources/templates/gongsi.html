@@ -41,12 +41,8 @@
 <script>
     $(function () {
         getDataCity();
+        getbiaoTi();
     })
-   /* function upCity(city) {
-        alert(city);
-        $("#dataCity").html(city);
-        xingZhengQu(city);
-    }*/
     //获取当前城市
     function getDataCity() {
         $.ajax({
@@ -57,6 +53,19 @@
             $("#wuliu").html(data.city+"物流公司");
             $("#selectArea").html(data.city);
                 xingZhengQu(data.city);
+            }
+        })
+    }
+    //标题
+    function getbiaoTi() {
+        $.ajax({
+            url: 'getbiaoTi',
+            success: function (data) {
+                var str = '';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<li><a href="' + data[i].uri + '" >' + data[i].text + '</a></li>';
+                }
+                $("#biaoTi").html(str);
             }
         })
     }
@@ -190,14 +199,15 @@
     <div class="nav">
         <div class="wrap">
             <ul>
-                <li><a  href="http://www.lvmae.com/">首页</a></li>
+                <span id="biaoTi"></span>
+                <!--<li><a  href="http://www.lvmae.com/">首页</a></li>
                 <li><a href="http://www.lvmae.com/road/" >物流专线</a></li>
                 <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
                 <li><a href="http://www.lvmae.com/seaport/" >国际海运</a></li>
                 <li><a href="http://www.lvmae.com/company/" class="current">物流公司</a></li>
                 <li><a href="http://www.lvmae.com/news/">物流新闻</a></li>
                 <li><a href="http://www.lvmae.com/bid/" >物流招标</a></li>
-                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>-->
             </ul>
         </div>
     </div>
