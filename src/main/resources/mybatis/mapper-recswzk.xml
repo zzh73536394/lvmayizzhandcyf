@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jk.mapper.recswzkMapper">
+
+<insert id="commitdan">
+    insert into t_goods (startarea,endarea,user,userphone,goodsName,singleton,volume,explaines)
+    values (#{startarea},#{endarea},#{user},#{userphone},#{goodsName},#{singleton},#{volume},#{explaines})
+</insert>
+</mapper>

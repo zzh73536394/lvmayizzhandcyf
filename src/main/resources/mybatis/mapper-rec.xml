@@ -5,5 +5,40 @@
 
 <mapper namespace="com.jk.mapper.RecMapper">
 
+    <select id="tiaocha" resultType="com.jk.bean.tableall">
+        select * from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1
 
+
+        <if test="tiaojian!=''and tiaojian==1">
+            and orderNo like '%${proname}%'
+        </if>
+        <if test="tiaojian!=''and tiaojian==2">
+            and cfid like '%${proname}%'
+        </if>
+        <if test="tiaojian!=''and tiaojian==3">
+            and UPPER(to_pinyin(chufadi)) like '%${proname}%' or chufadi like '%${proname}%'
+        </if>
+        <if test="tiaojian!=''and tiaojian==4">
+            and UPPER(to_pinyin(companyName)) like '%${proname}%' or companyName like '%${proname}%'
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+
+    <insert id="add">
+        insert into t_zhaobiao (biaoti,fuwuleixing,suoshuhangye,kaishiriqi,jieshuriqi,zhuangtai,lurushijian,neirong,zhaiyao,suozaichengshi) values(#{biaoti},#{fuwuleixing},#{suoshuhangye},#{kaishiriqi},#{jieshuriqi},#{zhuangtai},#{lurushijian},#{neirong},#{zhaiyao},#{suozaichengshi})
+    </insert>
+
+    <select id="zhaobiaoguanli" resultType="com.jk.bean.zhaobiao">
+        select * from t_zhaobiao where 1=1
+        <if test="zhuangtai!=null and zhuangtai==0">
+            and zhuangtai=0
+        </if>
+        <if test="zhuangtai!=null and zhuangtai==1">
+            and zhuangtai=1
+        </if>
+        <if test="zhuangtai!=null and zhuangtai==2">
+            and zhuangtai=2
+        </if>
+        limit #{start},#{pageSize}
+    </select>
 </mapper>

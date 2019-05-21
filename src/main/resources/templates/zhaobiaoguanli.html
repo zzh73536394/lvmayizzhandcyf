@@ -1,0 +1,298 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>C端后台首页</title>
+    <link href="http://www.lvmae.com/skin/default/member/style/20150729template.css" type="text/css" rel="stylesheet" />
+    <link href="http://www.lvmae.com/skin/default/member/style/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/member/image/style.css"/>
+    <script type="text/javascript" src="http://www.lvmae.com/skin/default/member/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/lang/zh-cn/lang.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/config.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/common.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/admin.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/member.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".top-nav li.user").click(function(){
+                $(".am-dropdown-content").toggle(100);
+            });
+
+            $(".nav-parent").click(function(){
+                $(this).addClass("nav-active");
+                $(this).siblings().removeClass("nav-active");
+                $(".nav-active ul.children").toggle(300);
+            });
+            var i=$(".process").children("li").length;
+            for(var j=0; j<i; j++){
+                $(".process li").eq(j).addClass("process"+j);
+            }
+
+            $(".fourbtn li").eq(3).addClass("lastbtn");
+
+            var curent_url = window.location.href;
+            if( curent_url.indexOf('edit.php?action=edit') != -1 ){
+
+                curent_url = curent_url.substr(0,curent_url.lastIndexOf('edit.php?action=edit'));
+            }
+            if( curent_url.indexOf('.php') !=-1 ){
+                curent_url = curent_url.substr(0,curent_url.indexOf('.php'));
+            }else{
+                curent_url = curent_url.substr(0,curent_url.lastIndexOf('/'));
+            }
+
+            var url ='';
+            $("div.nav ul.am-list li").each(function(){
+
+                url = $(this).find('a').attr('href');
+                if( url.indexOf('.php') != -1 ){
+                    url = url.substr(0,url.indexOf('.php'));
+                }
+
+                $(this).removeClass('active');
+                if( curent_url == url ){
+                    $(this).addClass('active');
+                }
+
+            })
+
+        });
+    </script>
+
+
+
+</head>
+<body>
+<!--B端头部 start-->
+<div class="header">
+    <div class="logo"><a href="/">绿蚂蚁</a></div>
+    <ul class="top-main">
+        <li><a href="http://www.lvmae.com/">绿蚂蚁首页</a></li>
+        <li class="on"><a href="http://www.lvmae.com/member/">用户中心</a></li>
+    </ul>
+    <ul class="top-nav">
+        <li class="messege">
+            <a href="message.php">
+                <span class="fa fa-envelope-o"></span>
+                收件箱
+                <span class="messegeNum">1</span>
+            </a>
+        </li>
+        <!--<li class="chat">
+        <a href="javascript:;">
+            对话<span class="fa fa-comments-o"></span>
+            </a>
+        </li>-->
+        <li class="user">
+                    <span class="userPhoto">
+                        <label>图片边框</label>
+                        <img alt="会员图像" src="http://www.lvmae.com/api/avatar/show.php?username=18713116270&amp;size=small" />
+                        </span>
+            <span class="userName">你好：<br />18713116270</span>
+            <span class="fa fa-caret-down"></span>
+            <dl class="am-dropdown-content">
+                <dt><i class="fa fa-angle-up"></i></dt>
+                <dd>
+                    <a href="http://www.lvmae.com/member/avatar.php">
+                        <span class="fa fa-user-secret"></span> 头像
+                    </a>
+                </dd>
+                <dd>
+                    <a href="edit.php?action=edit">
+                        <span class="fa fa-cog"></span> 设置
+                    </a>
+                </dd>
+            </dl>
+        </li>
+        <li class="logout">
+            <a href="logout.php?forward=">
+                <span class="fa fa-power-off"></span> 退出
+            </a>
+        </li>
+    </ul>
+    <div id="msgbox" style="display: none;"></div>
+</div>
+<!--B端头部 start-->
+<!--main start-->
+<div class="main">
+    <!--左侧主导航 start-->
+    <div class="navbg"></div>
+    <div class="nav">
+        <ul class="am-list">
+            <li class="active"><a href="http://www.lvmae.com/member"><i class="fa fa-home"></i>用户中心</a></li>
+            <li><a href="http://www.lvmae.com/member/trade.php?action=order"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
+            <li><a href="http://www.lvmae.com/member/bid.php"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
+            <li><a href="http://www.lvmae.com/member/message.php"><i class="fa fa-file-text"></i>我的消息</a></li>
+            <li><a href="http://www.lvmae.com/member/collection.php"><i class="fa fa-send"></i>常用线路</a></li>
+            <li><a href="http://www.lvmae.com/member/edit.php?action=password"><i class="fa fa-cog"></i>修改密码</a></li>
+            <li><a href="http://www.lvmae.com/member/address.php"><i class="fa fa-map-marker"></i>地址管理</a></li>
+        </ul>
+    </div>
+    <!--左侧主导航 end--><link href="http://www.lvmae.com/skin/default/member/style/20151010order-tms.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://www.lvmae.com/skin/default//seasport/H-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="http://www.lvmae.com/file/plugins/layui/css/layui.css" media="all" />
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/layer/layer.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/seasport/layer/show_fun.js"></script>
+    <style>
+        .osearchs{width:100%;heigth:40px;padding-bottom: 10px;}
+        .input-s{width:100px;float:left;margin-right:10px;}
+        .input-w{width:350px;float:left;margin-right:10px;}
+    </style>
+    <!--右侧内容 start-->
+
+    <!-- 引入bootstrap的css -->
+    <link  href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="/js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="/js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="/js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="/js/fileinput/css/fileinput.min.css" />
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="/js/jquery-1.8.0.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="/js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="/js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="/js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/locales/zh.js"></script>
+
+    <script type="text/javascript" src="/js/fileinput/themes/fa/theme.js"></script>
+    <div class="content">
+        <h2 class="title"><i class="fa fa-cart-plus"></i><label id="tl">招标列表</label><span>您的当前位置：<label><a href="http://www.lvmae.com/member">首页</a>/<a href="" id="ta"> 招标列表</a></label></span> </h2>
+
+        <form id="pro_from" class="form-inline">
+            <br/>
+            <br/>
+            <div class="form-group" style="margin-left: 20px">
+                <select  name="zhuangtai" class="form-control">
+                    <option value="0">状态</option>
+                    <option value="1">通过</option>
+                    <option value="2">未审核</option>
+                    <option value="3">拒绝</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="proname">
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="search()" style="height: 35px">搜索</button>
+            <button type="button" class="btn btn-primary" onclick="reset()" style="height: 35px">重置</button>
+        </form>
+        <blockquote class="layui-elem-quote">
+            <a onclick="layer_show('添加招标信息', '/toShow?url=zhaobiaoxinzeng', '900', '620')" class="layui-btn layui-btn-small">
+                <i class="layui-icon"></i> 添加招标信息
+            </a>
+        </blockquote>
+        <table id="bootTab"></table>
+    </div>
+
+</div>
+<!--main end-->
+</body>
+<script type="text/javascript">
+    $(function (){
+        $("#bootTab").bootstrapTable({
+            url:"/zhaobiaoguanli",
+            method:"post",
+            striped: true,  	// 斑马线效果     默认false
+            //只允许选中一行
+            singleSelect:true,
+            //选中行是不选中复选框或者单选按钮
+            clickToSelect:true,
+            showToggle:true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            uniqueId: "newsId",                 //每一行的唯一标识，一般为主键列
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: false,                  //是否显示刷新按钮
+            minimumCountColumns: 2,     //  最少留两列
+            detailView: false,                  //是否显示父子表
+            //发送到服务器的数据编码类型
+            contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+            toolbar:'#tabToolBar',   //  工具定义位置
+            columns:[
+                {field:'biaoti',title:"标题",width:100},
+                {field:'fuwuleixing',title:'类型',width:100},      //  列    field   代表是 后台  传过来的值
+                {field:'suoshuhangye',title:'行业',width:100},
+                {field:'kaishiriqi',title:'开始时间',width:100,sortable:true},
+                {field:'jieshuriqi',title:'结束时间',width:100},
+                {field:'zhuangtai',title:'状态',width:100,
+                    formatter: function (value,row,index){
+                        var str ="";
+                        if(row.zhuangtai == 1){
+                            str = "通过";
+
+                        }
+                        if(row.zhuangtai == 2){
+                            str = "拒绝";
+
+                        }
+                        if(row.zhuangtai == 0){
+                            str = "未审核";
+
+                        }
+                        return str
+                    }},
+                {field:'dianjiliang',title:'点击量',width:100},
+                {field:'lurushijian',title:'录入时间',width:100},
+                {field:'xxxxxx',title:'操作',width:100,
+                    formatter: function (value,row,index){
+                        return "<a href='javascript:delete(&quot;"+row.id+"&quot;)'>删除</a>";
+                    }}
+            ],
+            //传递参数（*）
+            queryParams: function(params) {
+                var whereParams = {
+                    /*
+                        分页  自定义的参数         默认传 limit（展示几条）    offset（从第几条开始    起始条数）
+                    */
+                    "pageSize":params.limit,
+                    "start":params.offset,
+                    "proname":$("#proname").val(),
+                    "zhuangtai":$("#zhuangtai").val(),
+
+                }
+                return whereParams;
+            },
+            //前台--排序字段
+            //sortName:'proPrice',
+            //sortOrder:'desc',
+            //前台--搜索框
+            search:false,
+            //启动回车键做搜索功能
+            searchOnEnterKey:true,
+            //分页方式   后台请求的分页方式
+            sidePagination:'server',
+            pagination: true,                   //是否显示分页（*）
+            pageNum: 1,                       //每页的记录行数（*）
+            pageSize: 3,                       //每页的记录行数（*）
+            pageList: [3, 6, 9,12],        //可供选择的每页的行数（*）
+        });
+    })
+
+    function  search(){
+        $("#bootTab").bootstrapTable("refresh",{
+            "query":{
+                "proname":$("#proname").val(),
+                "zhuangtai":$("#zhuangtai").val(),
+            }
+        });
+
+    }
+</script>
+</html>

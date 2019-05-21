@@ -2,6 +2,8 @@ package com.jk.controller;
 
 import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
+import com.jk.bean.tiaocha;
+import com.jk.bean.zhaobiao;
 import com.jk.service.RecSevice;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -124,4 +127,24 @@ public class RecController {
         List<String> remen = jedis.lrange("remen", 0, llen - 1);
         return remen;
     }
+
+
+    @RequestMapping("tiaocha")
+    @ResponseBody
+    public HashMap<String, Object> tiaocha(Integer pageSize, Integer start, tiaocha tiaocha) {
+            return recSevice.tiaocha(pageSize,start,tiaocha);
+    }
+
+    @RequestMapping("add")
+    @ResponseBody
+    public void add(zhaobiao zhaobiao) {
+        recSevice.add(zhaobiao);
+    }
+
+    @RequestMapping("zhaobiaoguanli")
+    @ResponseBody
+    public HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha) {
+        return recSevice.zhaobiaoguanli(pageSize,start,tiaocha);
+    }
+
 }

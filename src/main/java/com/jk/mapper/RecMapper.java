@@ -2,6 +2,10 @@ package com.jk.mapper;
 
 
 
+import com.jk.bean.*;
+import com.jk.util.MenuTree;
+import lombok.Data;
+import org.apache.ibatis.annotations.Insert;
 import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
 import org.apache.ibatis.annotations.Param;
@@ -44,4 +48,20 @@ public interface RecMapper {
 
     @Select("select mudidi from t_commpany where chufadi=#{nowCity} GROUP BY mudidi")
     List<String> findNowByAll(@Param("nowCity") String nowCity);
+
+
+
+    List<Order> tiaocha(@Param("pageSize")Integer pageSize,@Param("start") Integer start,@Param("maxDate") Data maxDate,@Param("minTime") Data minTime,@Param("proname") String proname,@Param("tiaojian") Integer tiaojian,@Param("zhuangtai") Integer zhuangtai);
+
+    @Select("select count(*) from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1")
+    Integer count();
+
+
+    void add(zhaobiao zhaobiao);
+
+    @Select("select count(*) from t_zhaobiao")
+    Integer countzhaobiao();
+
+
+    List<zhaobiao> zhaobiaoguanli(@Param("pageSize")Integer pageSize,@Param("start") Integer start, @Param("proname")String proname,@Param("zhuangtai") Integer zhuangtai);
 }

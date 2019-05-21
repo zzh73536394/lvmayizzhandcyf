@@ -1,12 +1,18 @@
 package com.jk.service;
 
 import com.jk.bean.Commpany;
+import com.jk.bean.Order;
 import com.jk.bean.liandong;
+import com.jk.bean.tiaocha;
+import com.jk.bean.zhaobiao;
 import com.jk.mapper.RecMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import java.util.List;
@@ -48,6 +54,43 @@ public class RecSeviceImpl implements RecSevice{
     public List<LinkedHashMap<String, Object>> getBroadcastMap() {
         return recMapper.getBroadcastMap();
     }
+
+
+
+    @Override
+    public HashMap<String, Object> tiaocha(Integer pageSize, Integer start, tiaocha tiaocha) {
+        String proname ="";
+        if(tiaocha.getProname()!=null&&tiaocha.getProname()!=""){
+            proname=  tiaocha.getProname().replaceAll(" ","");
+        }
+        Integer count = recMapper.count();
+        List<Order> tiaocha1 = recMapper.tiaocha(pageSize, start, tiaocha.getMaxDate(),tiaocha.getMinDate(),proname,tiaocha.getTiaojian(),tiaocha.getZhuangtai());
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("total",count);
+        hashMap.put("rows",tiaocha1);
+        return hashMap;
+    }
+
+    @Override
+    public void add(zhaobiao zhaobiao) {
+        recMapper.add(zhaobiao);
+    }
+
+    @Override
+    public HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha) {
+        String proname ="";
+        if(tiaocha.getProname()!=null&&tiaocha.getProname()!=""){
+            proname=  tiaocha.getProname().replaceAll(" ","");
+        }
+        Integer count = recMapper.countzhaobiao();
+        List<zhaobiao> tiaocha1 = recMapper.zhaobiaoguanli(pageSize, start, proname,tiaocha.getZhuangtai());
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("total",count);
+        hashMap.put("rows",tiaocha1);
+        return hashMap;
+    }
+
+
 
     @Override
     public List<LinkedHashMap<String, Object>> xingZhengQu(String city) {

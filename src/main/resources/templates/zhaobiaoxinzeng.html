@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 引入bootstrap的css -->
+    <link  href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="/js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="/js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="/js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="/js/fileinput/css/fileinput.min.css" />
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="/js/jquery-1.8.0.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="/js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="/js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="/js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/locales/zh.js"></script>
+
+    <script type="text/javascript" src="/js/fileinput/themes/fa/theme.js"></script>
+
+    <!-- 编辑器 -->
+    <link rel="stylesheet" href="js/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="js/kindeditor/plugins/code/prettify.css" />
+    <script charset="utf-8" src="js/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="js/kindeditor/lang/zh-CN.js"></script>
+    <script charset="utf-8" src="js/kindeditor/plugins/code/prettify.js"></script>
+
+
+</head>
+<body>
+<form id="addff" class="form-inline" method="post">
+    <br/>
+    <br/>
+    <div class="form-group" style="margin-left: 30px">
+        <label for="biaoti">标题</label>
+        <input type="text" class="form-control" name="biaoti" id="biaoti" placeholder="请输入标题">
+    </div>
+    <br/>
+    <br/>
+    <div class="form-group" style="margin-left: 30px">
+        <label for="zhaiyao">摘要</label>
+        <!--<input type="textarea" class="form-control" id="xxx" placeholder="请填写摘要" style="height: 100px;width: 500px">-->
+        <textarea  class="form-control" name="zhaiyao" id="zhaiyao" placeholder="请填写摘要" style="height: 100px;width: 500px"></textarea>
+    </div>
+    <br>
+    <div style="margin-left: 30px">
+    内容<textarea name="content1"  cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;">
+     </textarea>
+    <input type="hidden" name="neirong" id ="hidId"/>
+    </div>
+    <br />
+    <br />
+    <div class="form-group" style="margin-left: 30px">
+        <label for="kaishiriqi">开始日期</label>
+        <input type="text" class="form-control" name="kaishiriqi" id="kaishiriqi">
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group" style="margin-left: 30px">
+        <label for="jieshuriqi">结束日期</label>
+        <input type="text" class="form-control" id="jieshuriqi" name="jieshuriqi">
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="form-group" style="margin-left: 30px">
+        <label for="suoshuhangye">所属行业</label>
+        <input type="text" class="form-control" id="suoshuhangye" name="suoshuhangye" placeholder="请输入行业">
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group" style="margin-left: 30px">
+        <label for="fuwuleixing">服务类型</label>
+        <input type="text" class="form-control" id="fuwuleixing" name="fuwuleixing" placeholder="请输入类型">
+    </div>
+    <br>
+    <br>
+    <br>
+    <style type="text/css">
+        /* width:90px; height:30px;*/
+        .select_style { overflow:hidden;
+            border:1px solid #ccc;
+            -moz-border-radius: 5px; /* Gecko browsers */
+            -webkit-border-radius: 5px; /* Webkit browsers */
+            border-radius:5px;
+        }
+        .select_style select { padding:5px; background:transparent;  font-size: 16px; border:none;
+            -webkit-appearance: none; /*for Webkit browsers*/
+        }
+    </style>
+     <div class="select_style" style="margin-left: 30px;width: 130px">
+        <!--class="easyui-combobox"-->
+         所在城市 <select name="suozaichengshi"  id="slid" style="width: 90px;"> </select>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <input type="hidden" name="lurushijian">
+    <input type="hidden" name="zhuangtai" value="0">
+     <div style="margin-left: 660px;margin-bottom: 50px">
+         <button type="button" class="btn btn-success" onclick="add()">立即提交</button>
+     </div>
+
+
+</form>
+</body>
+
+
+
+<script>
+    $(function () {
+        $.ajax({
+            url:"/getsheng",
+            type: "post",
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+
+                $("#slid").html(hi);
+
+            }
+        })
+    })
+
+
+    function add(){
+        $("#hidId").val(editor1.html());
+        $.ajax({
+            url:"/add",
+            type:"post",
+            data:$("#addff").serialize(),
+            dataType:"json",
+            success:function (data) {
+               alert("新增成功")
+            },error:function (data) {
+
+            }
+        })
+    }
+
+
+    /*function add(){
+
+        $("#hidId").val(editor1.html());
+        $('#addff').form('submit', {
+            url:"/add",
+            onSubmit: function(){
+                // 用来提交前的判断
+
+            },
+            success:function(data){
+
+                $("#addff").form("clear");
+            }
+        });
+    }*/
+</script>
+
+<script>
+    var editor1 = null;
+    KindEditor.ready(function(K) {
+        editor1= K.create('textarea[name="content1"]', {
+            cssPath : 'kindeditor/plugins/code/prettify.css',
+            uploadJson : 'kindeditor/jsp/upload_json.jsp',
+            fileManagerJson : 'kindeditor/jsp/file_manager_json.jsp',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    document.forms['example'].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    document.forms['example'].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+
+
+
+</script>
+</html>

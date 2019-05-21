@@ -162,7 +162,7 @@
     </div>
     <div class="user-center">
         <div class="wrap">
-            <a href="http://www.lvmae.com/member" class="user-box"><em></em><span>个人中心</span></a>
+            <a href="/toShow?url=gerenzhongxin" class="user-box"><em></em><span>个人中心</span></a>
         </div>
     </div>
 </div>
@@ -310,27 +310,31 @@
 <div class="t-1">线路查询</div>
     <!--三级联动 begin-->
     <!--  省市区三级联动 begin -->
-    出发地:<br>
-    <div>
-    <div style="float: left;">省:</div>
-    <div class="select_style" style="float: left;">
+    <font size="3px">出发地:</font><br>
+
+    <div style="float: left;"><font size="3px">省:</font></div>
+    <div class="select_style" style="float: left;height: 30px;">
         <form id="xialaformid" method="post">
         <!--class="easyui-combobox"-->
         <select name="sidtop"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
     </div>
-    <div style="float: left;">市：</div>
-   <div class="select_style" style="float: left">
+
+        <div style="float: left;"><font size="3px">市:</font></div>
+        <div class="select_style" style="height: 30px;float: left">
        <select name="shiidtop"  id="shiid" onchange="xianid1()" style="width: 90px;"></select>
     </div>
-    <div style="float: left;">县: </div>
-    <div class="select_style" style="float: left;">
+    <div style="float: left;"><font size="3px">县:</font></div>
+    <div class="select_style" style="height: 30px;float: left;">
         <select name="xidtop"  id="xianid" style="width: 90px;"></select>
+
+
     </div>
     <div style="clear:both"></div>
     </div>
     <br><br>
     <!--三级联动 begin-->
     <!--  省市区三级联动 begin -->
+    <font size="3px">目的地:</font><br>
     <div style="float: left;">
     <div style="float: left;">省:</div>
     <div class="select_style" style="width: 90px;float: left;">
@@ -356,9 +360,7 @@
                type: "post",
                data:{typeid:a},
                success : function (data) {
-                   var hi="";
-
-
+                   var hi="<option value='000000'>请选择</option>";
 
                    for (var i = 0; i <data.length; i++) {
 
@@ -374,13 +376,14 @@
 
        function shiid1() {
          var a=document.getElementById("slid");
+
            a=a.value
            $.ajax({
                url:"/getshi",
                type: "post",
                data:{typeid:a},
                success : function (data) {
-                   var hi="";
+                   var hi="<option value='000000'>请选择</option>";
 
                    for (var i = 0; i <data.length; i++) {
 
@@ -389,6 +392,10 @@
 
                    $("#shiid").html(hi);
                    $("#xianid").html("");
+
+
+
+
                }
            })
 
@@ -406,7 +413,7 @@
                      }
                      $("#rmDIVid").html(str);
                  },error:function () {
-                     
+
                  }
              });
        }
@@ -427,6 +434,10 @@
 
                    $("#slid").html(hi);
                    $("#sslid").html(hi);
+
+
+
+
                }
            })
        })
@@ -449,7 +460,7 @@
                 type: "post",
                 data:{typeid:a},
                 success : function (data) {
-                    var hi="";
+                    var hi="<option value='000000'>请选择</option>";
 
                     for (var i = 0; i <data.length; i++) {
 
@@ -471,7 +482,7 @@
                 type: "post",
                 data:{typeid:a},
                 success : function (data) {
-                    var hi="";
+                    var hi="<option value='000000'>请选择</option>";
 
                     for (var i = 0; i <data.length; i++) {
 
@@ -524,11 +535,9 @@
                 },success:function (data) {
                     location.href="/toZhuanxian?startcity="+shiid.options[shiid.selectedIndex].text+"&endcity="+sshiid.options[sshiid.selectedIndex].text;
                 },error:function (){
-                    
+
                 }
-            });
-
-
+            })
 
 
 
