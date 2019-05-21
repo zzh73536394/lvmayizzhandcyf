@@ -2,6 +2,7 @@ package com.jk.mapper;
 
 import com.jk.bean.liandong;
 import com.jk.bean.orderModel;
+import com.jk.bean.orderwModel;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -53,5 +54,32 @@ public interface recswzkMapper {
      */
     @Select(" select count(*) from schooltest  ")
     long getgetblacklistsum();
+
+    /**
+     * 提交订单 goods 订单
+     * 2019-5-18 20:34:19
+     * wzk
+     * @param
+     */
+    void commitdanss(orderwModel orderwModel);
+
+    /**
+     *在线发货 wzk  2019-5-21 10:04:44  不包括收件人 和收件人联系人
+     * @param orderwModel
+     */
+
+    void orderw(orderwModel orderwModel);
+
+    /**
+     * 预估运费
+     * @param orderwModel
+     */
+    void deal(orderwModel orderwModel);
+
+    /*
+     * 获取交易表的最大ID
+     * */
+    @Select("select max(id) from t_deal")
+    Integer queryid();
 }
 

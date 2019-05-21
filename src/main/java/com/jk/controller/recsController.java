@@ -3,6 +3,7 @@ package com.jk.controller;
 import com.jk.bean.liandong;
 import com.jk.bean.orderModel;
 
+import com.jk.bean.orderwModel;
 import com.jk.service.RecsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -55,5 +57,17 @@ public class recsController {
     @ResponseBody
     public void  commitdan(orderModel orderModel){
         recsService.commitdan(orderModel);
+    }
+
+    /**
+     * 提交订单  wzk  2019-5-18 17:43:19
+     *
+     */
+    @RequestMapping("commitdanss")
+    @ResponseBody
+    public void  commitdanss(orderwModel orderwModel){
+        long date= new Date().getTime();
+        orderwModel.setOrderNo(date);
+        recsService.commitdanss(orderwModel);
     }
 }

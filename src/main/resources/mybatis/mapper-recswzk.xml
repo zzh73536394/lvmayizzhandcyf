@@ -9,4 +9,19 @@
     insert into t_goods (startarea,endarea,user,userphone,goodsName,singleton,volume,explaines)
     values (#{startarea},#{endarea},#{user},#{userphone},#{goodsName},#{singleton},#{volume},#{explaines})
 </insert>
+
+    <!--商品表-->
+    <insert id="commitdanss">
+    insert into t_goods (number,freightId,goodsName,packaging,singleton,volume,explaines,orderNo)
+    values (1,#{freightId},#{goodsName},'纸箱',#{singleton},#{volume},#{explaines},#{orderNo})
+</insert>
+    <!-- 订单表-->
+    <insert id="orderw">
+    insert into t_order (hairProvinces,closedProvinces,shipping,sendPhone,wetherOrderId,bringSite,commpanyId,presentSite,statusId,delivery,deliverPhone,placeDate,accept,city,city2,orderNo)
+values (#{hairProvinces},#{closedProvinces},#{shipping},#{sendPhone},#{wetherOrderId},#{bringSite},#{commpanyId},#{presentSite},#{statusId},#{delivery},#{deliverPhone},#{placeDate},1,#{city},#{city2},#{orderNo})
+    </insert>
+    <!--  新增预估运费-->
+    <insert id="deal">
+        insert  into  t_deal (estimateMoney) values (#{estimateMoney})
+    </insert>
 </mapper>

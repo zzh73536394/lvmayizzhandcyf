@@ -4,11 +4,13 @@ import com.jk.bean.liandong;
 import com.jk.bean.orderModel;
 
 
+import com.jk.bean.orderwModel;
 import com.jk.mapper.recswzkMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,5 +59,22 @@ public class RecsServiceImpl implements RecsService {
     @Override
     public void commitdan(orderModel orderModel) {
         recswzkMapper.commitdan(orderModel);
+    }
+
+    @Override
+    public void commitdanss(orderwModel orderwModel) {
+
+        //预估运费
+        recswzkMapper.deal(orderwModel);
+        Integer id =  recswzkMapper.queryid();
+        orderwModel.setFreightId(id);
+        //商品表的新增
+        recswzkMapper.commitdanss(orderwModel);
+
+        Date date = new Date();
+        orderwModel.setPlaceDate(date);
+        //订单表的新增
+        recswzkMapper.orderw(orderwModel);
+
     }
 }

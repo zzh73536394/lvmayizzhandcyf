@@ -3,6 +3,7 @@ package com.jk.service;
 import com.jk.bean.liandong;
 import com.jk.bean.orderModel;
 
+import com.jk.bean.orderwModel;
 import org.springframework.stereotype.Repository;
 
 
@@ -22,4 +23,6 @@ public interface RecsService {
 
 
     void commitdan(orderModel orderModel);
+
+    void commitdanss(orderwModel orderwModel);
 }
