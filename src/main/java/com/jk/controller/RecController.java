@@ -1,9 +1,12 @@
 package com.jk.controller;
 
+import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
 import com.jk.service.RecSevice;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
@@ -71,15 +74,54 @@ public class RecController {
         return url;
     }
 
-    @RequestMapping("getluxian")
-    @ResponseBody
-    public List<LinkedHashMap<String, Object>> getluxian(String a,String b) {
-        return recSevice.getluxian(a,b);
-    }
+
     @RequestMapping("xingZhengQu")
     @ResponseBody
     public List<LinkedHashMap<String,Object>> xingZhengQu(String city) {
         List<LinkedHashMap<String,Object>> list=recSevice.xingZhengQu(city);
         return list;
+    }
+
+    @RequestMapping("addRemen")
+    @ResponseBody
+    public void addRemen(String begin,String end){
+        Jedis jedis = jedisPool.getResource();
+        jedis.lpush("remen",begin,end);
+        jedis.close();
+    }
+
+    @RequestMapping("toZhuanxian")
+    public String toZhuanxian(String startcity, String endcity, Model model){
+        if (StringUtils.isNotEmpty(startcity)&&StringUtils.isNotEmpty(endcity)){
+                  model.addAttribute("status",true);
+            model.addAttribute("startcity",startcity);
+            model.addAttribute("endcity",endcity);
+        }
+        else{
+            model.addAttribute("status",false);
+        }
+      return "zhuanxian";
+    }
+
+    @RequestMapping("findCommBYcity")
+    @ResponseBody
+    public List<Commpany> findCommBYcity(String startcity, String endcity){
+        List<Commpany> commBYcity = recSevice.findCommBYcity(startcity, endcity);
+        return commBYcity;
+    }
+
+    @RequestMapping("findNowByAll")
+    @ResponseBody
+    public List<String> findNowByAll(String nowCity){
+        return recSevice.findNowByAll(nowCity);
+    }
+
+    @RequestMapping("getRemen")
+    @ResponseBody
+    public List<String> getRemen(){
+        Jedis jedis = jedisPool.getResource();
+        Long llen = jedis.llen("remen");
+        List<String> remen = jedis.lrange("remen", 0, llen - 1);
+        return remen;
     }
 }

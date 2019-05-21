@@ -2,6 +2,7 @@ package com.jk.mapper;
 
 
 
+import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
 import org.apache.ibatis.annotations.Param;
 
@@ -31,10 +32,12 @@ public interface RecMapper {
     List<LinkedHashMap<String, Object>> getbiaoTi();
     @Select("SELECT * FROM t_oss")
     List<LinkedHashMap<String, Object>> getBroadcastMap();
-
-
-    @Select("select * from t_commpany where chufadi=#{a} and mudidi=#{b}")
-    List<LinkedHashMap<String, Object>> getluxian(String a, String b);
     @Select("select * from t_area where pid =(select a.id from t_area a where a.`name`='北京市')")
     List<LinkedHashMap<String, Object>> xingZhengQu(String city);
+
+    @Select("select *from t_commpany where chufadi=#{startcity} and mudidi=#{endcity}")
+    List<Commpany> findCommBYcity(@Param("startcity") String startcity, @Param("endcity")String endcity);
+
+    @Select("select mudidi from t_commpany where chufadi=#{nowCity} GROUP BY mudidi")
+    List<String> findNowByAll(@Param("nowCity") String nowCity);
 }

@@ -1,5 +1,6 @@
 package com.jk.service;
 
+import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
 import com.jk.mapper.RecMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,6 @@ public class RecSeviceImpl implements RecSevice{
         return recMapper.getbiaoTi();
     }
 
-    @Override
-    public List<LinkedHashMap<String, Object>> getluxian(String a, String b) {
-        return recMapper.getluxian(a,b);
-    }
-
 
 
 
@@ -56,5 +52,17 @@ public class RecSeviceImpl implements RecSevice{
     @Override
     public List<LinkedHashMap<String, Object>> xingZhengQu(String city) {
         return recMapper.xingZhengQu(city);
+    }
+
+    @Override
+    public List<Commpany> findCommBYcity(String startcity, String endcity) {
+
+        return recMapper.findCommBYcity(startcity,endcity);
+    }
+
+    @Override
+    public List<String> findNowByAll(String nowCity) {
+
+        return recMapper.findNowByAll(nowCity);
     }
 }

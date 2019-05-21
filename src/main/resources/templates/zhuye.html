@@ -95,7 +95,7 @@
                     <li class="item">当前城市：</li>
                     <li class="item top-area dropdown">
                         <div class="top-area-content dropdown-box">
-                            <span class="main-color" id="selectArea">深圳</span>
+                            <span class="main-color" id="selectArea"></span>
                         </div>
                     </li>
                     <li class="item"><span class="icon icons-position"></span></li>
@@ -314,16 +314,17 @@
     <div>
     <div style="float: left;">省:</div>
     <div class="select_style" style="float: left;">
+        <form id="xialaformid" method="post">
         <!--class="easyui-combobox"-->
-        <select name="id"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
+        <select name="sidtop"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
     </div>
     <div style="float: left;">市：</div>
    <div class="select_style" style="float: left">
-       <select name="id"  id="shiid" onchange="xianid1()" style="width: 90px;"></select>
+       <select name="shiidtop"  id="shiid" onchange="xianid1()" style="width: 90px;"></select>
     </div>
     <div style="float: left;">县: </div>
     <div class="select_style" style="float: left;">
-        <select name="id"  id="xianid" style="width: 90px;"></select>
+        <select name="xidtop"  id="xianid" style="width: 90px;"></select>
     </div>
     <div style="clear:both"></div>
     </div>
@@ -334,15 +335,16 @@
     <div style="float: left;">省:</div>
     <div class="select_style" style="width: 90px;float: left;">
         <!--class="easyui-combobox"-->
-        <select name="id"  id="sslid" onchange="shiid2()"> </select>
+        <select name="sidtlow"  id="sslid" onchange="shiid2()"> </select>
     </div>
     <div style="float: left;">市:</div>
     <div class="select_style" style="width: 90px;float: left;">
-        <select name="id"  id="sshiid" onchange="xianid2()"></select>
+        <select name="shiidlow"  id="sshiid" onchange="xianid2()"></select>
     </div>
     <div style="float: left;">县:</div>
     <div class="select_style" style="width: 90px;float: left;">
-        <select name="id"  id="sxianid"></select>
+        <select name="xidlow"  id="sxianid"></select>
+        </form>
     </div>
     </div>
    <script>
@@ -370,7 +372,6 @@
 
        function shiid1() {
          var a=document.getElementById("slid");
-         debugger;
            a=a.value
            $.ajax({
                url:"/getshi",
@@ -395,8 +396,26 @@
 
        }
 
+       function getRemen(){
+          var nowcity= $("#selectArea").html();
+             $.ajax({
+                 url:"/getRemen",
+                 type:"post",
+                 success:function (data) {
+                     var str="";
+                     for(var i=0;i<data.length;i++){
+                         str+='<a href="/toZhuanxian?startcity='+nowcity+'&endcity='+data[i]+'" class="eltxt" target="_blank" title="'+nowcity+'到'+data[i]+'物流专线">'+data[i]+'</a>';
+                     }
+                     $("#rmDIVid").html(str);
+                 },error:function () {
+                     
+                 }
+             });
+       }
 
        $(function () {
+           getDataCity();
+           getRemen();
            $.ajax({
                url:"/getsheng",
                type: "post",
@@ -476,7 +495,17 @@
 
         }
 
+        function getDataCity() {
+            $.ajax({
+                url:'getDataCity',
+                type:"post",
+                async:false,
+                success:function (data) {
+                    $("#selectArea").html(data.city);
 
+                }
+            })
+        }
 
     </script>
 
@@ -490,20 +519,22 @@
 <button class="btn b-6" onclick="jikechaxun();">即刻查询</button>
     <script>
         function jikechaxun() {
-            var a=document.getElementById("slid");
-            var b=document.getElementById("sslid");
-            var index=a.selectedIndex;
-            a=a.options[index].text;
-            var index=b.selectedIndex;
-            b=b.options[index].text;
+            var shiid=document.getElementById("shiid");
+            var sshiid=document.getElementById("sshiid");
+            var data=$("#xialaformid").serialize();
             $.ajax({
-                url:"/getluxian",
-                type: "post",
-                data:{a:a,b:b},
-                success : function (data) {
-
+                url:"/addRemen",
+                type:"post",
+                data:{"begin":shiid.options[shiid.selectedIndex].text,
+                "end":sshiid.options[sshiid.selectedIndex].text
+                },success:function (data) {
+                    location.href="/toZhuanxian?startcity="+shiid.options[shiid.selectedIndex].text+"&endcity="+sshiid.options[sshiid.selectedIndex].text;
+                },error:function (){
+                    
                 }
-            })
+            });
+
+
 
 
 
@@ -575,7 +606,7 @@
 <div class="search-1">
 <div class="t-1">报价查询</div>
 <div class="placeholder-box" placeholder>
-<label for="">发货地</label>
+<label >发货地</label>
 <input type="text" name="saddrTitle" class=" input " id="saddrTitle" value="" placeholder="请输入发货地">
 <span class="icons-position-1"></span>
 <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
@@ -620,63 +651,8 @@
 <div class="section-1">
 <div class="section-left">
 <h4><span class="icons-i1"></span><strong>热门送达城市</strong></h4>
-<div class="tag-box-1">
-                <a href="http://www.lvmae.com/road/28373-28062/index.html" class="eltxt" target="_blank" title="深圳到广州物流专线">广州市</a>
-                <a href="http://www.lvmae.com/road/28373-28246/index.html" class="eltxt" target="_blank" title="深圳到韶关物流专线">韶关市</a>
-                <a href="http://www.lvmae.com/road/28373-28373/index.html" class="eltxt" target="_blank" title="深圳到深圳物流专线">深圳市</a>
-                <a href="http://www.lvmae.com/road/28373-28442/index.html" class="eltxt" target="_blank" title="深圳到珠海物流专线">珠海市</a>
-                <a href="http://www.lvmae.com/road/28373-28478/index.html" class="eltxt" target="_blank" title="深圳到汕头物流专线">汕头市</a>
-                <a href="http://www.lvmae.com/road/28373-28555/index.html" class="eltxt" target="_blank" title="深圳到佛山物流专线">佛山市</a>
-                <a href="http://www.lvmae.com/road/28373-28843/index.html" class="eltxt" target="_blank" title="深圳到茂名物流专线">茂名市</a>
-                <a href="http://www.lvmae.com/road/28373-29093/index.html" class="eltxt" target="_blank" title="深圳到惠州物流专线">惠州市</a>
-                <a href="http://www.lvmae.com/road/28373-29559/index.html" class="eltxt" target="_blank" title="深圳到清远物流专线">清远市</a>
-                <a href="http://www.lvmae.com/road/28373-29658/index.html" class="eltxt" target="_blank" title="深圳到东莞物流专线">东莞市</a>
-                <a href="http://www.lvmae.com/road/28373-29694/index.html" class="eltxt" target="_blank" title="深圳到中山物流专线">中山市</a>
-                <a href="http://www.lvmae.com/road/28373-29969/index.html" class="eltxt" target="_blank" title="深圳到南宁物流专线">南宁市</a>
-                <a href="http://www.lvmae.com/road/28373-30252/index.html" class="eltxt" target="_blank" title="深圳到桂林物流专线">桂林市</a>
-                <a href="http://www.lvmae.com/road/28373-30417/index.html" class="eltxt" target="_blank" title="深圳到梧州物流专线">梧州市</a>
-                <a href="http://www.lvmae.com/road/28373-30491/index.html" class="eltxt" target="_blank" title="深圳到北海物流专线">北海市</a>
-                <a href="http://www.lvmae.com/road/28373-30563/index.html" class="eltxt" target="_blank" title="深圳到钦州物流专线">钦州市</a>
-                <a href="http://www.lvmae.com/road/28373-28603/index.html" class="eltxt" target="_blank" title="深圳到江门物流专线">江门市</a>
-                <a href="http://www.lvmae.com/road/28373-28696/index.html" class="eltxt" target="_blank" title="深圳到湛江物流专线">湛江市</a>
-                <a href="http://www.lvmae.com/road/28373-28975/index.html" class="eltxt" target="_blank" title="深圳到肇庆物流专线">肇庆市</a>
-                <a href="http://www.lvmae.com/road/28373-29181/index.html" class="eltxt" target="_blank" title="深圳到梅州物流专线">梅州市</a>
-                <a href="http://www.lvmae.com/road/28373-29308/index.html" class="eltxt" target="_blank" title="深圳到汕尾物流专线">汕尾市</a>
-                <a href="http://www.lvmae.com/road/28373-29377/index.html" class="eltxt" target="_blank" title="深圳到河源物流专线">河源市</a>
-                <a href="http://www.lvmae.com/road/28373-29484/index.html" class="eltxt" target="_blank" title="深圳到阳江物流专线">阳江市</a>
-                <a href="http://www.lvmae.com/road/28373-29719/index.html" class="eltxt" target="_blank" title="深圳到潮州物流专线">潮州市</a>
-                <a href="http://www.lvmae.com/road/28373-29780/index.html" class="eltxt" target="_blank" title="深圳到揭阳物流专线">揭阳市</a>
-                <a href="http://www.lvmae.com/road/28373-29890/index.html" class="eltxt" target="_blank" title="深圳到云浮物流专线">云浮市</a>
-                <a href="http://www.lvmae.com/road/28373-30123/index.html" class="eltxt" target="_blank" title="深圳到柳州物流专线">柳州市</a>
-                <a href="http://www.lvmae.com/road/28373-30526/index.html" class="eltxt" target="_blank" title="深圳到防城港物流专线">防城港市</a>
-                <a href="http://www.lvmae.com/road/28373-30638/index.html" class="eltxt" target="_blank" title="深圳到贵港物流专线">贵港市</a>
-                <a href="http://www.lvmae.com/road/28373-30718/index.html" class="eltxt" target="_blank" title="深圳到玉林物流专线">玉林市</a>
-                <a href="http://www.lvmae.com/road/28373-30835/index.html" class="eltxt" target="_blank" title="深圳到百色物流专线">百色市</a>
-                <a href="http://www.lvmae.com/road/28373-30985/index.html" class="eltxt" target="_blank" title="深圳到贺州物流专线">贺州市</a>
-                <a href="http://www.lvmae.com/road/28373-31042/index.html" class="eltxt" target="_blank" title="深圳到河池物流专线">河池市</a>
-                <a href="http://www.lvmae.com/road/28373-31193/index.html" class="eltxt" target="_blank" title="深圳到来宾物流专线">来宾市</a>
-                <a href="http://www.lvmae.com/road/28373-31273/index.html" class="eltxt" target="_blank" title="深圳到崇左物流专线">崇左市</a>
-                <a href="http://www.lvmae.com/road/28373-31365/index.html" class="eltxt" target="_blank" title="深圳到海口物流专线">海口市</a>
-                <a href="http://www.lvmae.com/road/28373-31418/index.html" class="eltxt" target="_blank" title="深圳到三亚物流专线">三亚市</a>
-                <a href="http://www.lvmae.com/road/28373-31432/index.html" class="eltxt" target="_blank" title="深圳到三沙物流专线">三沙市</a>
-                <a href="http://www.lvmae.com/road/28373-31439/index.html" class="eltxt" target="_blank" title="深圳到五指山物流专线">五指山市</a>
-                <a href="http://www.lvmae.com/road/28373-31449/index.html" class="eltxt" target="_blank" title="深圳到琼海物流专线">琼海市</a>
-                <a href="http://www.lvmae.com/road/28373-31467/index.html" class="eltxt" target="_blank" title="深圳到儋州物流专线">儋州市</a>
-                <a href="http://www.lvmae.com/road/28373-31492/index.html" class="eltxt" target="_blank" title="深圳到文昌物流专线">文昌市</a>
-                <a href="http://www.lvmae.com/road/28373-31514/index.html" class="eltxt" target="_blank" title="深圳到万宁物流专线">万宁市</a>
-                <a href="http://www.lvmae.com/road/28373-31533/index.html" class="eltxt" target="_blank" title="深圳到东方物流专线">东方市</a>
-                <a href="http://www.lvmae.com/road/28373-31547/index.html" class="eltxt" target="_blank" title="深圳到定安县物流专线">定安县</a>
-                <a href="http://www.lvmae.com/road/28373-31562/index.html" class="eltxt" target="_blank" title="深圳到屯昌县物流专线">屯昌县</a>
-                <a href="http://www.lvmae.com/road/28373-31574/index.html" class="eltxt" target="_blank" title="深圳到澄迈县物流专线">澄迈县</a>
-                <a href="http://www.lvmae.com/road/28373-31590/index.html" class="eltxt" target="_blank" title="深圳到临高县物流专线">临高县</a>
-                <a href="http://www.lvmae.com/road/28373-31604/index.html" class="eltxt" target="_blank" title="深圳到白沙黎族自治县物流专线">白沙黎族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-31620/index.html" class="eltxt" target="_blank" title="深圳到昌江黎族自治县物流专线">昌江黎族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-31633/index.html" class="eltxt" target="_blank" title="深圳到乐东黎族自治县物流专线">乐东黎族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-31651/index.html" class="eltxt" target="_blank" title="深圳到陵水黎族自治县物流专线">陵水黎族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-31667/index.html" class="eltxt" target="_blank" title="深圳到保亭黎族苗族自治县物流专线">保亭黎族苗族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-31682/index.html" class="eltxt" target="_blank" title="深圳到琼中黎族苗族自治县物流专线">琼中黎族苗族自治县</a>
-                <a href="http://www.lvmae.com/road/28373-46992/index.html" class="eltxt" target="_blank" title="深圳到香港物流专线">香港</a>
-                <a href="http://www.lvmae.com/road/28373-47021/index.html" class="eltxt" target="_blank" title="深圳到澳门物流专线">澳门</a>
+<div class="tag-box-1" id="rmDIVid">
+
 </div>
 <div class="img-box-1">
 </div>

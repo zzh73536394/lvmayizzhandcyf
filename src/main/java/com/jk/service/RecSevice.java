@@ -1,6 +1,7 @@
 package com.jk.service;
 
 
+import com.jk.bean.Commpany;
 import com.jk.bean.liandong;
 
 
@@ -19,10 +20,11 @@ public interface RecSevice {
 
     List<LinkedHashMap<String, Object>> getbiaoTi();
 
-
-    List<LinkedHashMap<String, Object>> getluxian(String a, String b);
-
     List<LinkedHashMap<String, Object>> getBroadcastMap();
 
     List<LinkedHashMap<String, Object>> xingZhengQu(String city);
+
+    List<Commpany> findCommBYcity(String startcity, String endcity);
+
+    List<String> findNowByAll(String nowCity);
 }
