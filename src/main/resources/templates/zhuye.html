@@ -358,6 +358,8 @@
                success : function (data) {
                    var hi="";
 
+
+
                    for (var i = 0; i <data.length; i++) {
 
                        hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
@@ -387,10 +389,6 @@
 
                    $("#shiid").html(hi);
                    $("#xianid").html("");
-
-
-
-
                }
            })
 
@@ -429,10 +427,6 @@
 
                    $("#slid").html(hi);
                    $("#sslid").html(hi);
-
-
-
-
                }
            })
        })

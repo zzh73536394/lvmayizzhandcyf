@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>物流新闻_绿蚂蚁物流新闻频道为您提供物流行业新闻,物流专线新闻,物流公司新闻</title>
+    <meta name="keywords" content="物流新闻,物流行业新闻,物流公司新闻,物流专线新闻"/>
+    <meta name="description" content="绿蚂蚁物流搜索平台物流新闻频道24小时提供物流行业新闻、物流专线新闻、物流公司新闻、名人专访、热点新闻等，在这里您可以获取到国内最新的物流行业资讯动态"/>
+    <link href="http://www.lvmae.com/skin/default/news/css/common.css?version=20170918" type="text/css" rel="stylesheet" />
+    <link href="http://www.lvmae.com/skin/default/news/css/news.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://www.lvmae.com/skin/default/cssnew/index.css?version=20170922">
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/zzsc.css"></link>
+    <script src="http://www.lvmae.com/file/script/new/jquery.js"></script>
+    <script src="http://www.lvmae.com/file/script/jquery.plugins.js"></script>
+    <script src="http://www.lvmae.com/file/script/new/kslide.js"></script>
+    <script src="http://www.lvmae.com/file/script/new/main.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/index/zzsc.min.js" charset="UTF-8"></script>
+    <style>
+        .icons-wuli a{float:left;}
+    </style>
+</head>
+<body>
+<script>
+    $(function () {
+        getDataCity();
+        getXinWen();
+    })
+
+
+
+    //获取当前城市
+    function getDataCity() {
+        $.ajax({
+            url:'getDataCity',
+            success:function (data) {
+
+                $("#selectArea").html(data.city);
+
+            }
+        })
+    }
+
+    function getXinWen() {
+        $.ajax({
+            url:'getXinWen',
+            success:function (data) {
+
+
+                var wen='';
+                for (var i = 0; i <= 4; i++) {
+
+                    wen +='<li>' +
+                        '     <h3><a href="'+data.data[i].article_url+'">'+data.data[i].title+'</a></h3>' +
+                        '     <span class="time"></span>' +
+                        '     <p>'+data.data[i].abstract+'' +
+                        '      <a href="'+data.data[i].display_url+'">详情</a>' +
+                        '      </p>' +
+                        '      </li>';
+                }
+                $("#zuoWen").html(wen);
+            }
+        })
+    }
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<!-- Header Start -->
+<div class="header">
+    <div class="top">
+        <div class="wrap">
+            <div class="top-left">
+                您好，欢迎使用绿蚂蚁干线物流B2B平台！<a href="http://www.lvmae.com/member/login.php">登录</a><a href="http://www.lvmae.com/member/register.php">注册</a></div>
+            <div class="top-right">
+                <ul class="item-list">
+                    <li class="item">当前城市：</li>
+                    <li class="item top-area dropdown">
+                        <div class="top-area-content dropdown-box">
+                            <span class="main-color" id="selectArea">深圳</span>
+                        </div>
+                    </li>
+                    <li class="item"><span class="icon icons-position"></span></li>
+                    <li class="item tel-app dropdown">
+                        <div class="tel-app-content dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-photo"></span>&nbsp;<span>手机APP</span>&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描二维码<br>
+                                    下载安卓客户端</p>
+                                <p><img src="http://www.lvmae.com/skin/default/image/wechat_code.gif" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item dropdown top-wx">
+                        <div class="dropdown-box">
+                            &nbsp;&nbsp;<span class="icons-wx"></span>&nbsp;微信号&nbsp;<span class="icons-arrow-down"></span>&nbsp;&nbsp;
+                        </div>
+                        <div class="menu">
+                            <div class="ewm-box">
+                                <p>扫描微信二维码<br>
+                                    关注绿蚂蚁公众号</p>
+                                <p><img src="http://cyf123.oss-cn-beijing.aliyuncs.com/yard/1558083074467.jpg" alt="" width="98" height="98"></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+<!--
+                        <a target="_blank" style="margin-top: 5px;" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" onclick="" target="_blank" title="点击这里给我发消息"><img  alt="QQ"src="/file/image/qqnews.gif" width="70" height="20" /></a></li>
+-->
+                    <li class="item"><a href="http://www.lvmae.net/show-9-3-1.html">客户服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="wrap">
+            <div class="logo icons-logo fl"><a href="http://www.lvmae.com/" title="上绿蚂蚁发货，说走就走">上绿蚂蚁发货，说走就走</a></div>
+            <div class="icons-wuli fr" style="background-image:none;"><script type="text/javascript" src="http://www.lvmae.com/file/script/A47.js"></script></div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wrap">
+            <ul>
+                <li><a href="http://www.lvmae.com/">首页</a></li>
+                <li><a href="http://www.lvmae.com/road/">物流专线</a></li>
+                <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
+                <li><a href="http://www.lvmae.com/seaport/">国际海运</a></li>
+                <li><a href="http://www.lvmae.com/company/">物流公司</a></li>
+                <li><a class="current" href="http://www.lvmae.com/news/">物流新闻</a></li>
+                <li><a href="http://www.lvmae.com/bid/">物流招标</a></li>
+                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="user-center">
+        <div class="wrap">
+            <a class="user-box"><em></em><span>个人中心</span></a>
+        </div>
+    </div>
+</div>
+<div class="substation-box">
+    <div class="substation">
+        <div class="sub-title">分站</div>
+        <a class="sub-link-01" href="http://bj.lvmae.com/" target="_blank">北京</a>
+        <a class="sub-link-01" href="http://sh.lvmae.com/" target="_blank">上海</a>
+        <a class="sub-link-01" href="http://tj.lvmae.com/" target="_blank">天津</a>
+        <a class="sub-link-01" href="http://gd.lvmae.com/" target="_blank">广东</a>
+        <a class="sub-link-01" href="http://hb.lvmae.com/" target="_blank">河北</a>
+        <a class="sub-link-01" href="http://shanxi.lvmae.com/" target="_blank">山西</a>
+        <a class="sub-link-01" href="http://ln.lvmae.com/" target="_blank">辽宁</a>
+        <a class="sub-link-01" href="http://jl.lvmae.com/" target="_blank">吉林</a>
+        <a class="sub-link-01" href="http://js.lvmae.com/" target="_blank">江苏</a>
+        <a class="sub-link-01" href="http://zj.lvmae.com/" target="_blank">浙江</a>
+        <a class="sub-link-01" href="http://ah.lvmae.com/" target="_blank">安徽</a>
+        <a class="sub-link-01" href="http://fj.lvmae.com/" target="_blank">福建</a>
+        <a class="sub-link-01" href="http://jx.lvmae.com/" target="_blank">江西</a>
+        <a class="sub-link-01" href="http://sd.lvmae.com/" target="_blank">山东</a>
+        <a class="sub-link-01" href="http://henan.lvmae.com/" target="_blank">河南</a>
+        <a class="sub-link-01" href="http://hubei.lvmae.com/" target="_blank">湖北</a>
+        <a class="sub-link-01" href="http://hunan.lvmae.com/" target="_blank">湖南</a>
+        <a class="sub-link-01" href="http://gx.lvmae.com/" target="_blank">广西</a>
+        <a class="sub-link-01" href="http://hainan.lvmae.com/" target="_blank">海南</a>
+        <a class="sub-link-01" href="http://zq.lvmae.com/" target="_blank">重庆</a>
+        <a class="sub-link-01" href="http://sc.lvmae.com/" target="_blank">四川</a>
+        <a class="sub-link-01" href="http://gz.lvmae.com/" target="_blank">贵州</a>
+        <a class="sub-link-01" href="http://yn.lvmae.com/" target="_blank">云南</a>
+        <a class="sub-link-01" href="http://xc.lvmae.com/" target="_blank">西藏</a>
+        <a class="sub-link-01" href="http://sx.lvmae.com/" target="_blank">陕西</a>
+        <a class="sub-link-01" href="http://gs.lvmae.com/" target="_blank">甘肃</a>
+        <a class="sub-link-01" href="http://qh.lvmae.com/" target="_blank">青海</a>
+        <div class="sub-more">更多<div class="sub-more-body"><a class="sub-link-01" href="http://nx.lvmae.com/" target="_blank">宁夏</a>
+            <a class="sub-link-01" href="http://hlj.lvmae.com/" target="_blank">黑龙江</a>
+            <a class="sub-link-01" href="http://nmg.lvmae.com/" target="_blank">内蒙古</a>
+            <a class="sub-link-01" href="http://xj.lvmae.com/" target="_blank">新疆</a>
+            <a class="sub-link-01" href="http://hk.lvmae.com/" target="_blank">香港</a>
+            <a class="sub-link-01" href="http://tw.lvmae.com/" target="_blank">台湾</a>
+            <a class="sub-link-01" href="http://am.lvmae.com/" target="_blank">澳门</a>
+        </div></div>
+    </div>
+</div>
+<div class="banner-1">
+    <div class="wrap"></div>
+</div>
+<!--资讯频道页面 start-->
+<div class="news-subnav">
+    <ul class="subnav">
+        <li><a href="http://www.lvmae.com/news/wuliu/">物流专线新闻</a></li>
+        <li><a href="http://www.lvmae.com/news/company/">物流公司新闻</a></li>
+        <li><a href="http://www.lvmae.com/news/hangye/">物流行业新闻</a></li>
+        <li><a href="http://www.lvmae.com/news/shikebiao/">货运时刻表</a></li>
+        <li><a href="http://www.lvmae.com/news/zhuanfang/">名人专访</a></li>
+        <li><a href="http://www.lvmae.com/news/zhaobiao/">物流招标</a></li>
+        <li><a href="http://www.lvmae.com/news/lvmae/">绿蚂蚁</a></li>
+        <li><a href="http://www.lvmae.com/news/redian/">热点新闻</a></li>
+        <li><a href="http://www.lvmae.com/news/line/">物流专线</a></li>
+    </ul>
+</div>
+
+<div class="newswrap">
+    <div class="position"><a class="home" href="http://www.lvmae.com/">首页</a><em> > </em> <span><a href="http://www.lvmae.com/news/">物流新闻</a></span></div>
+    <div class="headlines">
+        <h2 class="title">今日头条</h2>
+        <ul id="zuoWen">
+           <!-- <li>
+                <h3><a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank" title="2018年10月中国物流业景气指数为54.5%">2018年10月中国物流业景气指数为54.5%</a></h3>
+                <span class="time">2018-11-05 09:07</span>
+                <p>中国物流与采购联合会发布的2018年10月份中国物流业景气指数为54.5%，较上月回升1.4个百分点；中国仓储指数为51.7%，较上月回落0.1个百分点。....
+                    <a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <h3><a href="http://www.lvmae.com/news/company/7111.html" target="_blank" title="中国邮政已完成组建省级寄递事业部">中国邮政已完成组建省级寄递事业部</a></h3>
+                <span class="time">2018-10-31 09:13</span>
+                <p>近日，中央纪委国家监委网站陆续公布十九届中央第一轮巡视整改进展情况。10月29日，中央纪委国家监委网站公布了《中共中国邮政集团公司党组关于巡视整改进展情况的通报》（以下简称“《通报》”）。....
+                    <a href="http://www.lvmae.com/news/company/7111.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <h3><a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank" title="2018前三季度全社会物流运行情况分析">2018前三季度全社会物流运行情况分析</a></h3>
+                <span class="time">2018-10-29 09:12</span>
+                <p>三季度以来，宏观经济运行呈现稳中有变的发展格局，但经济内生动力依然较强，物流运行变中有进，社会物流总需求基本平稳，增长动力持续转换，物流运行继续朝向高质量方向发展。中国物流信息中心26日发布的物流运行情况分析报告显示，前三季度全社会物流总额204.1万亿元，接近去年前十个月的206.3万亿元，按可比价格计算，同比增长6.7%，增速与上半年和去年同期相比回落0.2个百分点。....
+                    <a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <h3><a href="http://www.lvmae.com/news/hangye/7105.html" target="_blank" title="9月份中国仓储指数为51.8% 需求回升明显">9月份中国仓储指数为51.8% 需求回升明显</a></h3>
+                <span class="time">2018-10-26 09:17</span>
+                <p>中国物流与采购联合会与中储发展股份有限公司联合调查的2018年9月中国仓储指数为51.8%，较上月回升1.7个百分点。各分项指数中，除企业员工指数、业务活动预期指数较上月有所回落外，其余指数均有不同程度的回升。....
+                    <a href="http://www.lvmae.com/news/hangye/7105.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <h3><a href="http://www.lvmae.com/news/hangye/7101.html" target="_blank" title="2018年9月份中国沿海（散货）运输市场分析报告">2018年9月份中国沿海（散货）运输市场分析报告</a></h3>
+                <span class="time">2018-10-24 09:17</span>
+                <p>9月份，在北方港口发运节奏调整、台风以及燃油价格上涨等因素推动下，沿海散货运输市场淡季不淡，行情稳中向好。9月28日，上海航运交易所发布的沿海（散货）综合运价指数报收1218.44点，较上月末上涨3.0%，月平均值为1209.94点，较上月上涨6.4%。....
+                    <a href="http://www.lvmae.com/news/hangye/7101.html" target="_blank">详情</a>
+                </p>
+            </li>-->
+
+        </ul>
+    </div>
+
+    <div class="newsimg">
+        <h2 class="title">图片新闻</h2>
+        <ul class="hot-event">
+            <li class="event-item" style="display: block;">
+                <h3><a href="http://toutiao.com/group/6693353670077055499/" title="袖珍人为恩师献唱《父亲》，一开唱，恩师的反应就已戳中全场泪点" target="_blank">袖珍人为恩师献唱《父亲》，一开唱，恩师的反应就已戳中全场泪点</a></h3>
+                <p>袖珍人为恩师献唱《父亲》，一开唱，恩师的反应就已戳中全场泪点
+                    <a href="http://toutiao.com/group/6693353670077055499/" target="_blank">[详细]</a>
+                </p>
+                <a class="img" href="http://toutiao.com/group/6693353670077055499/" target="_blank" >
+                    <img alt="袖珍人为恩师献唱《父亲》，一开唱，恩师的反应就已戳中全场泪点" width="580" height="260" src="http://p9-tt.byteimg.com/video1609/tos-cn-i-0004/1e044caced1f42868ef804c92b512a68" />
+                    <span>恩师,父亲</span>
+                </a>
+            </li>
+            <li class="event-item" >
+                <h3><a href="http://m.toutiao.com/a6693354885498274317/?app=news_article&is_hit_share_recommend=0" title="日前，临猗县公安局交警大队在处理一起车身喷涂广告违法行为时" target="_blank">日前，临猗县公安局交警大队在处理一起车身喷涂广告违法行为时</a></h3>
+                <p>日前，临猗县公安局交警大队在处理一起车身喷涂广告违法行为时，发现驾驶员薛某某竟然在驾驶证暂扣期间驾车上路，依法对其做出严厉处罚。
+                    <a href="http://m.toutiao.com/a6693354885498274317/?app=news_article&is_hit_share_recommend=0" target="_blank">[详细]</a>
+                </p>
+                <a class="img" href="http://m.toutiao.com/a6693354885498274317/?app=news_article&is_hit_share_recommend=0" target="_blank" >
+                    <img alt="日前，临猗县公安局交警大队在处理一起车身喷涂广告违法行为时" width="580" height="260" src="http://p1-tt.byteimg.com/list/pgc-image/7b4a094f1c1c4b4aa9fe2e7b0d85a7ba" />
+                    <span>临猗,机动车,临猗县,喷绘广告,驾驶证</span>
+                </a>
+            </li>
+            <li class="event-item" >
+                <h3><a href="http://toutiao.com/group/6693355151412953607/" title="穷小子套路美女成媳妇，本以为能为所欲为，媳妇一句话打破他美梦" target="_blank">穷小子套路美女成媳妇，本以为能为所欲为，媳妇一句话打破他美梦</a></h3>
+                <p>穷小子套路美女成媳妇，本以为能为所欲为，媳妇一句话打破他美梦
+                    <a href="http://toutiao.com/group/6693355151412953607/" target="_blank">[详细]</a>
+                </p>
+                <a class="img" href="http://toutiao.com/group/6693355151412953607/" target="_blank" >
+                    <img alt="穷小子套路美女成媳妇，本以为能为所欲为，媳妇一句话打破他美梦" width="580" height="260" src="http://p9-tt.byteimg.com/video1609/tos-cn-i-0000/2cd26aac7b8d11e99d5f7cd30adf70da" />
+                    <span>美女,穷小子</span>
+                </a>
+            </li>
+            <li class="switch-tab">
+                <a href="#" onclick="return false;" class="current"></a>
+                <a href="#" onclick="return false;" ></a>
+                <a href="#" onclick="return false;" ></a>
+            </li>
+        </ul>
+        <ul class="ad">
+            <li class="lad"><script type="text/javascript" src="/js/A51.js"></script></li>
+            <li><script type="text/javascript" src="/js/A52.js"></script></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="http://www.lvmae.com/skin/default/news/js/scroll-news.js"></script>
+    <script type="text/javascript">
+        $('.newsimg').nav({ t: 5000, a: 2000 });
+    </script>
+    <div class="bigad"><script type="text/javascript" src="http://www.lvmae.com/file/script/A50.js"></script></div>
+
+    <div class="hotnews">
+        <h2 class="title"><span>热点推荐</span></h2>
+        <ul>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7120.html" target="_blank" title="铁岭到阿拉善物流专线">
+                    <img alt="铁岭到阿拉善物流专线" src="http://www.lvmae.com/file/upload/line/7246-5957.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7120.html" target="_blank" title="铁岭到阿拉善物流专线">铁岭到阿拉善物流专线</a></h3>
+                <span class="time">2018-11-06 09:24</span>
+                <p>铁岭到阿拉善物流专线（http://www.lvmae.com/road/7246-5957/index.html），铁岭到阿拉善物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到阿…..
+                    <a href="http://www.lvmae.com/news/line/7120.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/hangye/7119.html" target="_blank" title="10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧">
+                    <img alt="10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧" src="http://www.lvmae.com/file/upload/201811/06/09-21-29-66-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/hangye/7119.html" target="_blank" title="10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧">10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧</a></h3>
+                <span class="time">2018-11-06 09:21</span>
+                <p>综合来看，10月份，国内大宗商品市场形势良好，供需两旺，但供应端增速快于消费端，导致市场供应压力加大，库存持续积聚。进入11月份，秋冬季大气环保综合治理全面打响，加之出口形势依然严峻，需求将会进入回落期，市场调整的风险正在逐步加大。不过，当前我国经济仍将保持稳步增长态势，随着悲观情绪的缓和以及国内政策加码，市场信心将迎来修复，加之各地限产政策的实施，供给层面预计会有所减少，将为市场提供一定支撑。..
+                    <a href="http://www.lvmae.com/news/hangye/7119.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7118.html" target="_blank" title="铁岭到沈阳物流专线">
+                    <img alt="铁岭到沈阳物流专线" src="http://www.lvmae.com/file/upload/line/7246-5998.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7118.html" target="_blank" title="铁岭到沈阳物流专线">铁岭到沈阳物流专线</a></h3>
+                <span class="time">2018-11-05 09:09</span>
+                <p>铁岭到沈阳物流专线（http://www.lvmae.com/road/7246-5998/index.html），铁岭到沈阳物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到沈阳的…..
+                    <a href="http://www.lvmae.com/news/line/7118.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank" title="2018年10月中国物流业景气指数为54.5%">
+                    <img alt="2018年10月中国物流业景气指数为54.5%" src="http://www.lvmae.com/file/upload/201811/05/09-07-27-50-26294.png" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank" title="2018年10月中国物流业景气指数为54.5%">2018年10月中国物流业景气指数为54.5%</a></h3>
+                <span class="time">2018-11-05 09:07</span>
+                <p>中国物流与采购联合会发布的2018年10月份中国物流业景气指数为54.5%，较上月回升1.4个百分点；中国仓储指数为51.7%，较上月回落0.1个百分点。..
+                    <a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7116.html" target="_blank" title="铁岭到大连物流专线">
+                    <img alt="铁岭到大连物流专线" src="http://www.lvmae.com/file/upload/line/7246-6238.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7116.html" target="_blank" title="铁岭到大连物流专线">铁岭到大连物流专线</a></h3>
+                <span class="time">2018-11-02 09:23</span>
+                <p>铁岭到大连物流专线（http://www.lvmae.com/road/7246-6238/index.html），铁岭到大连物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到大连的…..
+                    <a href="http://www.lvmae.com/news/line/7116.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/hangye/7115.html" target="_blank" title="11月份这些新规将影响快递从业人员">
+                    <img alt="11月份这些新规将影响快递从业人员" src="http://www.lvmae.com/file/upload/201811/02/09-17-37-84-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/hangye/7115.html" target="_blank" title="11月份这些新规将影响快递从业人员">11月份这些新规将影响快递从业人员</a></h3>
+                <span class="time">2018-11-02 09:17</span>
+                <p>转眼间，10月份就要过去了，在即将到来的11月，一些事关快递人的新政策、新规定、新举措也将正式实施：进博会召开、迎战“双11”、个人信息保护、绿色快递宣传周、快递费调整……..
+                    <a href="http://www.lvmae.com/news/hangye/7115.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7114.html" target="_blank" title="铁岭到鞍山物流专线">
+                    <img alt="铁岭到鞍山物流专线" src="http://www.lvmae.com/file/upload/line/7246-6413.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7114.html" target="_blank" title="铁岭到鞍山物流专线">铁岭到鞍山物流专线</a></h3>
+                <span class="time">2018-11-01 09:10</span>
+                <p>铁岭到鞍山物流专线（http://www.lvmae.com/road/7246-6413/index.html），铁岭到鞍山物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到鞍山的…..
+                    <a href="http://www.lvmae.com/news/line/7114.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/hangye/7113.html" target="_blank" title="中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行">
+                    <img alt="中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行" src="http://www.lvmae.com/file/upload/201811/01/09-07-49-16-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/hangye/7113.html" target="_blank" title="中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行">中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行</a></h3>
+                <span class="time">2018-11-01 09:07</span>
+                <p>由西安市人民政府、中国铁路西安局集团有限公司主办的中欧班列(西安)2018年开行首超1000列暨新筑铁路综合物流中心建成投用仪式，10月30日在中铁四局承建西安新建新筑物流基地举行。..
+                    <a href="http://www.lvmae.com/news/hangye/7113.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7112.html" target="_blank" title="铁岭到抚顺物流专线">
+                    <img alt="铁岭到抚顺物流专线" src="http://www.lvmae.com/file/upload/line/7246-6538.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7112.html" target="_blank" title="铁岭到抚顺物流专线">铁岭到抚顺物流专线</a></h3>
+                <span class="time">2018-10-31 09:18</span>
+                <p>铁岭到抚顺物流专线（http://www.lvmae.com/road/7246-6538/index.html），铁岭到抚顺物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到抚顺的…..
+                    <a href="http://www.lvmae.com/news/line/7112.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/company/7111.html" target="_blank" title="中国邮政已完成组建省级寄递事业部">
+                    <img alt="中国邮政已完成组建省级寄递事业部" src="http://www.lvmae.com/file/upload/201810/31/09-15-36-55-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/company/7111.html" target="_blank" title="中国邮政已完成组建省级寄递事业部">中国邮政已完成组建省级寄递事业部</a></h3>
+                <span class="time">2018-10-31 09:13</span>
+                <p>近日，中央纪委国家监委网站陆续公布十九届中央第一轮巡视整改进展情况。10月29日，中央纪委国家监委网站公布了《中共中国邮政集团公司党组关于巡视整改进展情况的通报》（以下简称“《通报》”）。..
+                    <a href="http://www.lvmae.com/news/company/7111.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7110.html" target="_blank" title="铁岭到本溪物流专线">
+                    <img alt="铁岭到本溪物流专线" src="http://www.lvmae.com/file/upload/line/7246-6630.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7110.html" target="_blank" title="铁岭到本溪物流专线">铁岭到本溪物流专线</a></h3>
+                <span class="time">2018-10-30 09:16</span>
+                <p>铁岭到本溪物流专线（http://www.lvmae.com/road/7246-6630/index.html），铁岭到本溪物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到本溪的…..
+                    <a href="http://www.lvmae.com/news/line/7110.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/company/7109.html" target="_blank" title="联合包裹推出4年转型计划 B2C业务成发展重点领域">
+                    <img alt="联合包裹推出4年转型计划 B2C业务成发展重点领域" src="http://www.lvmae.com/file/upload/201810/30/09-11-38-71-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/company/7109.html" target="_blank" title="联合包裹推出4年转型计划 B2C业务成发展重点领域">联合包裹推出4年转型计划 B2C业务成发展重点领域</a></h3>
+                <span class="time">2018-10-30 09:11</span>
+                <p>近日，联合包裹推出一项为期4年的发展计划，进一步拓展B2C包裹运输业务，以弥补B2B近年来的发展颓势。近年来，联合包裹的B2C业务增速较快，业务量已超过集团总业务量的五成，且一直保持稳健发展势头。预计到2022年，联合包裹的包裹业务收入将比2017年增长40%。..
+                    <a href="http://www.lvmae.com/news/company/7109.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/line/7108.html" target="_blank" title="铁岭到丹东物流专线">
+                    <img alt="铁岭到丹东物流专线" src="http://www.lvmae.com/file/upload/line/7246-6695.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/line/7108.html" target="_blank" title="铁岭到丹东物流专线">铁岭到丹东物流专线</a></h3>
+                <span class="time">2018-10-29 09:16</span>
+                <p>铁岭到丹东物流专线（http://www.lvmae.com/road/7246-6695/index.html），铁岭到丹东物流公司由绿蚂蚁物流平台为您提供。以下为您提供几家能够承运铁岭到丹东的…..
+                    <a href="http://www.lvmae.com/news/line/7108.html" target="_blank">详情</a>
+                </p>
+            </li>
+            <li>
+                <a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank" title="2018前三季度全社会物流运行情况分析">
+                    <img alt="2018前三季度全社会物流运行情况分析" src="http://www.lvmae.com/file/upload/201810/29/09-12-40-12-26294.jpg" />
+                </a>
+                <h3><a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank" title="2018前三季度全社会物流运行情况分析">2018前三季度全社会物流运行情况分析</a></h3>
+                <span class="time">2018-10-29 09:12</span>
+                <p>三季度以来，宏观经济运行呈现稳中有变的发展格局，但经济内生动力依然较强，物流运行变中有进，社会物流总需求基本平稳，增长动力持续转换，物流运行继续朝向高质量方向发展。中国物流信息中心26日发布的物流运行情况分析报告显示，前三季度全社会物流总额204.1万亿元，接近去年前十个月的206.3万亿元，按可比价格计算，同比增长6.7%，增速与上半年和去年同期相比回落0.2个百分点。..
+                    <a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank">详情</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="newsside">
+        <h2><span>点击排行</span></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/hangye/1140.html" target="_blank" title="绿蚂蚁物流商旗舰店上线啦">绿蚂蚁物流商旗舰店上线啦</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/865.html" target="_blank" title="物流公司收费标准之上门收货&送货上门费用标准">物流公司收费标准之上门收货&送货上门费用标准</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/789.html" target="_blank" title="中国排名前十的国际货运代理企业">中国排名前十的国际货运代理企业</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/3981.html" target="_blank" title="绿蚂蚁物流搜索平台“智能云套餐”震撼来袭">绿蚂蚁物流搜索平台“智能云套餐”震撼来袭</a></li>
+            <li><a href="http://www.lvmae.com/news/company/661.html" target="_blank" title="顺丰同城当日达 覆盖全国100个城市">顺丰同城当日达 覆盖全国100个城市</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/1339.html" target="_blank" title="关于绿蚂蚁">关于绿蚂蚁</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/1796.html" target="_blank" title="考物流证书的朋友注意：中国物流与采购联合会的物流师和采购师被取消">考物流证书的朋友注意：中国物流与采购联合会的物流师和采购师被取消</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/450.html" target="_blank" title="【涨姿势】怎样发货最便宜？物流和快递的区别">【涨姿势】怎样发货最便宜？物流和快递的区别</a></li>
+        </ul>
+
+        <h2><span>物流专线新闻</span> <a target="_blank" href="http://www.lvmae.com/news/wuliu/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/wuliu/6769.html" target="_blank" title="铁路部门取消部分货运收费项目">铁路部门取消部分货运收费项目</a></li>
+            <li><a href="http://www.lvmae.com/news/wuliu/4083.html" target="_blank" title="江门到银川物流专线">江门到银川物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/wuliu/4082.html" target="_blank" title="江门到西宁物流专线">江门到西宁物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/wuliu/4081.html" target="_blank" title="江门到乌鲁木齐物流专线">江门到乌鲁木齐物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/wuliu/4080.html" target="_blank" title="江门到太原物流专线">江门到太原物流专线</a></li>
+        </ul>
+        <h2><span>物流公司新闻</span> <a target="_blank" href="http://www.lvmae.com/news/company/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/company/7111.html" target="_blank" title="中国邮政已完成组建省级寄递事业部">中国邮政已完成组建省级寄递事业部</a></li>
+            <li><a href="http://www.lvmae.com/news/company/7109.html" target="_blank" title="联合包裹推出4年转型计划 B2C业务成发展重点领域">联合包裹推出4年转型计划 B2C业务成发展重点领域</a></li>
+            <li><a href="http://www.lvmae.com/news/company/6917.html" target="_blank" title="上半年铁总净亏损骤降六成，负债达4.77万亿元">上半年铁总净亏损骤降六成，负债达4.77万亿元</a></li>
+            <li><a href="http://www.lvmae.com/news/company/6908.html" target="_blank" title="顺丰航空开通首条国内直飞越南河内货运航线">顺丰航空开通首条国内直飞越南河内货运航线</a></li>
+            <li><a href="http://www.lvmae.com/news/company/6887.html" target="_blank" title="顺丰航空开通首条国内直飞河内货运航线">顺丰航空开通首条国内直飞河内货运航线</a></li>
+        </ul>
+        <h2><span>物流行业新闻</span> <a target="_blank" href="http://www.lvmae.com/news/hangye/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/hangye/7119.html" target="_blank" title="10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧">10月份中国大宗商品指数显示：供应压力有所加大，市场调整风险加剧</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/7117.html" target="_blank" title="2018年10月中国物流业景气指数为54.5%">2018年10月中国物流业景气指数为54.5%</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/7115.html" target="_blank" title="11月份这些新规将影响快递从业人员">11月份这些新规将影响快递从业人员</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/7113.html" target="_blank" title="中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行">中欧班列（西安）2018年首超千列开行仪式在西安新建新筑物流基地举行</a></li>
+            <li><a href="http://www.lvmae.com/news/hangye/7107.html" target="_blank" title="2018前三季度全社会物流运行情况分析">2018前三季度全社会物流运行情况分析</a></li>
+        </ul>
+        <h2><span>货运时刻表</span> <a target="_blank" href="http://www.lvmae.com/news/shikebiao/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/shikebiao/1595.html" target="_blank" title="重庆市建成电商物流三级配送体系">重庆市建成电商物流三级配送体系</a></li>
+            <li><a href="http://www.lvmae.com/news/shikebiao/240.html" target="_blank" title="永强阳光物流从深圳龙岗区到杭州市物流专线最新时刻表">永强阳光物流从深圳龙岗区到杭州市物流专线最新时刻表</a></li>
+            <li><a href="http://www.lvmae.com/news/shikebiao/239.html" target="_blank" title="永强阳光物流从深圳龙岗区到金华市物流专线最新时刻表">永强阳光物流从深圳龙岗区到金华市物流专线最新时刻表</a></li>
+            <li><a href="http://www.lvmae.com/news/shikebiao/238.html" target="_blank" title="永强阳光物流从深圳龙岗区到宁波市物流专线最新时刻表">永强阳光物流从深圳龙岗区到宁波市物流专线最新时刻表</a></li>
+            <li><a href="http://www.lvmae.com/news/shikebiao/236.html" target="_blank" title="鹏盛达物流从深圳到武汉物流专线最新时刻表">鹏盛达物流从深圳到武汉物流专线最新时刻表</a></li>
+        </ul>
+        <h2><span>名人专访</span> <a target="_blank" href="http://www.lvmae.com/news/zhuanfang/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/zhuanfang/1644.html" target="_blank" title="年关将至，“骗货”频发，您的物流保险保“骗货”吗？">年关将至，“骗货”频发，您的物流保险保“骗货”吗？</a></li>
+            <li><a href="http://www.lvmae.com/news/zhuanfang/67.html" target="_blank" title="绿蚂蚁出席光大证券2015年全国互联网物流峰会">绿蚂蚁出席光大证券2015年全国互联网物流峰会</a></li>
+            <li><a href="http://www.lvmae.com/news/zhuanfang/66.html" target="_blank" title="君宝顺董事长李亚君:厚德载物打造精品物流">君宝顺董事长李亚君:厚德载物打造精品物流</a></li>
+            <li><a href="http://www.lvmae.com/news/zhuanfang/65.html" target="_blank" title="深远通物流：服务决定后续发展">深远通物流：服务决定后续发展</a></li>
+        </ul>
+        <h2><span>物流招标</span> <a target="_blank" href="http://www.lvmae.com/news/zhaobiao/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/zhaobiao/3876.html" target="_blank" title="2017年度美的集团安得物流辽宁铁管运输项目招标公告">2017年度美的集团安得物流辽宁铁管运输项目招标公告</a></li>
+            <li><a href="http://www.lvmae.com/news/zhaobiao/3871.html" target="_blank" title="广州顶益公司成品面运输招标公告">广州顶益公司成品面运输招标公告</a></li>
+            <li><a href="http://www.lvmae.com/news/zhaobiao/3867.html" target="_blank" title="2017-2018年欧普照明股份有限公司吴江CDC始发全国干线运输业务招标公告">2017-2018年欧普照明股份有限公司吴江CDC始发全国干线运输业务招标公告</a></li>
+            <li><a href="http://www.lvmae.com/news/zhaobiao/3859.html" target="_blank" title="合肥空调电子仓库倒短、装卸项目招标">合肥空调电子仓库倒短、装卸项目招标</a></li>
+            <li><a href="http://www.lvmae.com/news/zhaobiao/3854.html" target="_blank" title="华电大同第一热电厂有限公司2017年2-4月燃煤运输项目招标二次公告">华电大同第一热电厂有限公司2017年2-4月燃煤运输项目招标二次公告</a></li>
+        </ul>
+        <h2><span>绿蚂蚁</span> <a target="_blank" href="http://www.lvmae.com/news/lvmae/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/lvmae/4004.html" target="_blank" title="端午将至，绿蚂蚁祝大家端午安康~">端午将至，绿蚂蚁祝大家端午安康~</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/3981.html" target="_blank" title="绿蚂蚁物流搜索平台“智能云套餐”震撼来袭">绿蚂蚁物流搜索平台“智能云套餐”震撼来袭</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/3898.html" target="_blank" title="专线物流公司专属推广套餐">专线物流公司专属推广套餐</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/3897.html" target="_blank" title="物流招标新上线！旗舰店用户免费看！">物流招标新上线！旗舰店用户免费看！</a></li>
+            <li><a href="http://www.lvmae.com/news/lvmae/3790.html" target="_blank" title="情人节我不要金银花">情人节我不要金银花</a></li>
+        </ul>
+        <h2><span>热点新闻</span> <a target="_blank" href="http://www.lvmae.com/news/redian/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/redian/7031.html" target="_blank" title="律舰法务率先推出“诊&疗”式服务 让您的企业远离风险">律舰法务率先推出“诊&疗”式服务 让您的企业远离风险</a></li>
+            <li><a href="http://www.lvmae.com/news/redian/7011.html" target="_blank" title="企业法律顾问">企业法律顾问</a></li>
+            <li><a href="http://www.lvmae.com/news/redian/7007.html" target="_blank" title="企业为什么要请企业法律顾问？">企业为什么要请企业法律顾问？</a></li>
+            <li><a href="http://www.lvmae.com/news/redian/7002.html" target="_blank" title="律舰法务为中小企业提供企业法律顾问服务，让您的企业远离风险！">律舰法务为中小企业提供企业法律顾问服务，让您的企业远离风险！</a></li>
+            <li><a href="http://www.lvmae.com/news/redian/6986.html" target="_blank" title="律舰法务率先推出“诊&疗”式服务 企业法律风险先“诊”后“疗”">律舰法务率先推出“诊&疗”式服务 企业法律风险先“诊”后“疗”</a></li>
+        </ul>
+        <h2><span>物流专线</span> <a target="_blank" href="http://www.lvmae.com/news/line/">更多></a></h2>
+        <ul>
+            <li><a href="http://www.lvmae.com/news/line/7120.html" target="_blank" title="铁岭到阿拉善物流专线">铁岭到阿拉善物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/line/7118.html" target="_blank" title="铁岭到沈阳物流专线">铁岭到沈阳物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/line/7116.html" target="_blank" title="铁岭到大连物流专线">铁岭到大连物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/line/7114.html" target="_blank" title="铁岭到鞍山物流专线">铁岭到鞍山物流专线</a></li>
+            <li><a href="http://www.lvmae.com/news/line/7112.html" target="_blank" title="铁岭到抚顺物流专线">铁岭到抚顺物流专线</a></li>
+        </ul>
+
+    </div>
+
+</div>
+<!--资讯频道页面 end-->
+<div style="clear: both;height: 0;line-height: 0;font-size: 0;visibility: hidden;overflow: hidden;"></div>
+<div class="frendlink">
+    <div class="wrap">
+        <h3><strong>友情链接</strong></h3>
+        <div class="link-content">
+            <a href="http://www.qj.com.cn/c_fuwu/" target="_blank" >服务加盟</a>
+            <a href="http://www.examw.com/xinli/" target="_blank" >心理咨询师</a>
+            <a href="http://www.chinawutong.com/baike/" target="_blank" >物流知识</a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrap">
+        <p><a href="http://www.lvmae.net/show-9-2-1.html" target="_blank" rel="nofollow">绿蚂蚁介绍</a><span class="line">|</span><a href="http://www.lvmae.net/list-10-1.html" target="_blank" rel="nofollow">大事记</a><span class="line">|</span><a href="http://www.lvmae.net/list-14-1.html" target="_blank" rel="nofollow">公司动态</a><span class="line">|</span><a href="http://www.lvmae.net/list-13-1.html" target="_blank" rel="nofollow">媒体报告</a><span class="line">|</span><a href="http://www.lvmae.com/about/6.html" target="_blank" rel="nofollow">联系我们</a><span class="line">|</span><a href="http://www.lvmae.net/">绿蚂蚁官网</a></p>
+        <p>Copyright © 绿蚂蚁干线<a href="http://www.lvmae.com">物流</a>B2B平台 All rights reserved. <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备14032800号-1</a></p>
+    </div>
+</div>
+<div class="yb_conct">
+    <div class="yb_bar">
+        <ul>
+            <li class="yb_top">返回顶部</li>
+            <li class="yb_phone">400-963-5600</li>
+            <li class="yb_QQ">
+                <a target="_blank" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NjQwNF8zNjU3MzlfODAwMDU2NDA0XzJf" title="">在线咨询</a>
+            </li>
+            <li class="yb_ercode" style="height:53px;">微信二维码 <br>
+                <img class="hd_qr" src="http://www.lvmae.com/skin/default/images/ewm_2.jpg" width="125" alt="绿蚂蚁公众号"> </li>
+        </ul>
+    </div>
+</div>
+<span style="display:none;"><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F113a0efbcb8d4e12dac632a3de270881' type='text/javascript'%3E%3C/script%3E"));
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254113276'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254113276' type='text/javascript'%3E%3C/script%3E"));</script><script src="http://s95.cnzz.com/z_stat.php?id=1256389723&web_id=1256389723" language="JavaScript"></script></span>
+</body>
+</html>

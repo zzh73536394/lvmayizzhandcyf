@@ -32,15 +32,14 @@
 </head>
 <body>
 <script>
-    $("#cityId").click(function () {
-
-        $("#sheng").html("你好");
-    })
-</script>
-<script>
     $(function () {
         getDataCity();
     })
+   /* function upCity(city) {
+        alert(city);
+        $("#dataCity").html(city);
+        xingZhengQu(city);
+    }*/
     //获取当前城市
     function getDataCity() {
         $.ajax({
@@ -48,7 +47,7 @@
             success:function (data) {
                 alert(data.city);
             $("#dataCity").html(data.city);
-            $("#wuliu").html(data.city+"物流公司");selectArea
+            $("#wuliu").html(data.city+"物流公司");
             $("#selectArea").html(data.city);
                 xingZhengQu(data.city);
             }
@@ -68,9 +67,54 @@
                 $("#xingZheng").html(qu)
             }
         })
+    }
+    //省
+    $(function () {
+        $.ajax({
+            url:"/getsheng",
+            type: "post",
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+
+                $("#slid").html(hi);
+
+            }
+        })
+    })
+    //市
+
+    function shiid1() {
+        var a=document.getElementById("slid");
+        a=a.value
+        $.ajax({
+            url:"/getshi",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+
+                $("#shiid").html(hi);
+            }
+        })
 
     }
+    //切换城市
+    function qieHuan() {
 
+        alert(shiid.options[shiid.selectedIndex].text)
+        $("#dataCity").html(shiid.options[shiid.selectedIndex].text);
+        xingZhengQu(shiid.options[shiid.selectedIndex].text);
+    }
     (function(){
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
@@ -197,7 +241,20 @@
     </div>
 </div>
 <!-- Header End --><link rel="stylesheet" type="text/css" href="http://www.lvmae.com/skin/default/css/20150924logistics.css?version=2017080401"></link>
+<style type="text/css">
+    /* width:90px; height:30px;*/
+    .select_style { overflow:hidden;
+        border:1px solid #ccc;
+        -moz-border-radius: 5px; /* Gecko browsers */
+        -webkit-border-radius: 5px; /* Webkit browsers */
+        border-radius:5px;
+    }
+    .select_style select { padding:5px; background:transparent;  font-size: 16px; border:none;
+        -webkit-appearance: none; /*for Webkit browsers*/
+    }
+</style>
 <style>
+
     .grouptop{background: #FFFFE0;}
     .sincerity{background: #f2f7fa;}
     .city-area div.areas{display: table-row;position: relative;}
@@ -219,7 +276,25 @@
     <div class="s-left">
         <!--城市选择&公司名称搜索 start-->
         <div class="city-company">
-            <strong> 当前城市：</strong><span id="dataCity"></span><a href="javascript:;" id="cityId">[切换城市]</a><input type="hidden" name="202" id="cityInputId"/>
+            <div style="float: left;">当前城市：<span id="dataCity"></span></div>
+
+
+
+                <div style="float: left;">省:</div>
+                <div class="select_style" style="float: left;">
+                    <!--class="easyui-combobox"-->
+                    <select name="id"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
+                </div>
+                <div style="float: left;">市：</div>
+                <div class="select_style" style="float: left">
+                    <select name="id"  id="shiid"  style="width: 90px;"></select>
+                </div>
+                <div style="float: left;">
+                    <a href="javaScript:qieHuan()">[确定切换]</a>
+
+                </div>
+
+
             <div class="search-com">
                 <input autocomplete="off" onclick="clearDefaultText(this,'请输入物流公司名称')" value="请输入物流公司名称" type="text"  />
                 <button type="button"  onclick="selectCarrier(this);" value="搜索"></button>
@@ -491,7 +566,7 @@
             <a class="prev page-disabled">首页</a><a class="prev page-disabled">上一页</a><span class="current">1</span><a href="28373-0.html?page=2">2</a><a href="28373-0.html?page=3">3</a><a href="28373-0.html?page=4">4</a><a href="28373-0.html?page=5">5</a><a href="28373-0.html?page=6">6</a><a href="28373-0.html?page=7">7</a><a href="28373-0.html?page=8">8</a><a href="28373-0.html?page=9">9</a><a href="28373-0.html?page=2" style="width:45px;"><i>下一页</i></a><a href="28373-0.html?page=94">尾页</a><i>共 94 页 </i>        </div>
         <!--城市选择 start-->
         <div class="choose-area">
-            <!--<dl class="dl-bg">
+            <dl class="dl-bg">
                 <dt>热门城市</dt>
                 <dd>
                     <a href="http://www.lvmae.com/company/28373-0.html">深圳</a>
@@ -499,20 +574,20 @@
                     <a href="http://www.lvmae.com/company/23842-0.html">武汉</a>
                     <a href="http://www.lvmae.com/company/29658-0.html">东莞</a>
                 </dd>
-            </dl>-->
+            </dl>
             <dl class="dl-bg">
-                <dt ><span id="sheng"></span></dt>
-                <dd id="shi">
-                    <!--<a href="http://www.lvmae.com/company/2-0.html">北京市</a>-->
+                <dt>北京</dt>
+                <dd>
+                    <a href="http://www.lvmae.com/company/2-0.html">北京市</a>
                 </dd>
             </dl>
-           <!-- <dl class="dl-bg">
+            <dl class="dl-bg">
                 <dt>天津</dt>
                 <dd>
                     <a href="http://www.lvmae.com/company/344-0.html">天津市</a>
                 </dd>
-            </dl>-->
-            <!--<dl class="dl-bg">
+            </dl>
+            <dl class="dl-bg">
                 <dt>河北</dt>
                 <dd>
                     <a href="http://www.lvmae.com/company/657-0.html">石家庄市</a>
@@ -527,8 +602,8 @@
                 <a href="http://www.lvmae.com/company/2880-0.html">廊坊市</a>
                 <a href="http://www.lvmae.com/company/3003-0.html">衡水市</a>
             </dd>
-            </dl>-->
-            <!--<dl class="dl-bg">
+            </dl>
+            <dl class="dl-bg">
                 <dt>山西</dt>
                 <dd>
                     <a href="http://www.lvmae.com/company/3139-0.html">太原市</a>
@@ -794,7 +869,7 @@
             <dl class="dl-bg">
                 <dt>陕西</dt>
                 <dd>
-                    <a href="http://www.lvmae.com/company/41665-0.html">西安市</a>
+                    <a href="javaScript:upCity('西安市')">西安市</a>
                     <a href="http://www.lvmae.com/company/42038-0.html">咸阳市</a>
                     <a href="http://www.lvmae.com/company/42506-0.html">汉中市</a>
                     <a href="http://www.lvmae.com/company/42707-0.html">榆林市</a>
@@ -832,7 +907,7 @@
                 <dd>
                     <a href="http://www.lvmae.com/company/46992-0.html">香港</a>
                 </dd>
-            </dl>-->
+            </dl>
         </div>
         <!--城市选择 start-->
     </div>

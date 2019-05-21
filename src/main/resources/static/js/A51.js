@@ -1,0 +1,1 @@
+document.write('<a href="http://www.lvmae.com/extend/redirect.php?aid=39" target="_blank"><img src="http://cyf123.oss-cn-beijing.aliyuncs.com/yard/1558422980554.gif" width="285" height="330" alt=""/></a>');
