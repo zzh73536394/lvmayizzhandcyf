@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>C端后台首页</title>
+    <link href="http://www.lvmae.com/skin/default/member/style/20150729template.css" type="text/css" rel="stylesheet" />
+    <link href="http://www.lvmae.com/skin/default/member/style/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/member/image/style.css"/>
+    <script type="text/javascript" src="http://www.lvmae.com/skin/default/member/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/lang/zh-cn/lang.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/config.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/common.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/admin.js"></script>
+    <script type="text/javascript" src="http://www.lvmae.com/file/script/member.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".top-nav li.user").click(function(){
+                $(".am-dropdown-content").toggle(100);
+            });
+
+            $(".nav-parent").click(function(){
+                $(this).addClass("nav-active");
+                $(this).siblings().removeClass("nav-active");
+                $(".nav-active ul.children").toggle(300);
+            });
+            var i=$(".process").children("li").length;
+            for(var j=0; j<i; j++){
+                $(".process li").eq(j).addClass("process"+j);
+            }
+
+            $(".fourbtn li").eq(3).addClass("lastbtn");
+
+            var curent_url = window.location.href;
+            if( curent_url.indexOf('edit.php?action=edit') != -1 ){
+
+                curent_url = curent_url.substr(0,curent_url.lastIndexOf('edit.php?action=edit'));
+            }
+            if( curent_url.indexOf('.php') !=-1 ){
+                curent_url = curent_url.substr(0,curent_url.indexOf('.php'));
+            }else{
+                curent_url = curent_url.substr(0,curent_url.lastIndexOf('/'));
+            }
+
+            var url ='';
+            $("div.nav ul.am-list li").each(function(){
+
+                url = $(this).find('a').attr('href');
+                if( url.indexOf('.php') != -1 ){
+                    url = url.substr(0,url.indexOf('.php'));
+                }
+
+                $(this).removeClass('active');
+                if( curent_url == url ){
+                    $(this).addClass('active');
+                }
+
+            })
+
+        });
+    </script>
+
+</head>
+<body>
+<!--B端头部 start-->
+<div class="header">
+    <div class="logo"><a href="/">绿蚂蚁</a></div>
+    <ul class="top-main">
+        <li><a href="http://www.lvmae.com/">绿蚂蚁首页</a></li>
+        <li class="on"><a href="http://www.lvmae.com/member/">用户中心</a></li>
+    </ul>
+    <ul class="top-nav">
+        <li class="messege">
+            <a href="message.php">
+                <span class="fa fa-envelope-o"></span>
+                收件箱
+                <span class="messegeNum">1</span>
+            </a>
+        </li>
+        <!--<li class="chat">
+        <a href="javascript:;">
+            对话<span class="fa fa-comments-o"></span>
+            </a>
+        </li>-->
+        <li class="user">
+                    <span class="userPhoto">
+                        <label>图片边框</label>
+                        <img alt="会员图像" src="http://www.lvmae.com/api/avatar/show.php?username=18713116270&amp;size=small" />
+                        </span>
+            <span class="userName">你好：<br />18713116270</span>
+            <span class="fa fa-caret-down"></span>
+            <dl class="am-dropdown-content">
+                <dt><i class="fa fa-angle-up"></i></dt>
+                <dd>
+                    <a href="http://www.lvmae.com/member/avatar.php">
+                        <span class="fa fa-user-secret"></span> 头像
+                    </a>
+                </dd>
+                <dd>
+                    <a href="edit.php?action=edit">
+                        <span class="fa fa-cog"></span> 设置
+                    </a>
+                </dd>
+            </dl>
+        </li>
+        <li class="logout">
+            <a href="logout.php?forward=">
+                <span class="fa fa-power-off"></span> 退出
+            </a>
+        </li>
+    </ul>
+    <div id="msgbox" style="display: none;"></div>
+</div>
+<!--B端头部 start-->
+<!--main start-->
+<div class="main">
+    <!--左侧主导航 start-->
+    <div class="navbg"></div>
+    <div class="nav">
+        <ul class="am-list">
+            <li class="active"><a href="/toShow?url=gerenzhongxin"><i class="fa fa-home"></i>用户中心</a></li>
+            <li><a href="/toShow?url=wodedingdan"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
+            <li><a href="/toShow?url=zhaobiaoguanli"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
+            <li><a href="/toShow?url=wodexiaoxi"><i class="fa fa-file-text"></i>我的消息</a></li>
+            <li><a href="/toShow?url=changyongxianlu"><i class="fa fa-send"></i>常用线路</a></li>
+            <li><a href="/toShow?url=xiugaimima"><i class="fa fa-cog"></i>修改密码</a></li>
+            <li><a href="/toShow?url=dizhiguanli"><i class="fa fa-map-marker"></i>地址管理</a></li>
+        </ul>
+    </div>
+    <!--左侧主导航 end--><style type="text/css">.account li{padding-left:0px;height:35px;}</style>
+    <!--右侧内容 start-->
+    <div class="content">
+        <h2 class="title"><i class="fa fa-user-plus"></i>修改密码 <span>您的当前位置：<label><a href="/member">首页</a>/修改密码 </label></span> </h2>
+
+            <div class="pagecon">
+                <ul class="account">
+                    <li><span>新登录密码:</span><input type="password" name="post[password]" id="password" onblur="newpassword()" autocomplete="off" /><span style="margin-left:0px;width:180px;text-align:left" id="dpassword" class="f_red"></span></li>
+                    <li><span>重复新密码:</span><input type="password" name="post[cpassword]" id="cpassword" onblur="newcpassword()" autocomplete="off" /><span style="margin-left:0px;width:180px;text-align:left" id="dcpassword" class="f_red"></span></li>
+                    <li class="cre-last" style="padding-bottom:60px">
+                        <span>当前密码:</span><input type="password" name="post[oldpassword]" id="oldpassword" autocomplete="off" />
+                        <span style="margin-left:0px;width:180px;text-align:left" id="doldpassword" class="f_red"></span>
+                    </li>
+                </ul>
+                <div class="cre-btn"><button onclick="xiugaimima()" >保存修改</button></div>
+            </div>
+
+    </div>
+    <!--右侧内容 end-->
+
+    <script type="text/javascript">
+
+        function newpassword() {
+
+          var  password=document.getElementById("password");
+
+            if (password.value != "") {
+                if (password.value.length < 6) {
+                    $("#dpassword").html("密码长度至少6位")
+                }else if (password.value.length >16) {
+                    $("#dpassword").html("密码长度最多16位")
+                }else {
+                    $("#dpassword").html("")
+                }
+            }else {
+                $("#dpassword").html("请输入密码")
+            }
+        }
+
+        function newcpassword() {
+            var  password=document.getElementById("password");
+            var  cpassword=document.getElementById("cpassword");
+
+            if (cpassword.value != "") {
+                if (cpassword.value.length < 6) {
+                    $("#dcpassword").html("密码长度至少6位")
+                }else if (cpassword.value.length >16) {
+                    $("#dcpassword").html("密码长度最多16位")
+                }else if (password.value != cpassword.value) {
+                    $("#dcpassword").html("两次密码输入不一致")
+                } else {
+                    $("#dcpassword").html("");
+                }
+            }else {
+                $("#dcpassword").html("请输入密码")
+            }
+        }
+
+        function xiugaimima() {
+
+            debugger;
+            var  oldpassword=document.getElementById("oldpassword");
+             oldpassword=oldpassword.value
+
+
+            var  cpassword=document.getElementById("cpassword");
+            cpassword=cpassword.value
+
+            dpassword= $("#dpassword").val()
+            dcpassword= $("#dcpassword").val()
+
+            if (cpassword.length > 0&&dpassword == "" && dcpassword == "") {
+                alert("11");
+                $.ajax({
+                    url: "/xiugaimima",
+                    type: "post",
+                    data: {oldpassword: oldpassword,password:password},
+                    success: function () {
+
+                    }
+                });
+            } else {
+
+            }
+        }
+
+
+
+
+    </script>
+</div>
+<!--main end-->
+</body>
+</html>
+

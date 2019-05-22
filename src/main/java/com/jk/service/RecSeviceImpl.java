@@ -91,6 +91,13 @@ public class RecSeviceImpl implements RecSevice{
         return hashMap;
     }
 
+    @Override
+    public void xiugaimima(String oldpassword, String password, Integer user) {
+        Integer countsum = recMapper.countsum(oldpassword, user);
+        if (countsum == 1) {
+            recMapper.xiugaimima(password);
+        }
+    }
 
 
     @Override

@@ -74,6 +74,8 @@
 
     <!-- 引入jquery -->
     <script type="text/javascript" src="/js/jquery-1.8.0.js"></script>
+    <!-- 引入my97 -->
+    <script type="text/javascript" src="/js/my97/WdatePicker.js"></script>
     <!-- 引入bootstrap的js-->
     <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的js-->
@@ -150,13 +152,13 @@
     <div class="navbg"></div>
     <div class="nav">
         <ul class="am-list">
-            <li class="active"><a href="http://www.lvmae.com/member"><i class="fa fa-home"></i>用户中心</a></li>
-            <li><a href="http://www.lvmae.com/member/trade.php?action=order"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
-            <li><a href="http://www.lvmae.com/member/bid.php"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
-            <li><a href="http://www.lvmae.com/member/message.php"><i class="fa fa-file-text"></i>我的消息</a></li>
-            <li><a href="http://www.lvmae.com/member/collection.php"><i class="fa fa-send"></i>常用线路</a></li>
-            <li><a href="http://www.lvmae.com/member/edit.php?action=password"><i class="fa fa-cog"></i>修改密码</a></li>
-            <li><a href="http://www.lvmae.com/member/address.php"><i class="fa fa-map-marker"></i>地址管理</a></li>
+            <li class="active"><a href="/toShow?url=gerenzhongxin"><i class="fa fa-home"></i>用户中心</a></li>
+            <li><a href="/toShow?url=wodedingdan"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
+            <li><a href="/toShow?url=zhaobiaoguanli"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
+            <li><a href="/toShow?url=wodexiaoxi"><i class="fa fa-file-text"></i>我的消息</a></li>
+            <li><a href="/toShow?url=changyongxianlu"><i class="fa fa-send"></i>常用线路</a></li>
+            <li><a href="/toShow?url=xiugaimima"><i class="fa fa-cog"></i>修改密码</a></li>
+            <li><a href="/toShow?url=dizhiguanli"><i class="fa fa-map-marker"></i>地址管理</a></li>
         </ul>
     </div>
     <!--左侧主导航 end--><style type="text/css">
@@ -255,6 +257,8 @@
                     "tiaojian":$("#tiaojian").val(),
                     "proname":$("#proname").val(),
                     "zhuangtai":$("#zhuangtai").val(),
+                    "minDate":$("#minTime").val(),
+                    "maxDate":$("#maxTime").val(),
 
                 }
                 return whereParams;
@@ -281,7 +285,8 @@
                 "tiaojian":$("#tiaojian").val(),
                 "proname":$("#proname").val(),
                 "zhuangtai":$("#zhuangtai").val(),
-
+                "minDate":$("#minTime").val(),
+                "maxDate":$("#maxTime").val(),
 
             }
         });

@@ -103,15 +103,17 @@
             -webkit-appearance: none; /*for Webkit browsers*/
         }
     </style>
-     <div class="select_style" style="margin-left: 30px;width: 130px">
+    <div style="margin-left: 30px"><font size="3px">所在城市  省</font></div>
+     <div class="select_style" style="float: left">
         <!--class="easyui-combobox"-->
-         所在城市 <select name="suozaichengshi"  id="slid" style="width: 90px;"> </select>
+         <select name="suozaichengshi"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
+        <!-- &nbsp;&nbsp;&nbsp;&nbsp;<select name="id"  id="shiid" style="width: 90px;"></select>-->
     </div>
 
     <br>
     <br>
     <br>
-    <input type="hidden" name="lurushijian">
+    <input type="hidden" name="lurushijian" >
     <input type="hidden" name="zhuangtai" value="0">
      <div style="margin-left: 660px;margin-bottom: 50px">
          <button type="button" class="btn btn-success" onclick="add()">立即提交</button>
@@ -121,7 +123,15 @@
 </form>
 </body>
 
+<!--<script>
+    $(function () {
+        var a=document.getElementById("kaishiriqi");
+        a.value=new Date("yyyy/MM/dd");
 
+        var b=document.getElementById("jieshuriqi");
+        b.value=new Date("yyyy/MM/dd");
+    })
+</script>-->
 
 <script>
     $(function () {
@@ -142,6 +152,27 @@
         })
     })
 
+    function shiid1() {
+        var a=document.getElementById("slid");
+        debugger;
+        a=a.value
+        $.ajax({
+            url:"/getshi",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+
+                $("#shiid").html(hi);
+            }
+        })
+
+    }
 
     function add(){
         $("#hidId").val(editor1.html());
@@ -151,9 +182,9 @@
             data:$("#addff").serialize(),
             dataType:"json",
             success:function (data) {
-               alert("新增成功")
+               alert("新增招标信息已成功")
             },error:function (data) {
-
+                layer.close(layer.index);
             }
         })
     }

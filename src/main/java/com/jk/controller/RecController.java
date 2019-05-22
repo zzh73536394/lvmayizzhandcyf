@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -204,6 +208,15 @@ public class RecController {
     @RequestMapping("add")
     @ResponseBody
     public void add(zhaobiao zhaobiao) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String s = sdf.format(new Date());
+        Date date = null;
+        try {
+            date = sdf.parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        zhaobiao.setLurushijian(date);
         recSevice.add(zhaobiao);
     }
 
@@ -250,6 +263,13 @@ public class RecController {
         }else{
             return "wodedingdan";
         }
+    }
+
+    @RequestMapping("xiugaimima")
+    @ResponseBody
+    public void xiugaimima(String oldpassword,String password, HttpSession httpSession) {
+        Integer user =(Integer) httpSession.getAttribute("userid");
+        recSevice.xiugaimima(oldpassword,password,user);
     }
 
 }

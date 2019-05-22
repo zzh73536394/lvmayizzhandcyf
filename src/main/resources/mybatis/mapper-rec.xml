@@ -56,15 +56,25 @@
 
     <select id="zhaobiaoguanli" resultType="com.jk.bean.zhaobiao">
         select * from t_zhaobiao where 1=1
-        <if test="zhuangtai!=null and zhuangtai==0">
-            and zhuangtai=0
-        </if>
         <if test="zhuangtai!=null and zhuangtai==1">
             and zhuangtai=1
         </if>
         <if test="zhuangtai!=null and zhuangtai==2">
             and zhuangtai=2
         </if>
+        <if test="zhuangtai!=null and zhuangtai==3">
+            and zhuangtai=3
+        </if>
+        <if test="zhuangtai!=null and zhuangtai==1 and proname!='' and proname!=null">
+            and zhuangtai=1 and UPPER(to_pinyin(biaoti)) like '%${proname}%'
+        </if>
+        <if test="zhuangtai!=null and zhuangtai==2 and proname!='' and proname!=null">
+            and zhuangtai=2 and UPPER(to_pinyin(biaoti)) like '%${proname}%'
+        </if>
+        <if test="zhuangtai!=null and zhuangtai==3 and proname!='' and proname!=null">
+            and zhuangtai=3 and UPPER(to_pinyin(biaoti)) like '%${proname}%'
+        </if>
+
         limit #{start},#{pageSize}
     </select>
 </mapper>

@@ -39,4 +39,7 @@ public interface RecSevice {
     void add(zhaobiao zhaobiao);
 
     HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha);
+
+
+    void xiugaimima(String oldpassword, String password, Integer user);
 }

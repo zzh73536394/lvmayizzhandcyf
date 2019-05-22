@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Param;
 
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -69,4 +70,10 @@ public interface RecMapper {
 
 
     List<zhaobiao> zhaobiaoguanli(@Param("pageSize")Integer pageSize,@Param("start") Integer start, @Param("proname")String proname,@Param("zhuangtai") Integer zhuangtai);
+
+    @Select("select count(*) from t_user where id = #{user} and password=#{oldpassword}")
+    Integer countsum(@Param("oldpassword") String oldpassword,@Param("user") Integer user);
+
+    @Update("update t_user set password=#{password}")
+    void xiugaimima(String password);
 }

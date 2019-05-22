@@ -122,13 +122,13 @@
     <div class="navbg"></div>
     <div class="nav">
         <ul class="am-list">
-            <li class="active"><a href="http://www.lvmae.com/member"><i class="fa fa-home"></i>用户中心</a></li>
-            <li><a href="http://www.lvmae.com/member/trade.php?action=order"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
-            <li><a href="http://www.lvmae.com/member/bid.php"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
-            <li><a href="http://www.lvmae.com/member/message.php"><i class="fa fa-file-text"></i>我的消息</a></li>
-            <li><a href="http://www.lvmae.com/member/collection.php"><i class="fa fa-send"></i>常用线路</a></li>
-            <li><a href="http://www.lvmae.com/member/edit.php?action=password"><i class="fa fa-cog"></i>修改密码</a></li>
-            <li><a href="http://www.lvmae.com/member/address.php"><i class="fa fa-map-marker"></i>地址管理</a></li>
+            <li class="active"><a href="/toShow?url=gerenzhongxin"><i class="fa fa-home"></i>用户中心</a></li>
+            <li><a href="/toShow?url=wodedingdan"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
+            <li><a href="/toShow?url=zhaobiaoguanli"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
+            <li><a href="/toShow?url=wodexiaoxi"><i class="fa fa-file-text"></i>我的消息</a></li>
+            <li><a href="/toShow?url=changyongxianlu"><i class="fa fa-send"></i>常用线路</a></li>
+            <li><a href="/toShow?url=xiugaimima"><i class="fa fa-cog"></i>修改密码</a></li>
+            <li><a href="/toShow?url=dizhiguanli"><i class="fa fa-map-marker"></i>地址管理</a></li>
         </ul>
     </div>
     <!--左侧主导航 end--><link href="http://www.lvmae.com/skin/default/member/style/20151010order-tms.css" type="text/css" rel="stylesheet" />
@@ -180,16 +180,16 @@
         <form id="pro_from" class="form-inline">
             <br/>
             <br/>
-            <div class="form-group" style="margin-left: 20px">
-                <select  name="zhuangtai" class="form-control">
+            <div class="form-group">
+                <select  id="zhuangtai" class="form-control">
                     <option value="0">状态</option>
-                    <option value="1">通过</option>
-                    <option value="2">未审核</option>
+                    <option value="2">通过</option>
+                    <option value="1">未审核</option>
                     <option value="3">拒绝</option>
                 </select>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="proname">
+                <input type="text" class="form-control" id="proname" placeholder="请按标题进行查询">
             </div>
 
             <button type="button" class="btn btn-success" onclick="search()" style="height: 35px">搜索</button>
@@ -235,15 +235,15 @@
                 {field:'zhuangtai',title:'状态',width:100,
                     formatter: function (value,row,index){
                         var str ="";
-                        if(row.zhuangtai == 1){
+                        if(row.zhuangtai == 2){
                             str = "通过";
 
                         }
-                        if(row.zhuangtai == 2){
+                        if(row.zhuangtai == 3){
                             str = "拒绝";
 
                         }
-                        if(row.zhuangtai == 0){
+                        if(row.zhuangtai == 1){
                             str = "未审核";
 
                         }
@@ -296,4 +296,5 @@
 
     }
 </script>
+
 </html>
