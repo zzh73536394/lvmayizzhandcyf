@@ -98,6 +98,15 @@ public class RecSeviceImpl implements RecSevice{
             recMapper.xiugaimima(password);
         }
     }
+    @Override
+    public List<Commpany> getShangQuan(String city, String gongName, Integer num) {
+        return recMapper.getShangQuan(city,gongName,num);
+    }
+
+    @Override
+    public Commpany jianjie(String city) {
+        return recMapper.jianjie(city);
+    }
 
 
     @Override

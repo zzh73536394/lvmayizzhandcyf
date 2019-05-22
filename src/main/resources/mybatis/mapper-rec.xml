@@ -77,4 +77,62 @@
 
         limit #{start},#{pageSize}
     </select>
+    <select id="getShangQuan" resultType="com.jk.bean.Commpany">
+         SELECT
+            c.id,
+            c.companyInfo,
+            c.companyName,
+            c.companyPhone,
+            c.companyProvince,
+            c.introduction,
+            c.yunshutype
+        FROM
+            t_commpany c
+        WHERE
+            c.shiid IN (
+                SELECT
+                    a.id
+                FROM
+                    t_area a
+                WHERE
+                    a.pid = (
+                        SELECT
+                            a.id
+                        FROM
+                            t_area a
+                        WHERE
+                            a.`name` = #{city}
+                    )
+            )
+            <if test="gongName !=null and gongName != ''">
+                and c.companyName like concat(concat('%',#{gongName}),'%')
+            </if>
+            <if test="num != null">
+                and c.yunshutype = #{num}
+            </if>
+    </select>
+    <select id="jianjie" resultType="com.jk.bean.Commpany">
+        SELECT
+          count(c.id) as id,
+					c.mudidi,
+				c.introduction
+        FROM
+            t_commpany c
+        WHERE
+            c.shiid IN (
+                SELECT
+                    a.id
+                FROM
+                    t_area a
+                WHERE
+                    a.pid = (
+                        SELECT
+                            a.id
+                        FROM
+                            t_area a
+                        WHERE
+                            a.`name` = #{city}
+                    )
+            )
+    </select>
 </mapper>

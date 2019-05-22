@@ -42,4 +42,8 @@ public interface RecSevice {
 
 
     void xiugaimima(String oldpassword, String password, Integer user);
+
+    List<Commpany> getShangQuan(String city, String gongName, Integer num);
+
+    Commpany jianjie(String city);
 }

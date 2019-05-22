@@ -3,6 +3,11 @@ package com.jk.controller;
 import com.alibaba.fastjson.JSON;
 import com.jk.bean.*;
 import com.jk.rmi.ThisClient;
+import com.alibaba.druid.support.logging.Log;
+import com.jk.bean.Commpany;
+import com.jk.bean.liandong;
+import com.jk.bean.tiaocha;
+import com.jk.bean.zhaobiao;
 import com.jk.service.RecSevice;
 import com.jk.util.Constant;
 import org.apache.commons.lang.StringUtils;
@@ -32,6 +37,7 @@ public class RecController {
     private JedisPool jedisPool;
 
     @Autowired
+
     private RecSevice recSevice;
 
     @Autowired
@@ -270,6 +276,20 @@ public class RecController {
     public void xiugaimima(String oldpassword,String password, HttpSession httpSession) {
         Integer user =(Integer) httpSession.getAttribute("userid");
         recSevice.xiugaimima(oldpassword,password,user);
+    }
+
+    //物流商圈
+    @RequestMapping("getShangQuan")
+    @ResponseBody
+    public List<Commpany> getShangQuan(String city,String gongName,Integer num){
+        List<Commpany> list=recSevice.getShangQuan(city,gongName,num);
+        return list;
+    }
+    @RequestMapping("jianjie")
+    @ResponseBody
+    public Commpany jianjie(String city){
+        Commpany commpany=recSevice.jianjie(city);
+        return commpany;
     }
 
 }
