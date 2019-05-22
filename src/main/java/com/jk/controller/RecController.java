@@ -1,10 +1,10 @@
 package com.jk.controller;
 
-import com.jk.bean.Commpany;
-import com.jk.bean.liandong;
-import com.jk.bean.tiaocha;
-import com.jk.bean.zhaobiao;
+import com.alibaba.fastjson.JSON;
+import com.jk.bean.*;
+import com.jk.rmi.ThisClient;
 import com.jk.service.RecSevice;
+import com.jk.util.Constant;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -25,51 +28,105 @@ public class RecController {
     private JedisPool jedisPool;
 
     @Autowired
-
     private RecSevice recSevice;
 
+    @Autowired
+    private ThisClient thisClient;
 
 
-    @RequestMapping("runzhuye")
-    public String zhuye() {
-        return "zhuye";
-    }
+
+
 
     //三级联动 省
     @RequestMapping("getsheng")
     @ResponseBody
-    public List<liandong> getsheng() {
-        List<liandong> getsheng = recSevice.getsheng();
-        return getsheng;
+    public String getsheng() {
+        Jedis jedis = jedisPool.getResource();
+        if (StringUtils.isNotEmpty(jedis.get("sheng"))){
+            String sheng = jedis.get("sheng");
+            jedis.close();
+            return sheng;
+        }else{
+            List<liandong> getsheng = recSevice.getsheng();
+            String jsonString = JSON.toJSONString(getsheng);
+            jedis.set("sheng",jsonString);
+            jedis.close();
+            return jsonString;
+        }
+
+
     }
 
     //三级联动 市
     @RequestMapping("getshi")
     @ResponseBody
-    public List<liandong> getshi(Integer typeid) {
-        List<liandong> getshi = recSevice.getshi(typeid);
-        return getshi;
+    public String getshi(Integer typeid) {
+        Jedis jedis = jedisPool.getResource();
+        if (StringUtils.isNotEmpty(jedis.get("shi"))){
+            String shi = jedis.get("shi");
+            jedis.close();
+            return shi;
+        }else{
+            List<liandong> getshi = recSevice.getshi(typeid);
+            String jsonString = JSON.toJSONString(getshi);
+            jedis.set("shi",jsonString);
+            jedis.close();
+            return jsonString;
+        }
     }
 
     @RequestMapping("getxian")
     @ResponseBody
-    public List<liandong> getxian(Integer typeid) {
-        List<liandong> getshi = recSevice.getxian(typeid);
-        return getshi;
+    public String getxian(Integer typeid) {
+        Jedis jedis = jedisPool.getResource();
+        if (StringUtils.isNotEmpty(jedis.get("xian"))){
+            String xian = jedis.get("xian");
+            jedis.close();
+            return xian;
+        }else{
+            List<liandong> getshi = recSevice.getxian(typeid);
+            String jsonString = JSON.toJSONString(getshi);
+            jedis.set("xian",jsonString);
+            jedis.close();
+            return jsonString;
+        }
+
     }
     @RequestMapping("getbiaoTi")
     @ResponseBody
-    public List<LinkedHashMap<String, Object>> getbiaoTi() {
-        List<LinkedHashMap<String, Object>> list=recSevice.getbiaoTi();
-        return list;
+    public String getbiaoTi() {
+        Jedis jedis = jedisPool.getResource();
+        if (StringUtils.isNotEmpty(jedis.get("biaoti"))){
+            String sheng = jedis.get("biaoti");
+            jedis.close();
+            return sheng;
+        }else{
+            List<LinkedHashMap<String, Object>> list=recSevice.getbiaoTi();
+            String jsonString = JSON.toJSONString(list);
+            jedis.set("biaoti",jsonString);
+            jedis.close();
+            return jsonString;
+        }
+
     }
 
     //轮播图
     @RequestMapping("getBroadcastMap")
     @ResponseBody
-    public List<LinkedHashMap<String, Object>> getBroadcastMap() {
-        List<LinkedHashMap<String, Object>> list=recSevice.getBroadcastMap();
-        return list;
+    public String getBroadcastMap() {
+        Jedis jedis = jedisPool.getResource();
+        if (StringUtils.isNotEmpty(jedis.get("luobo"))){
+            String sheng = jedis.get("luobo");
+            jedis.close();
+            return sheng;
+        }else{
+            List<LinkedHashMap<String, Object>> list=recSevice.getBroadcastMap();
+            String jsonString = JSON.toJSONString(list);
+            jedis.set("luobo",jsonString);
+            jedis.close();
+            return jsonString;
+        }
+
     }
     //跳转页面
     @RequestMapping("toShow")
@@ -128,11 +185,20 @@ public class RecController {
         return remen;
     }
 
+    @RequestMapping("toCommInfo")
+    public String findCommInfo(Integer id,Model model){
+        CommpanyInfo cominfo=recSevice.findCommInfo(id);
+        model.addAttribute("cominfo",cominfo);
+        return "commpanyInfo";
+    }
+
 
     @RequestMapping("tiaocha")
     @ResponseBody
-    public HashMap<String, Object> tiaocha(Integer pageSize, Integer start, tiaocha tiaocha) {
-            return recSevice.tiaocha(pageSize,start,tiaocha);
+    public HashMap<String, Object> tiaocha(Integer pageSize, Integer start, tiaocha tiaocha,HttpSession session) {
+        Integer userid = (Integer)session.getAttribute("userid");
+        tiaocha.setUserid(userid);
+        return recSevice.tiaocha(pageSize,start,tiaocha);
     }
 
     @RequestMapping("add")
@@ -145,6 +211,45 @@ public class RecController {
     @ResponseBody
     public HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha) {
         return recSevice.zhaobiaoguanli(pageSize,start,tiaocha);
+    }
+
+    @RequestMapping("login")
+    @ResponseBody
+    public HashMap<String,Object> userLogin(HttpServletResponse response,String loginnum, String password,Integer remPwd , HttpSession session, Model model){
+        HashMap<String, Object> map = thisClient.findUser(loginnum, password, 3);
+        if ((Integer) map.get("status")==0){
+            String ur = map.get("usr").toString();
+            UserModel usr = JSON.parseObject(ur, UserModel.class);
+            if (usr!=null){
+                session.setAttribute("username",usr.getLoginnumber());
+                session.setAttribute("userid",usr.getId());
+                if (remPwd!=null){
+                    Cookie cookie = new Cookie(Constant.cookieNamePwd,loginnum+Constant.splitstr+password);
+                    cookie.setMaxAge(604800);
+                    response.addCookie(cookie);
+                    model.addAttribute("password",1);
+                }else{
+                    Cookie cookie = new Cookie(Constant.cookieNamePwd,"");
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }else{
+                Cookie cookie = new Cookie(Constant.cookieNamePwd,"");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+        }
+        return map;
+    }
+
+    @RequestMapping("zhongxin")
+    public String zhongxin(HttpSession session){
+        Integer userid = (Integer)session.getAttribute("userid");
+        if (userid==null){
+            return "login";
+        }else{
+            return "wodedingdan";
+        }
     }
 
 }

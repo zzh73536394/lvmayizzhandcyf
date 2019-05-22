@@ -50,7 +50,7 @@ public class HttpController {
 
         HttpGet httpget = new HttpGet("http://ic.snssdk.com/2/article/v25/stream/");
 
-        httpget.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1;"
+        httpget.setHeader("UserModel-Agent", "Mozilla/5.0 (Windows NT 6.1;"
                 + " Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0");
         httpget.setHeader("Accept", "application/json");
 
@@ -117,7 +117,7 @@ public class HttpController {
 
         HttpGet httpget = new HttpGet("https://restapi.amap.com/v3/ip?"+paramsStr);
 
-        httpget.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1;"
+        httpget.setHeader("UserModel-Agent", "Mozilla/5.0 (Windows NT 6.1;"
                 + " Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0");
         httpget.setHeader("Accept", "application/json");
 

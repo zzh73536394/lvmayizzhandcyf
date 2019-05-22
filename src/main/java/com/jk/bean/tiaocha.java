@@ -1,16 +1,18 @@
 package com.jk.bean;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
+
+
+import java.util.Date;
 
 @Data
 public class tiaocha {
     private Integer tiaojian;
     private String  proname;
     private Integer zhuangtai;
+  private  Integer userid;
+    private Date minDate;
 
-    private Data    minDate;
-
-    private Data    maxDate;
+    private Date    maxDate;
 }

@@ -1,6 +1,7 @@
 package com.jk.service;
 
 import com.jk.bean.Commpany;
+import com.jk.bean.CommpanyInfo;
 import com.jk.bean.Order;
 import com.jk.bean.liandong;
 import com.jk.bean.tiaocha;
@@ -64,7 +65,7 @@ public class RecSeviceImpl implements RecSevice{
             proname=  tiaocha.getProname().replaceAll(" ","");
         }
         Integer count = recMapper.count();
-        List<Order> tiaocha1 = recMapper.tiaocha(pageSize, start, tiaocha.getMaxDate(),tiaocha.getMinDate(),proname,tiaocha.getTiaojian(),tiaocha.getZhuangtai());
+        List<Order> tiaocha1 = recMapper.tiaocha(pageSize, start,tiaocha.getMaxDate(),tiaocha.getMinDate(),proname,tiaocha.getTiaojian(),tiaocha.getZhuangtai(),tiaocha.getUserid());
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("total",count);
         hashMap.put("rows",tiaocha1);
@@ -107,5 +108,10 @@ public class RecSeviceImpl implements RecSevice{
     public List<String> findNowByAll(String nowCity) {
 
         return recMapper.findNowByAll(nowCity);
+    }
+
+    @Override
+    public CommpanyInfo findCommInfo(Integer id) {
+        return recMapper.findCommInfo(id);
     }
 }

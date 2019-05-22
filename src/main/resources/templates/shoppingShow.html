@@ -98,7 +98,7 @@
     <div class="top">
         <div class="wrap">
             <div class="top-left">
-                您好，欢迎使用绿蚂蚁干线物流B2B平台！<a href="http://www.lvmae.com/member/login.php" rel="nofollow">登录</a><a href="http://www.lvmae.com/member/register.php" rel="nofollow">注册</a>
+                <span th:text="${session.username}"></span> 欢迎！
             </div>
             <div class="top-right">
                 <ul class="item-list">
@@ -161,7 +161,7 @@
     </div>
     <div class="user-center">
         <div class="wrap">
-            <a href="http://www.lvmae.com/member" class="user-box"><em></em><span>个人中心</span></a>
+            <a href="/zhongxin" class="user-box"><em></em><span>个人中心</span></a>
         </div>
     </div>
 </div>
@@ -279,7 +279,7 @@
         <pre>
             <input type="hidden" name="startarea" id="startarea1">
             <input type="hidden" name="endarea" id="endarea1">
-            <font size="3px">联系人: </font><input type="text"  name="user" placeholder="请输入联系人"><font color="red">必填</font><br>
+            <font size="3px">联系人: </font><input type="text"  name="shipping" placeholder="请输入联系人"><font color="red">必填</font><br>
             <font size="3px">手机:  </font> <input type="text" maxlength="11"  placeholder="请输入联系电话" name="userphone"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><font color="red">必填</font><br>
             <font size="3px">货物名称:</font><input type="text"  name="goodsName" placeholder="请输入货物名称"><font color="red">必填</font>        <a href="404.html">禁用品说明</a><br>
             <font size="3px">货物信息:</font><input  style="width:100px" type="text" maxlength="11"  placeholder="请输入重量" name="singleton"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>公斤  <input  style="width:100px" type="text" maxlength="11"  placeholder="请输入立方米" name="volume"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>立方米 &nbsp;&nbsp;&nbsp;&nbsp;注:用于估算运费&nbsp;&nbsp;&nbsp;&nbsp<a href="404.html">什么是重货轻货？</a><br>

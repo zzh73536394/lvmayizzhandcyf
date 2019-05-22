@@ -89,6 +89,7 @@
     <div class="top">
         <div class="wrap">
             <div class="top-left" id="userstatus">
+                <span th:text="${session.username}"></span> 欢迎！
             </div>
             <div class="top-right">
                 <ul class="item-list">
@@ -162,7 +163,7 @@
     </div>
     <div class="user-center">
         <div class="wrap">
-            <a href="/toShow?url=gerenzhongxin" class="user-box"><em></em><span>个人中心</span></a>
+            <a href="/zhongxin" class="user-box"><em></em><span>个人中心</span></a>
         </div>
     </div>
 </div>
@@ -214,6 +215,7 @@
         $.ajax({
             url: 'getbiaoTi',
             success: function (data) {
+                var data=JSON.parse(data);
                 var str = '';
                 for (var i = 0; i < data.length; i++) {
                     str += '<li><a href="' + data[i].uri + '" >' + data[i].text + '</a></li>';
@@ -228,6 +230,7 @@
         $.ajax({
             url: 'getBroadcastMap',
             success: function (data) {
+                var  data=JSON.parse(data);
                 var map = '';
                 for (var i = 0; i < data.length; i++) {
                     map += '<li style="background-image: url(' + data[i].url + '); background-repeat: no-repeat; background-position: center center;">' +
@@ -373,6 +376,7 @@
                type: "post",
                data:{typeid:a},
                success : function (data) {
+                   var data= JSON.parse(data);
                    var hi="<option value='000000'>请选择</option>";
 
                    for (var i = 0; i <data.length; i++) {
@@ -396,6 +400,7 @@
                type: "post",
                data:{typeid:a},
                success : function (data) {
+                   var data= JSON.parse(data);
                    var hi="<option value='000000'>请选择</option>";
 
                    for (var i = 0; i <data.length; i++) {
@@ -438,10 +443,9 @@
                url:"/getsheng",
                type: "post",
                success : function (data) {
+                  var data= JSON.parse(data);
                    var hi="";
-
                    for (var i = 0; i <data.length; i++) {
-
                            hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
                    }
 
@@ -473,6 +477,7 @@
                 type: "post",
                 data:{typeid:a},
                 success : function (data) {
+                    var data= JSON.parse(data);
                     var hi="<option value='000000'>请选择</option>";
 
                     for (var i = 0; i <data.length; i++) {
@@ -495,6 +500,7 @@
                 type: "post",
                 data:{typeid:a},
                 success : function (data) {
+                    var data= JSON.parse(data);
                     var hi="<option value='000000'>请选择</option>";
 
                     for (var i = 0; i <data.length; i++) {

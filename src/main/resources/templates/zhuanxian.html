@@ -98,20 +98,12 @@
         <div class="wrap">
             <ul>
                 <span id="biaoTi"></span>
-                <!--<li><a  href="http://www.lvmae.com/">首页</a></li>
-                <li><a href="http://www.lvmae.com/road/" class="current">物流专线</a></li>
-                <li><a href="http://www.lvmae.com/road/deliver.html">在线发货</a></li>
-                <li><a href="http://www.lvmae.com/seaport/" >国际海运</a></li>
-                <li><a href="http://www.lvmae.com/company/" >物流公司</a></li>
-                <li><a href="http://www.lvmae.com/news/">物流新闻</a></li>
-                <li><a href="http://www.lvmae.com/bid/" >物流招标</a></li>
-                <li><a href="http://www.lvmae.com/goods/">在线购买</a></li>-->
             </ul>
         </div>
     </div>
     <div class="user-center">
         <div class="wrap">
-            <a href="http://www.lvmae.com/member" class="user-box"><em></em><span>个人中心</span></a>
+            <a href="/zhongxin" class="user-box"><em></em><span>个人中心</span></a>
         </div>
     </div>
 </div>
@@ -329,14 +321,16 @@
     $(function () {
         getDataCity();
         pingjie();
-        //标题
         getbiaoTi();
     });
+
+
     //标题
     function getbiaoTi() {
         $.ajax({
             url: 'getbiaoTi',
             success: function (data) {
+                var data=JSON.parse(data);
                 var str = '';
                 for (var i = 0; i < data.length; i++) {
                     str += '<li><a href="' + data[i].uri + '" >' + data[i].text + '</a></li>';
@@ -354,7 +348,8 @@
             success:function (data) {
                 var str="";
                 for (var i=0;i<data.length;i++){
-                    str+="<pre>"+data[i].chufadi+"---→"+data[i].mudidi+"                        <a href='/commInfo?id='"+data[i].id+">"+data[i].companyName+"</a>                        重货:面议                        运输时效:24小时</pre><br>" +
+                 alert(data[i].id);
+                    str+="<pre>"+data[i].chufadi+"---→"+data[i].mudidi+"                        <a href='/toCommInfo?id="+data[i].id+"'>"+data[i].companyName+"</a>                        重货:面议                        运输时效:24小时</pre><br>" +
                         "<pre>联系人:"+data[i].relationName+"                        联系电话:"+data[i].companyPhone+"                        轻货:面议                        最低一票:面议</pre><br>" +
                         "公司地址:"+data[i].companyProvince+"<br>" +
                         "公司简介:"+data[i].introduction+"<br><br><br><br>";
@@ -373,6 +368,7 @@
             async:false,
             success:function (data) {
                 $("#selectArea").html(data.city);
+
             }
         })
     }

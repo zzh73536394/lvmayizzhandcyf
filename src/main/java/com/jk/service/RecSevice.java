@@ -2,6 +2,7 @@ package com.jk.service;
 
 
 import com.jk.bean.Commpany;
+import com.jk.bean.CommpanyInfo;
 import com.jk.bean.liandong;
 import com.jk.bean.tiaocha;
 import com.jk.bean.zhaobiao;
@@ -30,6 +31,8 @@ public interface RecSevice {
     List<Commpany> findCommBYcity(String startcity, String endcity);
 
     List<String> findNowByAll(String nowCity);
+
+    CommpanyInfo findCommInfo(Integer id);
 
     HashMap<String, Object> tiaocha(Integer pageSize, Integer start, tiaocha tiaocha);
 

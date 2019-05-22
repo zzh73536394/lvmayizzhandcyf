@@ -9,6 +9,7 @@
         select * from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1
 
 
+
         <if test="tiaojian!=''and tiaojian==1">
             and orderNo like '%${proname}%'
         </if>
@@ -21,6 +22,31 @@
         <if test="tiaojian!=''and tiaojian==4">
             and UPPER(to_pinyin(companyName)) like '%${proname}%' or companyName like '%${proname}%'
         </if>
+        <if test="zhuangtai!=''and zhuangtai==1 and minDate != null">
+            and tr.placeDate &gt;= #{minDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==2 and minDate != null">
+            and tr.placeDate &gt;= #{minDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==3 and minDate != null">
+            and tr.placeDate &gt;= #{minDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==4 and minDate != null">
+            and tr.placeDate &gt;= #{minDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==1 and maxDate != null">
+            and tr.placeDate &lt;= #{maxDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==2 and maxDate != null">
+            and tr.placeDate &lt;= #{maxDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==3 and maxDate != null">
+            and tr.placeDate &lt;= #{maxDate}
+        </if>
+        <if test="zhuangtai!=''and zhuangtai==4 and maxDate != null">
+            and tr.placeDate &lt;= #{maxDate}
+        </if>
+          and tr.userid=#{userid}
         limit #{start},#{pageSize}
     </select>
 
