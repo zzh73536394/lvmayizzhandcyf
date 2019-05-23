@@ -112,17 +112,6 @@ public class RecSeviceImpl implements RecSevice{
     }
 
     @Override
-    public HashMap<String, Object> getsession(Integer userid) {
-        return recMapper.getsession(userid);
-    }
-
-    @Override
-    public HashMap<String, Object> getsession(Integer userid) {
-        return recMapper.getsession(userid);
-    }
-
-
-    @Override
     public List<LinkedHashMap<String, Object>> xingZhengQu(String city) {
         return recMapper.xingZhengQu(city);
     }
