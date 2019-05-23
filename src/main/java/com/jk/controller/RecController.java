@@ -25,7 +25,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -37,7 +36,6 @@ public class RecController {
     private JedisPool jedisPool;
 
     @Autowired
-
     private RecSevice recSevice;
 
     @Autowired
@@ -290,4 +288,12 @@ public class RecController {
         session.invalidate();
         return "login";
     }
+    @RequestMapping("getsession")
+    @ResponseBody
+    public HashMap<String, Object> getsession(HttpSession httpSession) {
+        HashMap<Object, Object> hashMap = new HashMap<>();
+        Integer userid = (Integer)httpSession.getAttribute("userid");
+        return recSevice.getsession(userid);
+    }
+
 }

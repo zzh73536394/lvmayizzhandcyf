@@ -9,8 +9,6 @@ import com.jk.bean.zhaobiao;
 import com.jk.mapper.RecMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 
 import java.util.HashMap;
@@ -106,6 +104,11 @@ public class RecSeviceImpl implements RecSevice{
     @Override
     public Commpany jianjie(String city) {
         return recMapper.jianjie(city);
+    }
+
+    @Override
+    public HashMap<String, Object> getsession(Integer userid) {
+        return recMapper.getsession(userid);
     }
 
 

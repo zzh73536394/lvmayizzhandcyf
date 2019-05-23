@@ -46,4 +46,6 @@ public interface RecSevice {
     List<Commpany> getShangQuan(String city, String gongName, Integer num);
 
     Commpany jianjie(String city);
+
+    HashMap<String, Object> getsession(Integer userid);
 }

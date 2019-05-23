@@ -17,6 +17,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -80,4 +81,7 @@ public interface RecMapper {
     List<Commpany> getShangQuan(@Param("city") String city,@Param("gongName") String gongName,@Param("num") Integer num);
 
     Commpany jianjie(@Param("city")String city);
+
+    @Select("select loginnumber from t_user")
+    HashMap<String,Object> getsession(Integer userid);
 }
