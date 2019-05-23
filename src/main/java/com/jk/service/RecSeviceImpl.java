@@ -1,11 +1,6 @@
 package com.jk.service;
 
-import com.jk.bean.Commpany;
-import com.jk.bean.CommpanyInfo;
-import com.jk.bean.Order;
-import com.jk.bean.liandong;
-import com.jk.bean.tiaocha;
-import com.jk.bean.zhaobiao;
+import com.jk.bean.*;
 import com.jk.mapper.RecMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,8 +59,8 @@ public class RecSeviceImpl implements RecSevice{
         if(tiaocha.getProname()!=null&&tiaocha.getProname()!=""){
             proname=  tiaocha.getProname().replaceAll(" ","");
         }
-        Integer count = recMapper.count();
-        List<Order> tiaocha1 = recMapper.tiaocha(pageSize, start,tiaocha.getMaxDate(),tiaocha.getMinDate(),proname,tiaocha.getTiaojian(),tiaocha.getZhuangtai(),tiaocha.getUserid());
+        Integer count = recMapper.count(tiaocha.getUserid());
+        List<tableall> tiaocha1 = recMapper.tiaocha(pageSize, start,tiaocha.getMaxDate(),tiaocha.getMinDate(),proname,tiaocha.getTiaojian(),tiaocha.getZhuangtai(),tiaocha.getUserid());
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("total",count);
         hashMap.put("rows",tiaocha1);
@@ -78,13 +73,13 @@ public class RecSeviceImpl implements RecSevice{
     }
 
     @Override
-    public HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha) {
+    public HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha, Integer userid) {
         String proname ="";
         if(tiaocha.getProname()!=null&&tiaocha.getProname()!=""){
             proname=  tiaocha.getProname().replaceAll(" ","");
         }
-        Integer count = recMapper.countzhaobiao();
-        List<zhaobiao> tiaocha1 = recMapper.zhaobiaoguanli(pageSize, start, proname,tiaocha.getZhuangtai());
+        Integer count = recMapper.countzhaobiao(userid);
+        List<zhaobiao> tiaocha1 = recMapper.zhaobiaoguanli(pageSize, start, proname,tiaocha.getZhuangtai(),userid);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("total",count);
         hashMap.put("rows",tiaocha1);
@@ -110,12 +105,38 @@ public class RecSeviceImpl implements RecSevice{
 
     @Override
     public HashMap<String, Object> getsession(Integer userid) {
-        return recMapper.getsession(userid);
+        HashMap<String, Object> getsession = recMapper.getsession(userid);
+        return getsession;
+
+    }
+
+    @Override
+    public void adddizhi(tianjiadizhi tianjiadizhi) {
+        recMapper.adddizhi(tianjiadizhi);
+    }
+
+    /**
+     * 查询 个人中心 收货地址
+     * @param tianjiadizhi
+     * @param size
+     * @param pageSize
+     * @param start
+     * @return
+     */
+    @Override
+    public HashMap<String, Object> finddizhiTab(Integer pageSize, Integer start, Integer userid) {
+            long findsumren=recMapper.findsumren(userid);
+            List<tianjiadizhi> list=recMapper.finddizhiTab(pageSize,start,userid);
+            HashMap<String,Object> map= new HashMap<>();
+            map.put("total",findsumren);
+            map.put("rows",list);
+            return map;
     }
     @Override
     public List<LinkedHashMap<String, Object>> getAllXianLu() {
         return recMapper.getAllXianLu();
     }
+
 
 
 
@@ -141,4 +162,6 @@ public class RecSeviceImpl implements RecSevice{
     public CommpanyInfo findCommInfo(Integer id) {
         return recMapper.findCommInfo(id);
     }
+
+
 }

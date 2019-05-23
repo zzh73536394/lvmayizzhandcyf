@@ -103,18 +103,22 @@
             -webkit-appearance: none; /*for Webkit browsers*/
         }
     </style>
-    <div style="margin-left: 30px"><font size="3px">所在城市  省</font></div>
+    <div style="margin-left: 30px;float: left;margin-bottom: 90px"><font size="3px">所在城市  省:</font></div>
      <div class="select_style" style="float: left">
         <!--class="easyui-combobox"-->
-         <select name="suozaichengshi"  id="slid" onchange="shiid1()" style="width: 90px;"> </select>
+         <select name=""  id="slid" onchange="shiid1()" style="width: 90px"> </select>
         <!-- &nbsp;&nbsp;&nbsp;&nbsp;<select name="id"  id="shiid" style="width: 90px;"></select>-->
+    </div>.
+    <div style="margin-left: 150px;float: left;margin-bottom: 90px"><font size="3px">所在城市  市:</font></div>
+    <div class="select_style" style="float: left">
+        <select name="suozaichengshi"  id="shiid"  style="width: 90px"></select>
     </div>
 
     <br>
     <br>
     <br>
     <input type="hidden" name="lurushijian" >
-    <input type="hidden" name="zhuangtai" value="0">
+    <input type="hidden" name="zhuangtai" value="2">
      <div style="margin-left: 660px;margin-bottom: 50px">
          <button type="button" class="btn btn-success" onclick="add()">立即提交</button>
      </div>

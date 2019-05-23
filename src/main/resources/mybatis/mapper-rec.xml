@@ -8,8 +8,6 @@
     <select id="tiaocha" resultType="com.jk.bean.tableall">
         select * from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1
 
-
-
         <if test="tiaojian!=''and tiaojian==1">
             and orderNo like '%${proname}%'
         </if>
@@ -55,7 +53,7 @@
     </insert>
 
     <select id="zhaobiaoguanli" resultType="com.jk.bean.zhaobiao">
-        select * from t_zhaobiao where 1=1
+        select * from t_zhaobiao where 1=1 and pid=#{userid}
         <if test="zhuangtai!=null and zhuangtai==1">
             and zhuangtai=1
         </if>
@@ -74,7 +72,7 @@
         <if test="zhuangtai!=null and zhuangtai==3 and proname!='' and proname!=null">
             and zhuangtai=3 and UPPER(to_pinyin(biaoti)) like '%${proname}%'
         </if>
-
+         order by dianjiliang desc
         limit #{start},#{pageSize}
     </select>
     <select id="getShangQuan" resultType="com.jk.bean.Commpany">
@@ -135,4 +133,7 @@
                     )
             )
     </select>
+    <insert id="adddizhi">
+        insert into t_dizhiguanli (dizhileixing,morendizhi,xiangxidizhi,zhenshixingming,shoujihaoma,dianhuahaoma,beizhuxinxi,pid,tianjiashijian) values(#{dizhileixing},#{morendizhi},#{xiangxidizhi},#{zhenshixingming},#{shoujihaoma},#{dianhuahaoma},#{beizhuxinxi},#{pid},#{tianjiashijian})
+    </insert>
 </mapper>

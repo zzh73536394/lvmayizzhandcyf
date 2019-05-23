@@ -61,54 +61,21 @@
         });
     </script>
 
-    <!-- 引入bootstrap的css -->
-    <link  href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <!-- 引入bootstrap-treeview的css -->
-    <link  href="/js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
-    <!-- 引入bootstrap-addTabs的css -->
-    <link  href="/js/addTabs/addTabs.css" rel="stylesheet" >
-    <!-- 引入bootstrap-table的css -->
-    <link  href="/js/table/bootstrap-table.min.css" rel="stylesheet" >
-    <!-- 引入fileinput的css -->
-    <link type="text/css" rel="stylesheet" href="/js/fileinput/css/fileinput.min.css" />
-
-    <!-- 引入jquery -->
-    <script type="text/javascript" src="/js/jquery-1.8.0.js"></script>
-    <!-- 引入my97 -->
-    <script type="text/javascript" src="/js/my97/WdatePicker.js"></script>
-    <!-- 引入bootstrap的js-->
-    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入bootstrap的js-->
-    <script type="text/javascript" src="/js/treeview/bootstrap-treeview.min.js"></script>
-    <!-- 引入bootstrap的js-->
-    <script type="text/javascript" src="/js/addTabs/addTabs.js"></script>
-    <!-- 引入bootstrap-table的js-->
-    <script type="text/javascript" src="/js/table/bootstrap-table.min.js"></script>
-    <script type="text/javascript" src="/js/table/locale/bootstrap-table-zh-CN.min.js"></script>
-    <!-- 引入bootbox.js -->
-    <script type="text/javascript" src="/js/bootbox/bootbox.js"></script>
-    <!-- 引入fileinput的js -->
-    <script type="text/javascript" src="/js/fileinput/js/fileinput.min.js"></script>
-    <!--  引入fileinput的js -->
-    <script type="text/javascript" src="/js/fileinput/js/locales/zh.js"></script>
-
-    <script type="text/javascript" src="/js/fileinput/themes/fa/theme.js"></script>
-
 </head>
 <body>
 <!--B端头部 start-->
 <div class="header">
     <div class="logo"><a href="/">绿蚂蚁</a></div>
     <ul class="top-main">
-        <li><a href="/toShow?url=zhuye">绿蚂蚁首页</a></li>
-        <li class="on"><a href="/toShow?url=gerenzhongxin">用户中心</a></li>
+        <li><a href="http://www.lvmae.com/">绿蚂蚁首页</a></li>
+        <li class="on"><a href="http://www.lvmae.com/member/">用户中心</a></li>
     </ul>
     <ul class="top-nav">
         <li class="messege">
             <a href="message.php">
                 <span class="fa fa-envelope-o"></span>
                 收件箱
-                <span class="messegeNum">1</span>
+                <span class="messegeNum">0</span>
             </a>
         </li>
         <!--<li class="chat">
@@ -121,19 +88,7 @@
                         <label>图片边框</label>
                         <img alt="会员图像" src="http://www.lvmae.com/api/avatar/show.php?username=18713116270&amp;size=small" />
                         </span>
-            <span id="hellologin"></span>
-            <script type="text/javascript">
-                $(function () {
-                    $.ajax({
-                        url:"getsession",
-                        type:"post",
-                        success : function (data) {//
-                            $("#hellologin").html("你好:"+data.loginnumber)
-
-                        }
-                    })
-                })
-            </script>
+            <span class="userName">你好：<br />18713116270</span>
             <span class="fa fa-caret-down"></span>
             <dl class="am-dropdown-content">
                 <dt><i class="fa fa-angle-up"></i></dt>
@@ -164,75 +119,98 @@
     <div class="navbg"></div>
     <div class="nav">
         <ul class="am-list">
-            <li class="active"><a href="/toShow?url=gerenzhongxin"><i class="fa fa-home"></i>用户中心</a></li>
-            <li><a href="/toShow?url=wodedingdan"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
-            <li><a href="/toShow?url=zhaobiaoguanli"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
-            <li><a href="/toShow?url=wodexiaoxi"><i class="fa fa-file-text"></i>我的消息</a></li>
-            <li><a href="/toShow?url=changyongxianlu"><i class="fa fa-send"></i>常用线路</a></li>
-            <li><a href="/toShow?url=xiugaimima"><i class="fa fa-cog"></i>修改密码</a></li>
-            <li><a href="/toShow?url=dizhiguanli"><i class="fa fa-map-marker"></i>地址管理</a></li>
+            <li class="active"><a href="http://www.lvmae.com/member"><i class="fa fa-home"></i>用户中心</a></li>
+            <li><a href="http://www.lvmae.com/member/trade.php?action=order"><i class="fa fa-cart-arrow-down"></i>我的订单</a></li>
+            <li><a href="http://www.lvmae.com/member/bid.php"><i class="fa fa-pencil-square-o"></i>招标管理</a></li>
+            <li><a href="http://www.lvmae.com/member/message.php"><i class="fa fa-file-text"></i>我的消息</a></li>
+            <li><a href="http://www.lvmae.com/member/collection.php"><i class="fa fa-send"></i>常用线路</a></li>
+            <li><a href="http://www.lvmae.com/member/edit.php?action=password"><i class="fa fa-cog"></i>修改密码</a></li>
+            <li><a href="http://www.lvmae.com/member/address.php"><i class="fa fa-map-marker"></i>地址管理</a></li>
         </ul>
     </div>
-    <!--左侧主导航 end--><style type="text/css">
-    .oSearch{}
-    .oSearch input,select{
-        border: #ccc dotted 1px;
-        border-radius: 3px;
-        height: 24px;
-        line-height: 24px;
-        vertical-align: middle;
-    }
-</style>
+    <!--左侧主导航 end--><link href="http://www.lvmae.com/skin/default/member/style/20151010order-tms.css" type="text/css" rel="stylesheet" />
+    <style>
+        .companySelect{top:98px; left:360px;width:508px;position: absolute;z-index: 10;display:none;}
+        .tangram-suggestion {
+            border: 1px solid #e4e6e7;
+            font-family: Arial,Helvetica,"Microsoft YaHei",sans-serif;
+            background: #fff;
+            cursor: default;
+        }
+        .tangram-suggestion table {
+            width: 100%;
+            font-size: 12px;
+            cursor: default;
+        }
+        .tangram-suggestion table tr td {
+            overflow: hidden;
+            height: 32px;
+            padding: 0 10px;
+            font-style: normal;
+            line-height: 32px;
+            text-decoration: none;
+            color: #666;
+            cursor: pointer;
+        }
+        .tangram-suggestion-current {
+            background: #ebebeb;
+        }
+        caption, th, td {
+            text-align: left;
+            font-weight: normal;
+            vertical-align: middle;
+        }
+        td, th {
+            display: table-cell;
+            vertical-align: inherit;
+        }
+        .tangram-suggestion .route-icon {
+            overflow: hidden;
+            padding-left: 20px;
+            font-style: normal;
+        }
+    </style>
     <!--右侧内容 start-->
     <div class="content">
 
-        <h2 class="title"><i class="fa fa-map-marker"></i>发出的订单<span>您的当前位置：<label><a href="http://www.lvmae.com/member/">首页</a>/发出的订单</label></span> </h2>
+        <!--配车start-->
+        <h2 class="title"><i class="fa fa-truck"></i>添加常用线路<span>您的当前位置：<label><a href="/member">首页</a>/添加常用线路</label></span> </h2>
 
+        <div class="pagecon">
+            <form action="collection.php" method="get">
+                <input type="hidden" name="action" value="add_line" />
+                <input type="hidden" name="p" value="search" />
+                <div class="search-car">
+                    <div>
+                        <b>承运商搜索：</b><input id="companyName" name="company" placeholder="输入公司名称"  type="text" value="" /><button type="submit">搜索</button>
+                    </div>
+                    <!-- 下接选项 start-->
+                    <div id="companySelect" class="tangram-suggestion companySelect" >
+                        <table cellspacing="0" cellpadding="2">
+                            <tbody>
 
-        <form id="pro_from" class="form-inline">
-            <br/>
-            <br/>
-            <div class="form-group" style="margin-left: 20px">
-                <select  id="tiaojian" class="form-control">
-                    <option value="0">按条件</option>
-                    <option value="1">订单号</option>
-                    <option value="2">线路ID</option>
-                    <option value="3">线路</option>
-                    <option value="4">承运商</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="proname">
-            </div>
-
-            <div class="form-group" style="margin-left: 20px">
-                <select  id="zhuangtai" class="form-control">
-                    <option value="">状态</option>
-                    <option value="3">已取消</option>
-                    <option value="1">待受理</option>
-                    <option value="2">已受理</option>
-                    <option value="4">已完成</option>
-                </select>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 下接选项 end-->
+                </div>
+            </form>
+            <div class="pagination">
             </div>
 
-            <div class="form-group">
-                <input class="form-control " id="minTime" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'maxTime\')}'})" />至
-                <input  class="form-control " id="maxTime" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'minTime\')}'})" /><br/>
-            </div>
-            <button type="button" class="btn btn-success" onclick="search()" style="height: 35px">搜索</button>
-            <button type="button" class="btn btn-primary" onclick="reset()" style="height: 35px">重置</button>
-        </form>
-
-        <table id="bootTab"></table>
+        </div>
+        <!--配车订单end-->
     </div>
     <!--右侧内容 end-->
+
 </div>
+<table id="bootTab"></table>
 <!--main end-->
 </body>
 <script type="text/javascript">
     $(function (){
         $("#bootTab").bootstrapTable({
-            url:"/tiaocha",
+            url:"/findchangyongxianlu",
             method:"post",
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
@@ -243,20 +221,24 @@
             cardView: false,                    //是否显示详细视图
             uniqueId: "newsId",                 //每一行的唯一标识，一般为主键列
             showColumns: true,                  //是否显示所有的列
-            showRefresh: false,                  //是否显示刷新按钮
+            showRefresh: true,                  //是否显示刷新按钮
             minimumCountColumns: 2,     //  最少留两列
             detailView: false,                  //是否显示父子表
             //发送到服务器的数据编码类型
-            contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+            contentType:'application/x-www-form-urlencoded;charset=UTF-8',   //数据编码纯文本  offset=0&limit=5
             toolbar:'#tabToolBar',   //  工具定义位置
             columns:[
-                {field:'chufadi',title:"发货线路",width:100},
-                {field:'estimate',title:'预估总额(元)',width:100},      //  列    field   代表是 后台  传过来的值
-                {field:'goodsName',title:'货物名称',width:100},
-                {field:'companyName',title:'承运公司',width:100,sortable:true},
-                {field:'companyPhone',title:'承运商电话',width:100},
-                {field:'placeDate',title:'更新时间',width:100},
-                {field:'acceptname',title:'订单状态',width:100},
+                {field:'suppId',title:"Id",width:100,
+                    formatter:function(value,row,index){   //  格式化  当前单元格内容
+                        return "<input type='checkbox' value="+value+" name='chk'/>";
+                    }
+                },
+                {field:'supplierName',title:'路线名称',width:100},      //  列    field   代表是 后台  传过来的值
+                {field:'phone',title:'更新时间',width:100},
+                {field:'phone',title:'最低收费',width:100},
+                {field:'phone',title:'重货单价',width:100},
+                {field:'phone',title:'轻货单价',width:100},
+
             ],
             //传递参数（*）
             queryParams: function(params) {
@@ -266,12 +248,10 @@
                     */
                     "pageSize":params.limit,
                     "start":params.offset,
-                    "tiaojian":$("#tiaojian").val(),
-                    "proname":$("#proname").val(),
-                    "zhuangtai":$("#zhuangtai").val(),
+                    "supplierName":params.search,//搜索产品名称
                     "minDate":$("#minTime").val(),
                     "maxDate":$("#maxTime").val(),
-
+                    "supplierName":$("#proName").val(),
                 }
                 return whereParams;
             },
@@ -279,7 +259,7 @@
             //sortName:'proPrice',
             //sortOrder:'desc',
             //前台--搜索框
-            search:false,
+            search:true,
             //启动回车键做搜索功能
             searchOnEnterKey:true,
             //分页方式   后台请求的分页方式
@@ -294,15 +274,11 @@
     function  search(){
         $("#bootTab").bootstrapTable("refresh",{
             "query":{
-                "tiaojian":$("#tiaojian").val(),
-                "proname":$("#proname").val(),
-                "zhuangtai":$("#zhuangtai").val(),
+                "supplierName":$("#proName").val(),
                 "minDate":$("#minTime").val(),
                 "maxDate":$("#maxTime").val(),
-
             }
         });
 
     }
-</script>
 </html>

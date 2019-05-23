@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>C端后台首页</title>
+
     <link href="http://www.lvmae.com/skin/default/member/style/20150729template.css" type="text/css" rel="stylesheet" />
     <link href="http://www.lvmae.com/skin/default/member/style/font-awesome.min.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="http://www.lvmae.com/member/image/style.css"/>
@@ -140,6 +141,36 @@
             <li><a href="/toShow?url=dizhiguanli"><i class="fa fa-map-marker"></i>地址管理</a></li>
         </ul>
     </div>
+    <!-- 引入bootstrap的css -->
+    <link  href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="/js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="/js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="/js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="/js/fileinput/css/fileinput.min.css" />
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="/js/jquery-1.8.0.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="/js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="/js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="/js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/locales/zh.js"></script>
+
+    <script type="text/javascript" src="/js/fileinput/themes/fa/theme.js"></script>
     <!--左侧主导航 end--><script type="text/javascript">c(0);</script>
     <!--右侧内容 start-->
     <div class="content">
@@ -148,22 +179,12 @@
 
             <div class="top-btn">
                 <div class="abtn">
-                    <a href="address.php?action=add" ><i class="fa fa-plus-square-o"></i>添加地址</a>
-                    <a href="address.php?action=to"  class="nowpage"><i class="fa fa-truck"></i>收货地址</a>
+                                    <a href="/toShow?url=tianjiadizhi" ><i class="fa fa-plus-square-o"></i>添加地址</a>
+                                    <a href="/toShow?url=zhaobiaoguanli"  class="nowpage"><i class="fa fa-truck"></i>收货地址</a>
                     <a href="address.php?action=from"  ><i class="fa fa-gift"></i>发货地址</a>
                 </div>
             </div>
-            <table class="tsh-tabel" cellpadding="0" cellspacing="0">
-                <tr>
-                    <th>地址</th>
-                    <th>姓名</th>
-                    <th>手机</th>
-                    <th>电话</th>
-                    <th>添加时间</th>
-                    <th>默认地址</th>
-                    <th>操作</th>
-                </tr>
-                <tr align="center"><td colspan="7" class="f_gray px11">暂无相关信息</td></tr></table>
+            <table id="dizhiTab"></table>
             <!-- <div class="limit">总共可发 <span class="f_b f_red">10</span> 条&nbsp;&nbsp;&nbsp;当前已发 <span class="f_b">0</span> 条&nbsp;&nbsp;&nbsp;还可以发 <span class="f_b f_blue">10</span> 条</div>
              -->
             <div class="pages"></div>
@@ -173,27 +194,66 @@
 </div>
 <!--main end-->
 </body>
-</html>
-<!--[if lte IE 8]>
-<script src="http://www.lvmae.com/skin/default/member/js/DD_roundies_0.0.2a.js" type="text/javascript"></script>
 <script type="text/javascript">
-    /* IE only */
-    DD_roundies.addRule('.content h2.title i,.fourbtn li i,.process li a i', '100%');
+    $(function (){
+        $("#dizhiTab").bootstrapTable({
+            url:"/finddizhiTab",
+            method:"post",
+            striped: true,  	// 斑马线效果     默认false
+            //只允许选中一行
+            singleSelect:true,
+            //选中行是不选中复选框或者单选按钮
+            clickToSelect:true,
+            showToggle:true,                    //是否显示详细视图和列表视图的切换按钮
+            cardView: false,                    //是否显示详细视图
+            uniqueId: "newsId",                 //每一行的唯一标识，一般为主键列
+            showColumns: true,                  //是否显示所有的列
+            showRefresh: false,                  //是否显示刷新按钮
+            minimumCountColumns: 2,     //  最少留两列
+            detailView: false,                  //是否显示父子表
+            //发送到服务器的数据编码类型
+            contentType:'application/x-www-form-urlencoded;charset=UTF-8',
+            toolbar:'#tabToolBar',   //  工具定义位置
+            columns:[
+                {field:'xiangxidizhi',title:"地址",width:100},
+                {field:'zhenshixingming',title:'姓名',width:100},      //  列    field   代表是 后台  传过来的值
+                {field:'shoujihaoma',title:'手机',width:100},
+                {field:'dianhuahaoma',title:'电话',width:100,sortable:true},
+                {field:'tianjiashijian',title:'添加时间',width:100},
+                {field:'morendizhi',title:'默认地址',width:100},
+                {field:'xxxxxx',title:'操作',width:100,
+                    formatter: function (value,row,index){
+                        return "<a href='javascript:delete(&quot;"+row.id+"&quot;)'>删除</a>";
+                    }}
+            ],
+            //传递参数（*）
+            queryParams: function(params) {
+                var whereParams = {
+                    /*
+                        分页  自定义的参数         默认传 limit（展示几条）    offset（从第几条开始    起始条数）
+                    */
+                    "pageSize":params.limit,
+                    "start":params.offset,
+                }
+                return whereParams;
+            },
+            //前台--排序字段
+            //sortName:'proPrice',
+            //sortOrder:'desc',
+            //前台--搜索框
+            search:false,
+            //启动回车键做搜索功能
+            searchOnEnterKey:true,
+            //分页方式   后台请求的分页方式
+            sidePagination:'server',
+            pagination: true,                   //是否显示分页（*）
+            pageNum: 1,                       //每页的记录行数（*）
+            pageSize: 3,                       //每页的记录行数（*）
+            pageList: [3, 6, 9,12],        //可供选择的每页的行数（*）
+        });
+    })
 
-    DD_roundies.addRule('.userInfo a.company', '5px;');
-
-    DD_roundies.addRule('.am-dropdown-content,.comName li label,.comName li em', '3px;');
 
 </script>
-<![endif]-->
-<!--[if lte IE 7]>
-<style type="text/css">
-    .notice{ filter : progid:DXImageTransform.Microsoft.Gradient ( enabled= 1 , startColorStr= #80000000 , endColorStr= #80000000 );
-        color: #fff; font-size: 24px; text-align: center; line-height:60px;
-        height: 100%; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999;
-    }
-    .notice strong , .notice a{ color:#ff0000; }
-</style>
-<div class="notice">你正在使用<strong>过时</strong>的浏览器，LVMAE暂不支持。 请 <a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">升级浏览器</a>
-    以获得更好的体验！<a href="index.php?action=close_num">关闭</a></div>
-<![endif]-->
+</html>
+

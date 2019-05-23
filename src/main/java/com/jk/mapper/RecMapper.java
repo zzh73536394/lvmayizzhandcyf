@@ -58,19 +58,19 @@ public interface RecMapper {
 
 
 
-    List<Order> tiaocha(@Param("pageSize") Integer pageSize, @Param("start") Integer start, @Param("maxDate") Date maxDate, @Param("minDate") Date minDate, @Param("proname") String proname, @Param("tiaojian") Integer tiaojian, @Param("zhuangtai") Integer zhuangtai,@Param("userid")Integer userid);
+    List<tableall> tiaocha(@Param("pageSize") Integer pageSize, @Param("start") Integer start, @Param("maxDate") Date maxDate, @Param("minDate") Date minDate, @Param("proname") String proname, @Param("tiaojian") Integer tiaojian, @Param("zhuangtai") Integer zhuangtai,@Param("userid")Integer userid);
 
-    @Select("select count(*) from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1")
-    Integer count();
+    @Select("select count(*) from t_order tr INNER JOIN t_goods ts on tr.orderNo=ts.orderNo INNER JOIN t_commpany ty on tr.commpanyId=ty.id INNER JOIN t_accept tt on tr.accept=tt.id where 1=1 and tr.userid=#{userid}")
+    Integer count(Integer userid);
 
 
     void add(zhaobiao zhaobiao);
 
-    @Select("select count(*) from t_zhaobiao")
-    Integer countzhaobiao();
+    @Select("select count(*) from t_zhaobiao where pid=#{userid}")
+    Integer countzhaobiao(Integer userid);
 
 
-    List<zhaobiao> zhaobiaoguanli(@Param("pageSize")Integer pageSize,@Param("start") Integer start, @Param("proname")String proname,@Param("zhuangtai") Integer zhuangtai);
+    List<zhaobiao> zhaobiaoguanli(@Param("pageSize")Integer pageSize,@Param("start") Integer start, @Param("proname")String proname,@Param("zhuangtai") Integer zhuangtai,@Param("userid") Integer userid);
 
     @Select("select count(*) from t_user where id = #{user} and password=#{oldpassword}")
     Integer countsum(@Param("oldpassword") String oldpassword,@Param("user") Integer user);
@@ -78,14 +78,37 @@ public interface RecMapper {
     @Update("update t_user set password=#{password}")
     void xiugaimima(String password);
 
+
     List<Commpany> getShangQuan(@Param("city") String city,@Param("gongName") String gongName,@Param("num") Integer num);
 
     Commpany jianjie(@Param("city")String city);
 
-    @Select("select loginnumber from t_user")
+    @Select("select loginnumber from t_user where id=#{userid}")
     HashMap<String,Object> getsession(Integer userid);
 
 
+    void adddizhi(tianjiadizhi tianjiadizhi);
+
+    /**
+     * 查询 个人中心收货地址总条数
+     * @return
+     * @param userid
+     */
+    @Select(" select count(*) from t_dizhiguanli where pid=#{userid}  ")
+    long findsumren(Integer userid);
+
+
+
+    /**
+     * 查询 个人中心 收货地址 分页
+     * @param tianjiadizhi
+     * @param size
+     * @param pageSize
+     * @param start
+     * @return
+     */
+    @Select(" select * from  t_dizhiguanli where pid=#{userid} limit #{start},#{pageSize}")
+    List<tianjiadizhi> finddizhiTab(@Param("pageSize") Integer pageSize,@Param("start") Integer start,@Param("userid") Integer userid);
 
     @Select("select * from t_zhuanxian")
     List<LinkedHashMap<String, Object>> getAllXianLu();

@@ -1,11 +1,7 @@
 package com.jk.service;
 
 
-import com.jk.bean.Commpany;
-import com.jk.bean.CommpanyInfo;
-import com.jk.bean.liandong;
-import com.jk.bean.tiaocha;
-import com.jk.bean.zhaobiao;
+import com.jk.bean.*;
 
 
 import java.util.HashMap;
@@ -38,7 +34,7 @@ public interface RecSevice {
 
     void add(zhaobiao zhaobiao);
 
-    HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha);
+    HashMap<String, Object> zhaobiaoguanli(Integer pageSize, Integer start, tiaocha tiaocha, Integer userid);
 
 
     void xiugaimima(String oldpassword, String password, Integer user);
@@ -50,6 +46,19 @@ public interface RecSevice {
     HashMap<String, Object> getsession(Integer userid);
 
 
+    void adddizhi(tianjiadizhi tianjiadizhi);
+
+    HashMap<String, Object> finddizhiTab(Integer pageSize, Integer start, Integer userid);
+
+    /**
+     * 查询 个人中心 收货地址
+     *
+     * @param tianjiadizhi
+     * @param size
+     * @param pageSize
+     * @param start
+     * @return
+     */
 
 
     List<LinkedHashMap<String, Object>> getAllXianLu();
