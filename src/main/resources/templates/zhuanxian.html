@@ -221,16 +221,22 @@
             <a href="http://www.lvmae.com/road/">物流专线</a>
         </div>
         <div class="block-wrapper dedicated-line">
-            <div class="zx-left" id="leftDivId">
+            <div class="zx-left" >
 
-
-
-
-                <!--滑动门 start-->
-
-                <!--滑动门 end-->
+            <div class="hot-line" id="leftDivId">
 
             </div>
+
+            <div class="hl-line" >
+               <h2>所有专线</h2>
+                <ul class="line-list" id="hlDiv">
+
+                </ul>
+            </div>
+
+
+            </div>
+
             <div class="zx-right">
                 <div class="icons-bao"></div>
                 <h2 class="title-5">
@@ -318,10 +324,24 @@
             });
         }
     }
+    //查询所有线路
+    function getAllXianLu() {
+        $.ajax({
+            url:'getAllXianLu',
+            success:function (data) {
+                var str="";
+                for (var i = 0; i < data.length; i++) {
+                    str+="<li><a href=''>"+data[i].chufadi+"到"+data[i].mudidi+"物流专线&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>";
+                }
+                $("#hlDiv").html(str);
+            }
+        })
+    }
     $(function () {
         getDataCity();
         pingjie();
         getbiaoTi();
+        getAllXianLu();
     });
 
 

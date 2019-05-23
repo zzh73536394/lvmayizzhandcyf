@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -36,6 +37,7 @@ public class RecController {
     private JedisPool jedisPool;
 
     @Autowired
+
     private RecSevice recSevice;
 
     @Autowired
@@ -259,7 +261,6 @@ public class RecController {
         recSevice.xiugaimima(oldpassword,password,user);
     }
 
-
     //物流商圈
     @RequestMapping("getShangQuan")
     @ResponseBody
@@ -302,4 +303,11 @@ public class RecController {
 
 
 
+
+    //查询所有线路
+    @RequestMapping("getAllXianLu")
+    @ResponseBody
+    public List<LinkedHashMap<String, Object>> getAllXianLu() {
+        return recSevice.getAllXianLu();
+    }
 }
