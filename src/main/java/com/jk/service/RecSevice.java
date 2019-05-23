@@ -43,9 +43,15 @@ public interface RecSevice {
 
     void xiugaimima(String oldpassword, String password, Integer user);
 
+<<<<<<< Updated upstream
     List<Commpany> getShangQuan(String city, String gongName, Integer num);
 
     Commpany jianjie(String city);
 
     HashMap<String, Object> getsession(Integer userid);
+
+
+=======
+    HashMap<String, Object> getsession(Integer userid);
+>>>>>>> Stashed changes
 }

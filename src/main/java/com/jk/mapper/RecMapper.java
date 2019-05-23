@@ -78,10 +78,17 @@ public interface RecMapper {
     @Update("update t_user set password=#{password}")
     void xiugaimima(String password);
 
+<<<<<<< Updated upstream
     List<Commpany> getShangQuan(@Param("city") String city,@Param("gongName") String gongName,@Param("num") Integer num);
 
     Commpany jianjie(@Param("city")String city);
 
     @Select("select loginnumber from t_user")
     HashMap<String,Object> getsession(Integer userid);
+
+
+=======
+    @Select("select loginnumber from t_user")
+    HashMap<String,Object> getsession(Integer userid);
+>>>>>>> Stashed changes
 }

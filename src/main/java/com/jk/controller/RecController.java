@@ -259,6 +259,7 @@ public class RecController {
         recSevice.xiugaimima(oldpassword,password,user);
     }
 
+
     //物流商圈
     @RequestMapping("getShangQuan")
     @ResponseBody
@@ -288,6 +289,8 @@ public class RecController {
         session.invalidate();
         return "login";
     }
+
+
     @RequestMapping("getsession")
     @ResponseBody
     public HashMap<String, Object> getsession(HttpSession httpSession) {
@@ -295,5 +298,8 @@ public class RecController {
         Integer userid = (Integer)httpSession.getAttribute("userid");
         return recSevice.getsession(userid);
     }
+
+
+
 
 }
