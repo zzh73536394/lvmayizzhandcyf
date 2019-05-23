@@ -89,4 +89,7 @@ public interface RecMapper {
 
     @Select("select * from t_zhuanxian")
     List<LinkedHashMap<String, Object>> getAllXianLu();
+
+
+
 }
