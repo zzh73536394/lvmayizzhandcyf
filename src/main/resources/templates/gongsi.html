@@ -38,6 +38,7 @@
         getDataCity();
         getbiaoTi();
         shangQuan();
+        jianjie();
     })
     //获取当前城市
     function getDataCity() {
@@ -109,6 +110,8 @@
             type: "post",
             data:{typeid:a},
             success : function (data) {
+
+
                 var hi="";
 
                 for (var i = 0; i <data.length; i++) {
@@ -132,6 +135,7 @@
             xingZhengQu(shengProvince);
             shangQuan();
             jianjie();
+            $("#wuliu").html(shiCity+"物流公司");
         } else {
             // 当前城市 赋值
             $("#dataCity").html(shiCity);
@@ -139,6 +143,7 @@
             xingZhengQu(shiCity);
             shangQuan();
             jianjie();
+            $("#wuliu").html(shiCity+"物流公司");
         }
     }
     //简介
@@ -149,6 +154,7 @@
             url:'jianjie',
             data:{city:dataCity},
             success:function (data) {
+
                 var dt='<span>'+data.mudidi+'深圳共找到 <b>'+data.id+'</b> 家物流公司</span><a href="http://localhost:8081/toShow?url=login">【我是承运商，我要入驻...】</a>';
                 $("#dt").html(dt);
                 var zhu='<p class="ci-text">'+data.introduction+'</p>';
@@ -169,8 +175,6 @@
                 url:'getShangQuan',
                 data:{city:dataCity,num:num},
                 success:function (data) {
-                    alert(data[0].companyInfo);
-
                     if (data != null) {
 
                         var quan = '<a href="?circle=0">全部</a>';
