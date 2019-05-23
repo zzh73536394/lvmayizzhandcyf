@@ -12,16 +12,15 @@
 
     <!--商品表-->
     <insert id="commitdanss">
-    insert into t_goods (number,freightId,goodsName,packaging,singleton,volume,explaines,orderNo)
-    values (1,#{freightId},#{goodsName},'纸箱',#{singleton},#{volume},#{explaines},#{orderNo})
+    insert into t_goods (number,packaging,singleton,volume,explaines,orderNo)
+    values (1,#{goodsName},'纸箱',#{singleton},#{volume},#{explaines},#{orderNo})
 </insert>
     <!-- 订单表-->
+    <!-- 订单表-->
     <insert id="orderw">
-    insert into t_order (hairProvinces,closedProvinces,shipping,sendPhone,wetherOrderId,bringSite,commpanyId,presentSite,statusId,delivery,deliverPhone,placeDate,accept,city,city2,orderNo)
-values (#{hairProvinces},#{closedProvinces},#{shipping},#{sendPhone},#{wetherOrderId},#{bringSite},#{commpanyId},#{presentSite},#{statusId},#{delivery},#{deliverPhone},#{placeDate},1,#{city},#{city2},#{orderNo})
+    insert into t_order (hairProvinces,closedProvinces,shipping,sendPhone,wetherOrderId,bringSite,presentSite,statusId,delivery,deliverPhone,placeDate,accept,city,city2,orderNo,zhuanxianid,forwarding,consignee,orderMoney)
+values (#{hairProvinces},#{closedProvinces},#{shipping},#{sendPhone},#{wetherOrderId},#{bringSite},#{presentSite},2,#{delivery},#{deliverPhone},#{placeDate},0,#{city},#{city2},#{orderNo},#{zhuanxianid},#{forwarding},#{consignee},#{estimateMoney})
     </insert>
-    <!--  新增预估运费-->
-    <insert id="deal">
-        insert  into  t_deal (estimateMoney) values (#{estimateMoney})
-    </insert>
+
+
 </mapper>

@@ -3,10 +3,13 @@ package com.jk.mapper;
 import com.jk.bean.liandong;
 import com.jk.bean.orderModel;
 import com.jk.bean.orderwModel;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface recswzkMapper {
 
     /**
@@ -33,14 +36,6 @@ public interface recswzkMapper {
     List<liandong> getxian(Integer typeid);
 
     /**
-     * 测试代码 测试代码 测试代码
-     * * @param sch
-     * @return
-     */
-
-
-
-    /**
      * 提交订单
      * 2019-5-18 20:34:19
      * wzk
@@ -48,12 +43,7 @@ public interface recswzkMapper {
      */
     void commitdan(orderModel orderModel);
 
-    /**
-     *
-     * @return
-     */
-    @Select(" select count(*) from schooltest  ")
-    long getgetblacklistsum();
+
 
     /**
      * 提交订单 goods 订单
@@ -70,16 +60,8 @@ public interface recswzkMapper {
 
     void orderw(orderwModel orderwModel);
 
-    /**
-     * 预估运费
-     * @param orderwModel
-     */
-    void deal(orderwModel orderwModel);
 
-    /*
-     * 获取交易表的最大ID
-     * */
-    @Select("select max(id) from t_deal")
-    Integer queryid();
+
+    Integer getzhuanxianid(@Param("chufatext") String chufatext, @Param("muditext")String muditext);
 }
 

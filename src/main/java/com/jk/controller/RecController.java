@@ -70,36 +70,19 @@ public class RecController {
     //三级联动 市
     @RequestMapping("getshi")
     @ResponseBody
-    public String getshi(Integer typeid) {
-        Jedis jedis = jedisPool.getResource();
-        if (StringUtils.isNotEmpty(jedis.get("shi"))){
-            String shi = jedis.get("shi");
-            jedis.close();
-            return shi;
-        }else{
+    public List<liandong> getshi(Integer typeid) {
             List<liandong> getshi = recSevice.getshi(typeid);
-            String jsonString = JSON.toJSONString(getshi);
-            jedis.set("shi",jsonString);
-            jedis.close();
-            return jsonString;
-        }
+            return getshi;
+
     }
 
     @RequestMapping("getxian")
     @ResponseBody
-    public String getxian(Integer typeid) {
-        Jedis jedis = jedisPool.getResource();
-        if (StringUtils.isNotEmpty(jedis.get("xian"))){
-            String xian = jedis.get("xian");
-            jedis.close();
-            return xian;
-        }else{
+    public List<liandong> getxian(Integer typeid) {
+
             List<liandong> getshi = recSevice.getxian(typeid);
-            String jsonString = JSON.toJSONString(getshi);
-            jedis.set("xian",jsonString);
-            jedis.close();
-            return jsonString;
-        }
+
+            return getshi;
 
     }
     @RequestMapping("getbiaoTi")
@@ -292,4 +275,19 @@ public class RecController {
         return commpany;
     }
 
+    @RequestMapping("tozaixianfahuo")
+    public String tozaixianfahuo(HttpSession session){
+        Integer user =(Integer) session.getAttribute("userid");
+          if (user==null){
+              return "login";
+          }else{
+              return "zaixian";
+          }
+    }
+
+    @RequestMapping("outLogin")
+    public String outLogin(HttpSession session){
+        session.invalidate();
+        return "login";
+    }
 }

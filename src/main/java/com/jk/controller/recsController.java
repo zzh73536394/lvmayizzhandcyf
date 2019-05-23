@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -65,9 +66,19 @@ public class recsController {
      */
     @RequestMapping("commitdanss")
     @ResponseBody
-    public void  commitdanss(orderwModel orderwModel){
-        long date= new Date().getTime();
-        orderwModel.setOrderNo(date);
-        recsService.commitdanss(orderwModel);
+    public Boolean  commitdanss(orderwModel orderwModel , HttpSession session){
+        try {
+            Integer userid = (Integer) session.getAttribute("userid");
+            long date= new Date().getTime();
+            orderwModel.setUserid(userid);
+            Integer number= (int)(Math.random()*8999+1000);
+            orderwModel.setOrderNo(date+""+userid+number);
+            recsService.commitdanss(orderwModel);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }

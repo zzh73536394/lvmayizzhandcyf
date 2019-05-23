@@ -61,16 +61,16 @@ public class RecsServiceImpl implements RecsService {
         recswzkMapper.commitdan(orderModel);
     }
 
+
+
     @Override
     public void commitdanss(orderwModel orderwModel) {
+        Integer zhuanxianid=recswzkMapper.getzhuanxianid(orderwModel.getChufatext(),orderwModel.getMuditext());
+        orderwModel.setZhuanxianid(zhuanxianid);
 
-        //预估运费
-        recswzkMapper.deal(orderwModel);
-        Integer id =  recswzkMapper.queryid();
-        orderwModel.setFreightId(id);
+
         //商品表的新增
         recswzkMapper.commitdanss(orderwModel);
-
         Date date = new Date();
         orderwModel.setPlaceDate(date);
         //订单表的新增

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线发货one</title>
+    <script src="/js/jquery.min.js"></script>
+    <!-- 引入bootstrap的css -->
+    <link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+    <link  href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="/js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="/js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="/js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="/js/fileinput/css/fileinput.min.css" />
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="/js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="/js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="/js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="/js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="/js/fileinput/js/locales/zh.js"></script>
+
+    <script type="text/javascript" src="/js/fileinput/themes/fa/theme.js"></script>
+    <style type="text/css">
+        /* width:90px; height:30px;   192.168.1.100*/
+        .select_style { overflow:hidden;
+            border:1px solid #ccc;
+            -moz-border-radius: 5px; /* Gecko browsers */
+            -webkit-border-radius: 5px; /* Webkit browsers */
+            border-radius:5px;
+        }
+        .select_style select { padding:5px; background:transparent;  font-size: 16px; border:none;
+            -webkit-appearance: none; /*for Webkit browsers*/
+        }
+    </style>
+</head>
+<body>
+<div style="width:800px;height: 1000px;margin-top:150px;margin-left:25%;background: rgba(0,0,0,0.14)">
+
+        <h4>发货方</h4> <div style="margin-left: 10px;"><font style="color: red">填写完整、准确的信息，物流跟进更及时</font></div>
+        <!--三级联动 begin-->
+        <!--  省市区三级联动 begin -->
+        <form id="orderid" method="post">
+        <div style="margin-top:20px;float: left;">
+            <div style="float:left;"><font size="4px">出发地:   省:</font></div>
+            <div class="select_style" style="float: left;">
+                <!--class="easyui-combobox"-->
+                <select name="hairProvinces"  id="slid" onchange="shiid1()" style="width: 90px;">-请选择-</select>
+            </div>
+            <div style="float: left;"><font size="4px">市：</font></div>
+            <div class="select_style" style="float: left">
+                <select name="city"  id="shiid" onchange="xianid1()" style="width: 90px;"></select>
+            </div>
+            <div style="float: left;"><font size="4px">县: </font></div>
+            <div class="select_style" style="float: left;">
+                <select name="id"  id="xianid" style="width: 90px;"></select>
+            </div>
+            <div style="clear:both"></div><br>
+
+            <!-- 到达目的地 三级联动 begin-->
+            <!--  省市区三级联动 begin -->
+            <div style="float: left;">
+                <div style="float: left;"><font size="4px">目的地:   省:</font></div>
+                <div class="select_style" style="height: 30px;float: left;">
+                    <!--class="easyui-combobox"-->
+                    <select name="closedProvinces"  id="sslid" onchange="shiid2()" style="width: 90px;"> </select>
+                </div>
+                <div style="float: left;"><font size="4px">市：</font></div>
+                <div class="select_style" style="height: 30px;float: left;">
+                    <select name="city2"  id="sshiid" onchange="xianid2()" style="width: 90px;"></select>
+                </div>
+                <div style="float: left;"><font size="4px">县: </font></div>
+                <div class="select_style" style="height: 30px;float: left;">
+                    <select name="id"  id="sxianid" style="width: 90px;"></select>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="float: left;">
+        <pre>
+
+            <input type="hidden" name="orderNo" id="suiid"><!--订单号-->
+          <!--  <input type="hidden" name="hairProvinces" id="startarea1">&lt;!&ndash;// 发货地址  省&ndash;&gt;
+            <input type="hidden" name="closedProvinces" id="endarea1"> &lt;!&ndash;//收货地址  省&ndash;&gt;
+            <input type="hidden" name="city" id="startcity"> &lt;!&ndash;//出发地的市&ndash;&gt;
+            <input type="hidden" name="city2" id="endcity2"> &lt;!&ndash;//目的地的市&ndash;&gt;-->
+           <input type="hidden" name="chufatext" id="chufatext"> <!--//出发地的市text-->
+            <input type="hidden" name="muditext" id="muditext"> <!--//目的地的市text-->
+            <font size="3px">发货联系人: </font><input type="text"  name="shipping" placeholder="请输入联系人"><font color="red">必填</font><br>
+            <font size="3px">发货人手机号:  </font> <input type="text" maxlength="11"  placeholder="请输入联系电话" name="sendPhone"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><font color="red">必填</font><br>
+            <font size="3px">货物名称:</font><input type="text"  name="goodsName" placeholder="请输入货物名称"><font color="red">必填</font>        <a href="404.html">禁用品说明</a><br>
+            <font size="3px">发货单位:</font><input type="text"  name="forwarding" placeholder="请输入发货单位名称"><font color="red">必填</font>
+
+            <font size="3px">收货单位:</font><input type="text"  name="consignee" placeholder="请输入收货单位名称"><font color="red">必填</font>
+
+            <font size="3px">货物信息:</font><input  style="width:100px" type="text" onblur="jsjq()" maxlength="11" id="zl" placeholder="请输入重量" name="singleton"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>公斤 <input  style="width:100px" type="text" maxlength="11" onblur="jsjq()"  placeholder="请输入立方米" id="lf" name="volume"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>立方米 &nbsp;&nbsp;&nbsp;&nbsp;注:用于估算运费&nbsp;&nbsp;&nbsp;&nbsp<a href="404.html">什么是重货轻货？</a>
+            <h6>.....................................................................................................................</h6>
+            <font size="3px">上门提货:</font><input type="radio" value="2" checked class="yin" name="wetherOrderId">否 <input type="radio" value="1" class="xian" name="wetherOrderId">是(可能产生额外费用)
+            <div class="shangid"style="margin-left:11%">上门提货具体地址:<input type="text" name="bringSite"></div>
+            <font size="3px">送货上门:</font><input type="radio" value="2" checked class="cang" name="homeOrderId">否 <input type="radio" value="1" class="kan" name="homeOrderId">是(可能产生额外费用)
+            <div class="songid"style="margin-left:11%">送货上门具体地址:<input type="text" name="presentSite"></div>
+            <h6>.....................................................................................................................</h6>
+           <!-- <font size="3px">支付方式:</font><input type="radio" value="1" checked name="statusId">发货人支付(现付) <input type="radio" value="2" name="statusId">收货人支付(到付)-->
+            <font size="3px">其他说明:</font>
+            <textarea  rows="3" placeholder="请输入其他说明" name="explaines" onkeyup="test2()" id="tt" maxlength="100" style="width: 400px;height: 100px"></textarea><span id="s1"></span><br></pre>
+            <font size="3px">预估总额:</font><font color="red"size="5px"><span id="yg">0.00</span>元</font><input type="hidden" id="hid" name="estimateMoney" >(未包括提货和送货价格)<br>
+            <pre><font color="red">注：此价格与时效仅供参考，准确报价以物流承运商实际费用为准</font>         </pre><input  type="button" value="填写更多信息" class="btn btn-success"id="an" onclick="display('lb')"/><br><br>
+            <div id="lb" style="display:none">
+                <font size="4px">收货方</font><font color="red">为了您货物安全，填写完整、准确的信息</font><br>
+                <font size="3px">收货方联系人: </font><input type="text"  name="delivery" placeholder="请输入联系人"><br>
+                <font size="3px">收货方手机号码:  </font> <input type="text" maxlength="11"  placeholder="请输入联系电话" name="deliverPhone"  onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/><br>
+            </div>
+            <button type="button"   onclick="commitorder()" class="btn btn-success btn-lg">提交订单</button><br>
+            <div style="margin-left: 10px;"><font style="color: red">填写完整、准确的信息，物流跟进更及时</font></div>
+        </div>
+    </form>
+</div>
+
+</div>
+</body>
+
+<script>
+    function  test2(){
+        $("#s1") .innerHTML="<font color='red'>还可以输入</font>"+(100-tt.value.length)+"<font color='red'>个字</font>";
+        if(tt.value.length==100){
+            $("#s1").innerHTML="<font color='red'>停止输入</font>";
+        }
+    }
+    //提交订单
+    function commitorder(){
+
+        var a=document.getElementById("slid");
+        var b=document.getElementById("sslid");
+        var index=a.selectedIndex;
+        a=a.options[index].value;// 出发省 id
+        var index=b.selectedIndex;
+        b=b.options[index].value; //目的省 id
+        $("#startarea1").val(a);
+        $("#endarea1").val(b);
+
+        $("#chufatext").val(shiid.options[shiid.selectedIndex].text);
+        $("#muditext").val(sshiid.options[sshiid.selectedIndex].text);
+        var c=document.getElementById("shiid"); //出发地的市
+        var d=document.getElementById("sshiid");//目的地的市
+        var index=c.selectedIndex;
+        c=c.options[index].text;  //出发地的市
+        var index=d.selectedIndex;
+        d=d.options[index].text;  //目的地的市
+        $("#startcity").val(c);
+        $("#endcity2").val(d);
+
+
+       var data= $("#orderid").serialize();
+       alert(data);
+        $("#hid").val($("#yg").text());//获取预估余额
+        $.ajax({
+            url:"/commitdanss",
+            type:"post",
+            data:$("#orderid").serialize(),
+            dataType:"json",
+            success:function (data) {
+            alert("所涉及计算机");
+            },error:function (data) {
+            alert("略略略");
+            }
+        })
+    }
+
+
+
+    //出发地 获取县的值
+    function xianid1() {
+        var a=document.getElementById("shiid");
+        a=a.value
+        $.ajax({
+            url:"/getxian",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="<option value='0'>请选择</option>";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+                $("#xianid").html(hi);
+
+            }
+        })
+
+    }
+    //出发地 获取市的值
+    function shiid1() {
+        var a=document.getElementById("slid");
+        a=a.value
+        $.ajax({
+            url:"/getshi",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+                $("#shiid").html(hi);
+                $("#xianid").html("");
+            }
+        })
+
+    }
+    //获取省的值
+    $(function () {
+        $.ajax({
+            url:"/getsheng",
+            type: "post",
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+                $("#slid").html(hi);
+                $("#sslid").html(hi);
+            }
+        })
+    })
+
+
+
+
+    //目的地 三级联动
+
+    function xianid2() {
+        var a=document.getElementById("sshiid");
+        a=a.value
+        $.ajax({
+            url:"/getxian",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="";
+
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+                $("#sxianid").html(hi);
+
+            }
+        })
+
+    }
+
+    function shiid2() {
+        var a=document.getElementById("sslid");
+        a=a.value
+        $.ajax({
+            url:"/getshi",
+            type: "post",
+            data:{typeid:a},
+            success : function (data) {
+                var hi="";
+                for (var i = 0; i <data.length; i++) {
+
+                    hi+="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
+                }
+                $("#sshiid").html(hi);
+                $("#sxianid").html("");
+            }
+        })
+
+    }
+
+    /* 预估金额*/
+    function jsjq(){
+        var zl=$("#zl").val();//重量
+        var lf=$("#lf").val();//立方米
+        var yg=$("#yg");//预估
+        var zljq=zl*0.5;
+        var lfjq=lf*110;
+        if(lfjq>zljq){
+            yg.text(lfjq);
+        }else if(lfjq<zljq){
+            yg.text(zljq);
+        }else{
+            yg.text(zljq);
+        }
+    }
+    //送货上门
+    $(document).ready(function(){
+        $(".songid").hide();
+        $(".kan").click(function(){
+            $(".songid").show();
+        });
+        $(".cang").click(function(){
+            $(".songid").hide();
+        });
+    });
+    /* 是否上门提货*/
+    $(document).ready(function(){
+        $(".shangid").hide();
+        $(".xian").click(function(){
+            $(".shangid").show();
+        });
+        $(".yin").click(function(){
+            $(".shangid").hide();
+        });
+    });
+    //填写更多信息  收货人
+    function display(id){
+        var value="";
+        var traget=document.getElementById(id);
+        var xian=document.getElementById(an);
+        if(traget.style.display=="none"){
+            traget.style.display="";
+        }else{
+            traget.style.display="none";
+        }
+    }
+
+
+    /*    function commitordertwo(){
+        var a=document.getElementById("slid");
+        var b=document.getElementById("sslid");
+        var index=a.selectedIndex;
+        a=a.options[index].text;// 出发地的 值
+        var index=b.selectedIndex;
+        b=b.options[index].text; //目的地的值
+        alert("shengid");
+        $.ajax({
+            url:"/commitdan?a="+a+"&b="+b +"",
+            type:"post",
+            dataType:"json",
+            success:function (data) {
+                alert("成功");
+            },error:function (data) {
+            }
+        })
+    }*/
+</script>
+</html>

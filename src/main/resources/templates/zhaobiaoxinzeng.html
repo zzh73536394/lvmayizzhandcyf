@@ -139,6 +139,7 @@
             url:"/getsheng",
             type: "post",
             success : function (data) {
+                var data= JSON.parse(data);
                 var hi="";
 
                 for (var i = 0; i <data.length; i++) {

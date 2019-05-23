@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 /**
- * 在线发货  需要的字段  wzk  2019-5-20 23:01:17  placeDate 下单时间 时分秒  accept 受理状态 默认 1 packaging 包装类型 纸箱
+ * 在线发货  需要的字段  wzk  2019-5-20 23:01:17  placeDate 下单时间 时分秒  accept 受理状态 默认 0 packaging 包装类型 纸箱
  */
 @Data
 public class orderwModel {
@@ -27,7 +27,7 @@ public class orderwModel {
     private String  bringSite;//上门提货地址
     private Integer homeOrderId;//是否送货上门
     private String  commpanyId;//送货上门地址
-    private Integer statusId;//关联支付状态ID
+    private Integer statusId;//关联支付状态ID 默认2
     private String  explaines;//发货说明 5
     private String  delivery;//收货联系人
     private String  deliverPhone;//收货人电话
@@ -38,8 +38,14 @@ public class orderwModel {
     private Date placeDate;//下单时间
     private Integer accept;//受理状态 1
     private String presentSite;//送货地址
-    private Long orderNo;//订单号
+    private String orderNo;//订单号
     private String city;//出发地的市
     private String city2;//目的地的市
     private Integer freightId;//关联钱的id
+    private Integer userid;//用户 id
+    private Integer zhuanxianid;//
+    private String chufatext;//出发地
+    private String muditext;//目的地
+    private String forwarding;//发货单位
+    private String consignee;//收货单位
 }
